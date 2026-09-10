@@ -1,0 +1,14 @@
+{
+  "alt": "TCGCCGCCGCCGCGGGCGCCGCTGCCGC",
+  "chrom": "chrX",
+  "expected_direction": "unknown",
+  "gene_symbol": "PTCHD1",
+  "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+  "null_depth": 1000,
+  "pos1": 23334765,
+  "ref": "T",
+  "run_mode": "api_full",
+  "sequence_length": 1048576,
+  "target_gene": "PTCHD1",
+  "variant_group_id": "PTCHD1_ins27"
+}

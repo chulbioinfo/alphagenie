@@ -1,0 +1,34 @@
+AlphaGENIE — accompanying output use and modification notice
+Interface release: v0.21 (2026-09-10)
+Scientific data release: alphagenie_manuscript_v020_20260909 (v0.20)
+
+These data and figures include outputs derived from Google DeepMind AlphaGenome.
+Use is subject to the AlphaGenome Output Terms of Use, including restrictions
+on commercial use, clinical purposes and other restricted uses. This notice
+is a summary, not a replacement for the full terms:
+https://deepmind.google.com/science/alphagenome/output-terms
+
+Official downloadable terms (dated 25 June 2025):
+https://storage.googleapis.com/alphagenome/terms/AlphaGenome-Output-Terms-of-Use.pdf
+Consult the official current terms for applicable updates.
+
+MODIFICATIONS: AlphaGENIE applies trackwise matched-null calibration, tissue
+classification, category aggregation, empirical statistics, cohort BH adjustment
+and visualization. Source prediction curves and calibrated scores are distinct
+quantities. Layout-adjusted exports are derived from the sealed saved data.
+Original manuscript files are provided unchanged; this notice accompanies them.
+
+v0.21 changes the interface, not the frozen v0.20 predictions or 1,000-null models.
+No new AlphaGenome inference is performed when viewing or exporting these data.
+Predictions are not experimental measurements, diagnoses or proof of pathogenicity.
+
+AlphaGenome is developed by Google DeepMind. AlphaGENIE is an independent
+research interface, not an official Google product and not endorsed by Google
+DeepMind. This local edition does not claim approval for a public operator-key
+API service. New local analyses use the user's own key and transmit requests
+directly to Google DeepMind; AlphaGENIE operators do not collect the key.
+New local Brain6 / Whole brain results are distinct from the frozen manuscript
+Brain9 / frontal-cortex data. See docs/METHODS.md and docs/PRIVACY.md.
+
+When redistributing these materials, retain this notice and the applicable use
+restrictions, consult the full terms, and identify any further modifications.

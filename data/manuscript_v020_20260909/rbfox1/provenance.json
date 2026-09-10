@@ -1,0 +1,94 @@
+{
+  "data_version": "v0.20",
+  "source_run_id": "rbfox1_16kb",
+  "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+  "canonical_cache_sha256": "846ef9784142cf9efe1c73fa17579c7637bba682cc7071ef3ba26bd223c57cd1",
+  "n_null": 1000,
+  "n_tracks": 371,
+  "inference": {
+    "real": {
+      "status": "complete",
+      "alphagenome_client_version": "0.8.0",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "inference_started_at": "2026-09-08T14:55:22.038561+00:00",
+      "inference_completed_at": "2026-09-08T14:55:22.399792+00:00",
+      "method": "score_variant.RNA_SEQ",
+      "scorer_configuration": [
+        "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+      ],
+      "sequence_length": 16384,
+      "requested_model_version": "server_default",
+      "resolved_model_version": null,
+      "genome_build": "GRCh38",
+      "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+      "backend_revision_source": "operator_declared_API_rollout_boundary",
+      "input_sha256": {
+        "variants": "fc566fea492824523f278b801059ac3158c131d936aa23fb17a274daf668edd9"
+      },
+      "output": {
+        "completed_variant_count": 1,
+        "row_count": 371,
+        "sha256": "37024858f356966e1d4d19807514f28ea10fba0bfd455194b9e5b5c27d952fd8",
+        "size_bytes": 128960
+      }
+    },
+    "null": {
+      "status": "complete",
+      "alphagenome_client_version": "0.8.0",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "inference_started_at": "2026-09-08T14:55:27.621705+00:00",
+      "inference_completed_at": "2026-09-08T14:56:29.623605+00:00",
+      "method": "score_variants.RNA_SEQ",
+      "scorer_configuration": [
+        "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+      ],
+      "sequence_length": 16384,
+      "requested_model_version": "server_default",
+      "resolved_model_version": null,
+      "genome_build": "GRCh38",
+      "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+      "backend_revision_source": "operator_declared_API_rollout_boundary",
+      "input_sha256": {
+        "pseudo": "968ea3ffc346f6d768a9c422addb06d40176e3904089742040674421b76b1960",
+        "variants": "fc566fea492824523f278b801059ac3158c131d936aa23fb17a274daf668edd9"
+      },
+      "output": {
+        "completed_variant_count": 1000,
+        "row_count": 371000,
+        "sha256": "fd6aa229e49fddcae60cefc2cfbe35aace0203dc33fef7608b4bb8cacce8ba48",
+        "size_bytes": 138763409
+      }
+    }
+  },
+  "original_artifact_sha256": {
+    "data/null_scores.tsv": "fd6aa229e49fddcae60cefc2cfbe35aace0203dc33fef7608b4bb8cacce8ba48",
+    "data/real_scores.tsv": "37024858f356966e1d4d19807514f28ea10fba0bfd455194b9e5b5c27d952fd8",
+    "input/run_config.json": "3ce7b319ea930ea4dfe5fbe32f9d3f5562e3a01c32c5050129c110b92fcad3db",
+    "results/consensus_summary.json": "0a0ab778063976b3d0dd8105a71bb2d38467a8f1bf1b035bf156658e1ca69cc2",
+    "results/group_summary.tsv": "f97dd89e3034e0f7bdc2b6e76c579fa88bc34c849c62c7d61e5d8edf75cd817f",
+    "results/matched_null_design.tsv": "968ea3ffc346f6d768a9c422addb06d40176e3904089742040674421b76b1960",
+    "results/null_consensus.tsv": "4142b6fe74ec702aa4b4d13f20bb666f1ffd0f9baab5877cec8b4389fd2cfcaf",
+    "results/null_group_medians.tsv": "99fb7bcd0ef30535185b6372d06e8fda266f68cb1d0aba111d25bcf3b06b3816",
+    "results/source_table.tsv": "b8311b1ecf11d21d0b3384b2504f116493a6b11ab34d4c6dff124d9dfd676f7e"
+  },
+  "provenance_limitations": [
+    "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+    "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+  ],
+  "null_design": {
+    "n_null_ids": 1000,
+    "input_sequence_length": 16384,
+    "fixed_intervals": [
+      "chr16:6010734-6027118"
+    ],
+    "sampling_stage_counts": {
+      "same_CG_gc10": 296,
+      "gc20_no_CG_requirement": 704
+    },
+    "notes": [
+      "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+      "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched.",
+      "The historical same_fixed_1Mb_interval text label is retained, but this RBFOX1 context is 16384 bp; 704/1000 nulls use the documented relaxed fallback stage."
+    ]
+  }
+}

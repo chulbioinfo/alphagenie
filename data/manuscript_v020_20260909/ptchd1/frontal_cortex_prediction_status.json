@@ -1,0 +1,84 @@
+{
+  "status": "complete",
+  "publication_frozen": true,
+  "api_called_by_current_request": false,
+  "tissue_label": "Frontal cortex",
+  "ontology_curie": "UBERON:0001870",
+  "track_metadata": {
+    "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+    "strand": ".",
+    "Assay title": "polyA plus RNA-seq",
+    "ontology_curie": "UBERON:0001870",
+    "biosample_name": "frontal cortex",
+    "biosample_type": "tissue",
+    "biosample_life_stage": "adult",
+    "gtex_tissue": "Brain_Cortex",
+    "data_source": "gtex",
+    "endedness": "paired",
+    "genetically_modified": false,
+    "nonzero_mean": 0.0433241464
+  },
+  "track_idx": 2,
+  "interval": {
+    "chrom": "chrX",
+    "start": 22810477,
+    "end": 23859053
+  },
+  "input_sequence_length": 1048576,
+  "display_interval_0based_halfopen": [
+    23324848,
+    23414374
+  ],
+  "display_bases": 89526,
+  "resolution_bp": 1,
+  "visualization_alignment": {
+    "version": 1,
+    "method": "reference_coordinate_projection",
+    "coordinate_basis": "GRCh38_reference_0_based",
+    "variant": {
+      "chrom": "chrX",
+      "pos1": 23334765,
+      "ref": "T",
+      "alt": "TCGCCGCCGCCGCGGGCGCCGCTGCCGC"
+    },
+    "net_length_change": 27,
+    "common_prefix_bases": 1,
+    "common_suffix_bases": 0,
+    "reference_edit_length": 0,
+    "alternate_edit_length": 27,
+    "insertion_policy": "maximum_of_shared_left_anchor_and_inserted_segment",
+    "deletion_policy": "zero_at_deleted_reference_positions",
+    "length_changing_replacement_policy": "NaN_within_unmapped_replacement",
+    "unavailable_boundary_policy": "NaN",
+    "unavailable_boundary_positions": 27,
+    "deleted_reference_positions": 0,
+    "raw_artifact": "frontal_cortex_raw_predictions.npz",
+    "raw_track_idx": 2,
+    "is_inference": false,
+    "original_raw_artifact_label": "returned_rna_predictions.npz"
+  },
+  "inference_provenance": {
+    "provenance_schema_version": 1,
+    "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+    "inference_run_epoch": "alphagenie_020_ptchd1_frontal_cortex_90mm_20260909",
+    "alphagenome_client_version": "0.8.0",
+    "requested_model_version": "server_default",
+    "genome_build": "GRCh38",
+    "method": "predict_variant.RNA_SEQ",
+    "backend_revision_source": "operator_declared_API_rollout_boundary",
+    "resolved_model_version": null,
+    "inference_started_at": "2026-09-10T00:33:45.129301+00:00",
+    "inference_completed_at": "2026-09-10T00:33:50.939370+00:00"
+  },
+  "sampling": "1024 contiguous bins; union of REF, ALT and delta minima/maxima, endpoints and edit-adjacent bases; no averaging",
+  "delta_scale": "symlog",
+  "selected_transcript_id": "ENST00000379361.5",
+  "selected_transcript_name": "PTCHD1-201",
+  "gene_model_partial": false,
+  "notes": [
+    "The cortex visualization is separate from GeneMaskLFC/1000-null statistics.",
+    "The curve is adult GTEx Brain_Cortex, not the Whole brain summary category.",
+    "Raw TSV positions label the reference array index; raw ALT entries have not yet been projected across the indel. Use the aligned TSV for genomic comparisons.",
+    "Insertion-unmappable boundary positions remain missing; they are not biological zeros."
+  ]
+}

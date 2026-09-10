@@ -1,0 +1,154 @@
+run_id	variant_group_id	gene_symbol	display_group	group_id	stage	n_tracks	n_raw_effect_rows	n_duplicate_effect_rows	median_effect	min_effect	max_effect	included_in_brain9
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.006855756015	0.006292104925	0.00724434873	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.00556933875	0.00556933875	0.00556933875	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.005770444715000001	0.00548338867	0.006410181485	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Amygdala	adult__brain__amygdala	adult	1	1	0	0.00600278375	0.00600278375	0.00600278375	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.0065813661	0.0065813661	0.0065813661	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Midbrain	adult__brain__midbrain	adult	1	1	0	0.0052207708500000005	0.0052207708500000005	0.0052207708500000005	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.008549958350000001	0.00833308715	0.00876682955	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.008644163464999998	0.008644163464999998	0.008644163464999998	True
+ccg01_ZZZ3_del3	ZZZ3_del3	ZZZ3	Embryo	brain__embryo	embryonic	7	7	0	0.009717345070000001	0.0086358783	0.010517478299999999	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.015034437042500001	-0.01720953034	-0.0112321973	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.0032100677249999997	0.0032100677249999997	0.0032100677249999997	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.00192442535	-0.0085846784	-0.000842034815	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Amygdala	adult__brain__amygdala	adult	1	1	0	0.00011533496500000008	0.00011533496500000008	0.00011533496500000008	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.001060545425	0.001060545425	0.001060545425	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Midbrain	adult__brain__midbrain	adult	1	1	0	0.0118248463	0.0118248463	0.0118248463	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.046326011475	-0.046621262999999996	-0.04603075995	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.02131830125	-0.02131830125	-0.02131830125	True
+ccg05_FZD7_del8	FZD7_del8	FZD7	Embryo	brain__embryo	embryonic	7	7	0	-0.018616557065	-0.02124422815	-0.003452777915	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.029521971835	-0.030313760425	-0.022138953654999998	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.026380211560000002	-0.026380211560000002	-0.026380211560000002	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.02219241903	-0.032864153815	-0.021756172379999997	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.029024959035000002	-0.029024959035000002	-0.029024959035000002	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.018081724934999998	-0.018081724934999998	-0.018081724934999998	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.035755159324999994	-0.035755159324999994	-0.035755159324999994	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.043463915645000004	-0.04362139122	-0.04330644007	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.0379243944	-0.0379243944	-0.0379243944	True
+ccg06_TRAF3IP1_del3	TRAF3IP1_del3	TRAF3IP1	Embryo	brain__embryo	embryonic	7	7	0	-0.00833284845	-0.027452290360000003	-0.0012125968900000002	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.03831469992	-0.03869581189	-0.03020375986	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.03518860025	-0.03518860025	-0.03518860025	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.033808411159999996	-0.03626315277	-0.03320969597	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.034745797435	-0.034745797435	-0.034745797435	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.03381271648	-0.03381271648	-0.03381271648	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.02921889766	-0.02921889766	-0.02921889766	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.03171443945	-0.03252419828	-0.03090468062	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.02846878726	-0.02846878726	-0.02846878726	True
+ccg07_RNPEPL1_del3	RNPEPL1_del3	RNPEPL1	Embryo	brain__embryo	embryonic	7	7	0	-0.03479826493	-0.045865356785	-0.02551293336	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.010317131825	0.00799828765	0.0118119419	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.00872409345	0.00872409345	0.00872409345	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.0067447424999999995	0.006132513250000001	0.00804644825	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Amygdala	adult__brain__amygdala	adult	1	1	0	0.00764718645	0.00764718645	0.00764718645	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.00762116925	0.00762116925	0.00762116925	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Midbrain	adult__brain__midbrain	adult	1	1	0	0.0058252812	0.0058252812	0.0058252812	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.016193300775000002	0.0153249804	0.01706162115	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.011072844194999999	0.011072844194999999	0.011072844194999999	True
+ccg08_GSK3B_del1	GSK3B_del1	GSK3B	Embryo	brain__embryo	embryonic	7	7	0	0.019828081635	0.01194629095	0.026396989585	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.0391643639425	0.031546115412500006	0.04067063361	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.038022161024999994	0.038022161024999994	0.038022161024999994	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.035256981895000004	0.034759282675	0.035257101055000004	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Amygdala	adult__brain__amygdala	adult	1	1	0	0.038118720365000004	0.038118720365000004	0.038118720365000004	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.0331707001	0.0331707001	0.0331707001	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Midbrain	adult__brain__midbrain	adult	1	1	0	0.035276054960000004	0.035276054960000004	0.035276054960000004	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.047848582225000005	0.046443224265000006	0.049253940185	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.029923141162549998	0.029923141162549998	0.029923141162549998	True
+ccg09_SPSB4_snv	SPSB4_snv	SPSB4	Embryo	brain__embryo	embryonic	7	7	0	0.03374868519	0.029497981439999998	0.036574244465	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.06947655247500001	0.06638613315	0.0722745803	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.06872251130000001	0.06872251130000001	0.06872251130000001	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.0696010663	0.068582144	0.07016122035000001	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Amygdala	adult__brain__amygdala	adult	1	1	0	0.06568867935	0.06568867935	0.06568867935	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.07410751725	0.07410751725	0.07410751725	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Midbrain	adult__brain__midbrain	adult	1	1	0	0.06740719095	0.06740719095	0.06740719095	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.06463976539749999	0.062800471345	0.06647905945	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.039750248599999996	0.039750248599999996	0.039750248599999996	True
+ccg10_GPRIN1_del6	GPRIN1_del6	GPRIN1	Embryo	brain__embryo	embryonic	7	7	0	0.03086292335	0.02529279125	0.044317686450000005	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.00964254147	-0.0108208656	-0.0022460817100000002	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.008982419949999999	-0.008982419949999999	-0.008982419949999999	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.00720560537	-0.007658004775	-0.0068200827	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.00828504555	-0.00828504555	-0.00828504555	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.00854825973	-0.00854825973	-0.00854825973	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.010358095000000001	-0.010358095000000001	-0.010358095000000001	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.01106894005	-0.01159322275	-0.01054465735	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.010463595105000001	-0.010463595105000001	-0.010463595105000001	True
+ccg11_AUTS2_del6	AUTS2_del6	AUTS2	Embryo	brain__embryo	embryonic	7	7	0	0.00232715905	0.001266837095	0.007385224	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.00415484610125	0.0035500526825	0.008197695195	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.00698938967	0.00698938967	0.00698938967	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.00558030603	0.004630774265	0.00624638794	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Amygdala	adult__brain__amygdala	adult	1	1	0	0.0055864752	0.0055864752	0.0055864752	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.012245178165	0.012245178165	0.012245178165	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Midbrain	adult__brain__midbrain	adult	1	1	0	0.01370728048	0.01370728048	0.01370728048	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.00524279480525	0.0050433278405	0.00544226177	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.012527078725	0.012527078725	0.012527078725	True
+ccg12_CNTFR_snv	CNTFR_snv	CNTFR	Embryo	brain__embryo	embryonic	7	7	0	0.0210161208	0.004460632785	0.029316365225	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.008381605026	0.0004948378	0.010855674507	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.004467010459	0.004467010459	0.004467010459	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.00241041187	0.00130224224	0.0038971900999999996	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Amygdala	adult__brain__amygdala	adult	1	1	0	0.0036041737000000003	0.0036041737000000003	0.0036041737000000003	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.0043849944699999996	0.0043849944699999996	0.0043849944699999996	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Midbrain	adult__brain__midbrain	adult	1	1	0	0.002538442585	0.002538442585	0.002538442585	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.023622632387500002	0.022221327075000002	0.0250239377	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.00084090233	-0.00084090233	-0.00084090233	True
+ccg13_LOC107984006_BMS1P14_mnv3	LOC107984006_BMS1P14_mnv3	BMS1P14	Embryo	brain__embryo	embryonic	7	7	0	-0.0106334685	-0.01268076895	-0.005759239100000001	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.0104960500875	-0.010965377105	-0.0041214228	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.0089180469465	-0.0089180469465	-0.0089180469465	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.007656812995000001	-0.008677244285	-0.00691896681	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.009020298295	-0.009020298295	-0.009020298295	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.008786141575	-0.008786141575	-0.008786141575	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.004793047875	-0.004793047875	-0.004793047875	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.0034102052200000003	-0.0037144422400000004	-0.0031059682	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.0035933256	-0.0035933256	-0.0035933256	True
+ccg14_MSANTD3_del6	MSANTD3_del6	MSANTD3	Embryo	brain__embryo	embryonic	7	7	0	-0.0032711029	-0.01086220135	0.0030673147999999996	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.061430470125	-0.0831148637	-0.0603591786	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.059544680850000004	-0.059544680850000004	-0.059544680850000004	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.05737498425	-0.05967238705	-0.05706843675	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.06408017584999999	-0.06408017584999999	-0.06408017584999999	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.0598469958	-0.0598469958	-0.0598469958	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.0647781821	-0.0647781821	-0.0647781821	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.073226541125	-0.07466846855	-0.0717846137	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.12803775455	-0.12803775455	-0.12803775455	True
+ccg15_NKX6-2_del4	NKX6-2_del4	NKX6-2	Embryo	brain__embryo	embryonic	7	7	0	-0.105630399	-0.12398445496	-0.09523582743499999	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.003652095825	-0.0043995381	-0.00189590453	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.00103545191	-0.00103545191	-0.00103545191	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.0024278163499999996	-0.00274634365	-0.00236392019	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.00197982783	-0.00197982783	-0.00197982783	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.0020399093909999996	-0.0020399093909999996	-0.0020399093909999996	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Midbrain	adult__brain__midbrain	adult	1	1	0	0.0002799033999999999	0.0002799033999999999	0.0002799033999999999	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.003156423575	-0.00342869755	-0.0028841496	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.018503099375000002	0.018503099375000002	0.018503099375000002	True
+ccg16_HOXC8_del3	HOXC8_del3	HOXC8	Embryo	brain__embryo	embryonic	7	7	0	0.00035095214999999997	7.700920249999998e-05	0.0162541865	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.01460629695	-0.020931243500000002	-0.005723476349999999	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.015469550915	-0.015469550915	-0.015469550915	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.01339030224	-0.0149710174	-0.010330557913000001	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.014061332065000001	-0.014061332065000001	-0.014061332065000001	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.013356089600000001	-0.013356089600000001	-0.013356089600000001	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.02080440525	-0.02080440525	-0.02080440525	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.05945891065	-0.060143471	-0.0587743503	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.007655859	-0.007655859	-0.007655859	True
+ccg17_RBFOX1_del3	RBFOX1_del3	RBFOX1	Embryo	brain__embryo	embryonic	7	7	0	0.003189682975	-0.0157469506	0.004909455995	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.0225894455	-0.02455672575	-0.02097547005	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.01688241867	-0.01688241867	-0.01688241867	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.01835542955	-0.02130773656	-0.01738786712	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.018602132525	-0.018602132525	-0.018602132525	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.01851561695	-0.01851561695	-0.01851561695	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.010854423285000001	-0.010854423285000001	-0.010854423285000001	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Cerebellum	adult__brain__cerebellum	adult	2	2	0	-0.008826941365	-0.0093544724	-0.00829941033	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.0115824346	-0.0115824346	-0.0115824346	True
+ccg18_SHISA6_del3	SHISA6_del3	SHISA6	Embryo	brain__embryo	embryonic	7	7	0	-0.015560269499999998	-0.027201712	-0.00317013261095	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.0020205676750000004	-0.005164861749999999	0.004924863599999999	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.0141480569	-0.0141480569	-0.0141480569	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.0110386017	-0.011811017600000001	-0.006568372249999999	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.0136566163	-0.0136566163	-0.0136566163	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	-0.0012192129999999996	-0.0012192129999999996	-0.0012192129999999996	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.014151454099999999	-0.014151454099999999	-0.014151454099999999	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.043515086175	0.04240345955	0.0446267128	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.01043963445	0.01043963445	0.01043963445	True
+ccg19_PTPRT_del9	PTPRT_del9	PTPRT	Embryo	brain__embryo	embryonic	7	7	0	0.014930010050000001	0.010664880100000001	0.01782941845	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.0034369080874999997	0.00201338525	0.003790631855	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.00233966118	0.00233966118	0.00233966118	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.0024499298149999998	0.002137184165	0.003061503125	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Amygdala	adult__brain__amygdala	adult	1	1	0	0.001141071285	0.001141071285	0.001141071285	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.00282716752	0.00282716752	0.00282716752	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Midbrain	adult__brain__midbrain	adult	1	1	0	0.0032486319200000003	0.0032486319200000003	0.0032486319200000003	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.008640989622500001	0.008396625875	0.008885353370000001	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.005291640970000001	0.005291640970000001	0.005291640970000001	True
+ccg20_DNAJC5_del3	DNAJC5_del3	DNAJC5	Embryo	brain__embryo	embryonic	7	7	0	-0.005587443595	-0.007134422685	-0.0023481249399999998	True

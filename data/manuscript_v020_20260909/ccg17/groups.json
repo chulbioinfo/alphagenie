@@ -1,0 +1,137 @@
+[
+  {
+    "id": "adult__brain__cerebral_cortex",
+    "label": "Cerebral cortex",
+    "stage": "adult",
+    "n_tracks": 4,
+    "track_keys": [
+      "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq||frontal cortex||UBERON:0001870||gtex",
+      "UBERON:0009834 gtex Brain_Frontal_Cortex_BA9 polyA plus RNA-seq||dorsolateral prefrontal cortex||UBERON:0009834||gtex",
+      "UBERON:0009834 total RNA-seq||dorsolateral prefrontal cortex||UBERON:0009834||encode",
+      "UBERON:0009835 gtex Brain_Anterior_cingulate_cortex_BA24 polyA plus RNA-seq||anterior cingulate cortex||UBERON:0009835||gtex"
+    ],
+    "source_label": "Cerebral cortex",
+    "display_group": "Cerebral cortex",
+    "order": 0,
+    "included_in_brain9": true
+  },
+  {
+    "id": "adult__brain__hippocampal_formation",
+    "label": "Hippocampal formation",
+    "stage": "adult",
+    "n_tracks": 1,
+    "track_keys": [
+      "UBERON:0001954 gtex Brain_Hippocampus polyA plus RNA-seq||Ammon's horn||UBERON:0001954||gtex"
+    ],
+    "source_label": "Hippocampal formation",
+    "display_group": "Hippocampal formation",
+    "order": 1,
+    "included_in_brain9": true
+  },
+  {
+    "id": "adult__brain__basal_ganglia_striatum",
+    "label": "Basal ganglia / striatum",
+    "stage": "adult",
+    "n_tracks": 3,
+    "track_keys": [
+      "UBERON:0001873 gtex Brain_Caudate_basal_ganglia polyA plus RNA-seq||caudate nucleus||UBERON:0001873||gtex",
+      "UBERON:0001874 gtex Brain_Putamen_basal_ganglia polyA plus RNA-seq||putamen||UBERON:0001874||gtex",
+      "UBERON:0001882 gtex Brain_Nucleus_accumbens_basal_ganglia polyA plus RNA-seq||nucleus accumbens||UBERON:0001882||gtex"
+    ],
+    "source_label": "Basal ganglia / striatum",
+    "display_group": "Basal ganglia / striatum",
+    "order": 2,
+    "included_in_brain9": true
+  },
+  {
+    "id": "adult__brain__amygdala",
+    "label": "Amygdala",
+    "stage": "adult",
+    "n_tracks": 1,
+    "track_keys": [
+      "UBERON:0001876 gtex Brain_Amygdala polyA plus RNA-seq||amygdala||UBERON:0001876||gtex"
+    ],
+    "source_label": "Amygdala",
+    "display_group": "Amygdala",
+    "order": 3,
+    "included_in_brain9": true
+  },
+  {
+    "id": "adult__brain__diencephalic_regions",
+    "label": "Diencephalic regions",
+    "stage": "adult",
+    "n_tracks": 1,
+    "track_keys": [
+      "UBERON:0001898 gtex Brain_Hypothalamus polyA plus RNA-seq||hypothalamus||UBERON:0001898||gtex"
+    ],
+    "source_label": "Diencephalic regions",
+    "display_group": "Diencephalic regions",
+    "order": 4,
+    "included_in_brain9": true
+  },
+  {
+    "id": "adult__brain__midbrain",
+    "label": "Midbrain",
+    "stage": "adult",
+    "n_tracks": 1,
+    "track_keys": [
+      "UBERON:0002038 gtex Brain_Substantia_nigra polyA plus RNA-seq||substantia nigra||UBERON:0002038||gtex"
+    ],
+    "source_label": "Midbrain",
+    "display_group": "Midbrain",
+    "order": 5,
+    "included_in_brain9": true
+  },
+  {
+    "id": "adult__brain__cerebellum",
+    "label": "Cerebellum",
+    "stage": "adult",
+    "n_tracks": 2,
+    "track_keys": [
+      "UBERON:0002037 gtex Brain_Cerebellum polyA plus RNA-seq||cerebellum||UBERON:0002037||gtex",
+      "UBERON:0002245 gtex Brain_Cerebellar_Hemisphere polyA plus RNA-seq||cerebellar hemisphere||UBERON:0002245||gtex"
+    ],
+    "source_label": "Cerebellum",
+    "display_group": "Cerebellum",
+    "order": 6,
+    "included_in_brain9": true
+  },
+  {
+    "id": "adult__brain__brain_region_unspecified",
+    "label": "Whole brain",
+    "stage": "adult",
+    "n_tracks": 1,
+    "track_keys": [
+      "UBERON:0000955 polyA plus RNA-seq||brain||UBERON:0000955||encode"
+    ],
+    "source_label": "Brain region unspecified",
+    "display_group": "Whole brain",
+    "order": 7,
+    "included_in_brain9": true
+  },
+  {
+    "id": "brain__embryo",
+    "label": "Embryo",
+    "stage": "embryonic",
+    "n_tracks": 7,
+    "track_keys": [
+      "UBERON:0001870 total RNA-seq||frontal cortex||UBERON:0001870||encode",
+      "UBERON:0001871 total RNA-seq||temporal lobe||UBERON:0001871||encode",
+      "UBERON:0001872 total RNA-seq||parietal lobe||UBERON:0001872||encode",
+      "UBERON:0001894 total RNA-seq||diencephalon||UBERON:0001894||encode",
+      "UBERON:0002021 total RNA-seq||occipital lobe||UBERON:0002021||encode",
+      "UBERON:0002037 polyA plus RNA-seq||cerebellum||UBERON:0002037||encode",
+      "UBERON:0002037 total RNA-seq||cerebellum||UBERON:0002037||encode"
+    ],
+    "anatomical_composition": {
+      "cerebral_cortex": 4,
+      "diencephalic_regions": 1,
+      "cerebellum": 2
+    },
+    "aggregation": "pooled median of seven track effects, not median of three region medians",
+    "source_label": "Embryo",
+    "display_group": "Embryo",
+    "order": 8,
+    "included_in_brain9": true
+  }
+]

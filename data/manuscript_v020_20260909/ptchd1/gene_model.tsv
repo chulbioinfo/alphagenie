@@ -1,0 +1,5 @@
+feature	chrom	start	end	strand	gene_name	gene_id	transcript_id	transcript_name	selected_transcript_id	selected_transcript_name	selection_rule
+gene	chrX	23334848	23404374	+	PTCHD1	ENSG00000165186.12			ENST00000379361.5	PTCHD1-201	MANE_Select/Ensembl_canonical/APPRIS priority, then exon length
+exon	chrX	23334848	23335226	+	PTCHD1	ENSG00000165186.12	ENST00000379361.5	PTCHD1-201	ENST00000379361.5	PTCHD1-201	MANE_Select/Ensembl_canonical/APPRIS priority, then exon length
+exon	chrX	23379590	23380251	+	PTCHD1	ENSG00000165186.12	ENST00000379361.5	PTCHD1-201	ENST00000379361.5	PTCHD1-201	MANE_Select/Ensembl_canonical/APPRIS priority, then exon length
+exon	chrX	23392530	23404374	+	PTCHD1	ENSG00000165186.12	ENST00000379361.5	PTCHD1-201	ENST00000379361.5	PTCHD1-201	MANE_Select/Ensembl_canonical/APPRIS priority, then exon length

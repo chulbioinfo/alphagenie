@@ -1,0 +1,1579 @@
+{
+  "runs": [
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg01_ZZZ3_del3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "76492d8c20e009b0a38d52fa140bdd1160e2f31410c2e7bd86348182c33bea75",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T14:56:42.254736+00:00",
+          "inference_completed_at": "2026-09-08T14:56:43.615503+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "c8bbfe9ce612e7a55c03093d8a5f34cb4205762fb04d2ca2f9c92d1703f56740"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 11130,
+            "sha256": "873858136e6c4338fb68b85f809d337ff3413fc3d860816c9c4ff91bfa4c101b",
+            "size_bytes": 3835870
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T14:56:48.700045+00:00",
+          "inference_completed_at": "2026-09-08T15:02:30.887207+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "be67863a09898524703088bfd1441292d13654cc24b69744445c9c3625c16460",
+            "variants": "c8bbfe9ce612e7a55c03093d8a5f34cb4205762fb04d2ca2f9c92d1703f56740"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 11130000,
+            "sha256": "a08a848a87acce052c59d8ecc5a7bc9b2edc56cb9c34f9aaab05844624387551",
+            "size_bytes": 4102381087
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "a08a848a87acce052c59d8ecc5a7bc9b2edc56cb9c34f9aaab05844624387551",
+        "data/real_scores.tsv": "873858136e6c4338fb68b85f809d337ff3413fc3d860816c9c4ff91bfa4c101b",
+        "input/run_config.json": "9a6a9b85193339831b5a0d370d799ab201894ccaf562086a448cdeefa7abf09b",
+        "results/consensus_summary.json": "809d7a248df2bf4ae5b24d5d91c68848138ce264830199d951334a7789fb5d9c",
+        "results/group_summary.tsv": "278cd6a51c830b61419f8c7bf23acd8b36e983df9197cd65540439da58f9e12f",
+        "results/matched_null_design.tsv": "be67863a09898524703088bfd1441292d13654cc24b69744445c9c3625c16460",
+        "results/null_consensus.tsv": "8a4752458017b2ff050a8e77e6e35fc321d7f21981e02ba506bb70d05dec95ff",
+        "results/null_group_medians.tsv": "111e981988e98ec54c7db610b30a38b35a8564f8cbb6bcb24ed03cf1908c1d0f",
+        "results/source_table.tsv": "997d6657d9e7d357c04ac81b86fbc0d7781d8adef91dad6f9ae4eefeba59c328"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr1:77159195-78207771"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg05_FZD7_del8",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "3006258e66c3dcfa4dc86b56b4f217ddab533e7c308d101f324e4dfabb8d9793",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:21:24.909022+00:00",
+          "inference_completed_at": "2026-09-08T15:21:26.374802+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "5dad810e4d9f1acb5cd40fd2e6f2ce7ccb19ba1b9bfbfa32ac674797b1c42a80"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 16695,
+            "sha256": "2f7c494b31961427397dd99fb74527446bf3584cb35240b5789e5ba560af7f34",
+            "size_bytes": 5877790
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:21:32.323167+00:00",
+          "inference_completed_at": "2026-09-08T15:26:55.780099+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "82679b4f8d80dd211edfbadb6ef594e0348466d32b88aefed9d0d4ecb9281945",
+            "variants": "5dad810e4d9f1acb5cd40fd2e6f2ce7ccb19ba1b9bfbfa32ac674797b1c42a80"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 16695000,
+            "sha256": "63300998a6d71a842e87f874ebe4a20c4e9192cc57df0794929741b8dbfa365c",
+            "size_bytes": 6314945690
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "63300998a6d71a842e87f874ebe4a20c4e9192cc57df0794929741b8dbfa365c",
+        "data/real_scores.tsv": "2f7c494b31961427397dd99fb74527446bf3584cb35240b5789e5ba560af7f34",
+        "input/run_config.json": "2e079237fbe08890fc165b2da53a9211b6a166a339b60d526f872bfb13cc7b6c",
+        "results/consensus_summary.json": "b65ee4d2a01e0046b931b9d7619f9310da789c9307a831ebac54f2eb0ac5824a",
+        "results/group_summary.tsv": "0a94967250a1ddda5bc3ce35ecb97833146de44213527763e4d6c51bae2da727",
+        "results/matched_null_design.tsv": "82679b4f8d80dd211edfbadb6ef594e0348466d32b88aefed9d0d4ecb9281945",
+        "results/null_consensus.tsv": "7456f90d4379a78b2546dd62b17a6ac990c802737793c49aaa09a9e26581da5f",
+        "results/null_group_medians.tsv": "4f74051438e28dcbe231af39ccd143f387d333d15632073a6974e99ff37c7202",
+        "results/source_table.tsv": "bedb5d61d034dd2288eab097047ceb8d02bfccf7f6a33e11c87ad404460389fc"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr2:201509600-202558176"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg06_TRAF3IP1_del3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "7600a520336ef6a595028361e1c373ddcd4381acb6540ff845e1f474d0a1a86a",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:28:03.258028+00:00",
+          "inference_completed_at": "2026-09-08T15:28:04.617422+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "100c9590ada5d0435ee5c0842b147cd2ab057c3e2b7831dcfd10c3682cc6011e"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 11130,
+            "sha256": "f0336e4fccf1f2afb70ab23e41b373710acea6d89252636b8cdf206441c6ae52",
+            "size_bytes": 3972463
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:28:09.911276+00:00",
+          "inference_completed_at": "2026-09-08T15:32:22.849922+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "7f0fe00c88c67e50c0e0a3a1581bf193f42723585013e99e0a6096755f52e9b0",
+            "variants": "100c9590ada5d0435ee5c0842b147cd2ab057c3e2b7831dcfd10c3682cc6011e"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 11130000,
+            "sha256": "7a7742dcd415e811489a073fa0b7bf78071659f9d0ad2c3bca0e9435203c69f7",
+            "size_bytes": 4217213948
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "7a7742dcd415e811489a073fa0b7bf78071659f9d0ad2c3bca0e9435203c69f7",
+        "data/real_scores.tsv": "f0336e4fccf1f2afb70ab23e41b373710acea6d89252636b8cdf206441c6ae52",
+        "input/run_config.json": "775ac4973a0aadadbd0b5efd6e506432f0cb7e12d868251bfc56bd4134cb0d85",
+        "results/consensus_summary.json": "6d9c31c7f9bcc7f65fbbb73b5622fa6bd3f8a85f0675ee3a24bb88db99bda4a5",
+        "results/group_summary.tsv": "3fb7c9a243e9d02972a72a3c76bed4ef680f7cbed272ab9bdbbee54321ec409f",
+        "results/matched_null_design.tsv": "7f0fe00c88c67e50c0e0a3a1581bf193f42723585013e99e0a6096755f52e9b0",
+        "results/null_consensus.tsv": "db85cc3ec910138ed2c4ea31f49fb0d9579d434414c61b348610a7cd099fbdf9",
+        "results/null_group_medians.tsv": "0d6841da72a25b46fb0b3b83112453cf9c410ce27b32716a66b02f959479d31b",
+        "results/source_table.tsv": "64c9517b3593a40cdcde6ec35eb2f3ce61bd3633ae5af37e1afeccf477e369c4"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr2:237796274-238844850"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg07_RNPEPL1_del3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "d30f8f88fc02f2753b371991a5cd527cc4d6776eddac9a32d659e5018387cd6b",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:33:15.409648+00:00",
+          "inference_completed_at": "2026-09-08T15:33:16.813326+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "0db35455eea45fca38a6a072ec81d9f574ebca70399590fb197ae2dee5df8436"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 12243,
+            "sha256": "3ce80736b2a042256931866983d5f78c69c9d4a27bf96f90865e8a09b20a2e77",
+            "size_bytes": 4332136
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:33:22.098744+00:00",
+          "inference_completed_at": "2026-09-08T15:37:54.220798+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "cf236cef52964fa2f802bc4022fabb1e79001fd0444a9d1123dcabb20bcd89bd",
+            "variants": "0db35455eea45fca38a6a072ec81d9f574ebca70399590fb197ae2dee5df8436"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 12243000,
+            "sha256": "ba4b6c1e751ca5ee816a9d82ff6f45ae790aec67a2fbc738ba1ffa625391de51",
+            "size_bytes": 4615961092
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "ba4b6c1e751ca5ee816a9d82ff6f45ae790aec67a2fbc738ba1ffa625391de51",
+        "data/real_scores.tsv": "3ce80736b2a042256931866983d5f78c69c9d4a27bf96f90865e8a09b20a2e77",
+        "input/run_config.json": "13760489b5f0cd10d1fed6e979d188a99db67905581901c559976e7c5b164b96",
+        "results/consensus_summary.json": "24d9b08b96cd1dcd9030bc7436f615679e8769e6587b4342a1d9b49c1c03f8ad",
+        "results/group_summary.tsv": "a20b740c509be0d97be13fc27ca4e07916ad222bbf019d197abb582a5065ed9c",
+        "results/matched_null_design.tsv": "cf236cef52964fa2f802bc4022fabb1e79001fd0444a9d1123dcabb20bcd89bd",
+        "results/null_consensus.tsv": "6560d78e5f11413adeb7668507f696092a776110c1d02f858194737d0956f897",
+        "results/null_group_medians.tsv": "ae0dc84ff142399c906d5ef8308be7af6497f020cb933a9b7158be22ed3a4485",
+        "results/source_table.tsv": "a4c442802f9cfa0c73c9f4085f0071a75f2ef9a8c1db9c67f8a673f65681359b"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr2:240044218-241092794"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg08_GSK3B_del1",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "05804c71c71a8dff9c67536e6b6bd05b8292d5be22e9972c5266d2eede261e81",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:38:49.870219+00:00",
+          "inference_completed_at": "2026-09-08T15:38:51.498217+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "29e6143b500428515ed9588d4f9c87237968e911e0b38a2c18d1bc1237281e4e"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 12985,
+            "sha256": "9d529584733231e000a208dd9ca175c8fe8a4371f78a572f6e3c7ca5a07ab424",
+            "size_bytes": 4514855
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:38:57.295840+00:00",
+          "inference_completed_at": "2026-09-08T15:43:34.208502+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "63f86aa5b4cff08f957c2a49f90044a027325af411f09e6d1c2f7969efc87243",
+            "variants": "29e6143b500428515ed9588d4f9c87237968e911e0b38a2c18d1bc1237281e4e"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 12985000,
+            "sha256": "420744fe420cb20450ca2b10b7df6cfec942af18220d9584d412c4884db0876d",
+            "size_bytes": 4971444998
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "420744fe420cb20450ca2b10b7df6cfec942af18220d9584d412c4884db0876d",
+        "data/real_scores.tsv": "9d529584733231e000a208dd9ca175c8fe8a4371f78a572f6e3c7ca5a07ab424",
+        "input/run_config.json": "6aaa336553344d9c0b74dfde5d56a0accf0041bd35f9f6cdff109bb2329bfd44",
+        "results/consensus_summary.json": "c501993380033b8a26c53f4ec3d9daf746225885b223e82f6fb1bfc49ba112b3",
+        "results/group_summary.tsv": "0c74a914a35846b8e2ea278cb698fb5ce0c5364fb7ee0e31da00908b8e128e5f",
+        "results/matched_null_design.tsv": "63f86aa5b4cff08f957c2a49f90044a027325af411f09e6d1c2f7969efc87243",
+        "results/null_consensus.tsv": "973496f2ad2ebe13b2e94881f2b1cf31c04d05bd8d45480740c187c0eff93917",
+        "results/null_group_medians.tsv": "17e0765b1d6cc38d098121339be1e824ff76ef217de731c22ffda215e21ad865",
+        "results/source_table.tsv": "77d2213a0ae8bc2c35a1c051f2f5b87ba0f1324b16bcca04d3b56654f4bf6766"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr3:119570108-120618684"
+        ],
+        "sampling_stage_counts": {
+          "gc20_no_CG_requirement": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg09_SPSB4_snv",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "92a4f116e2126a6e3397d353b1e1957190bb698486ccabebc0645a86b3bdb743",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:45:57.853886+00:00",
+          "inference_completed_at": "2026-09-08T15:45:58.892033+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "35b02c6972a41f7c72b029f0537cd6e197a0645bbd9f718f56b4b21845d13457"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 6678,
+            "sha256": "b77423a9b984fc9791de7b7210191c0eb0555965aa3eaf04b26e9c0c1c2ae451",
+            "size_bytes": 2342432
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:46:04.133235+00:00",
+          "inference_completed_at": "2026-09-08T15:48:51.913187+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "9d2c6116488cb183911bab2a95997e65a6115d8f79e31ac19af9c0a50f67d4e5",
+            "variants": "35b02c6972a41f7c72b029f0537cd6e197a0645bbd9f718f56b4b21845d13457"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 6678000,
+            "sha256": "5355bd395a4283685238c2cc4807ae529dab5e0bae79693bac738f3cfeff880c",
+            "size_bytes": 2458816894
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "5355bd395a4283685238c2cc4807ae529dab5e0bae79693bac738f3cfeff880c",
+        "data/real_scores.tsv": "b77423a9b984fc9791de7b7210191c0eb0555965aa3eaf04b26e9c0c1c2ae451",
+        "input/run_config.json": "db19240867f68a42cd0c31c25f2567c6d5835215eafcc867c1a29ae3341662d1",
+        "results/consensus_summary.json": "6bfdcf3aef27abe6f2d28285f8d3c121f5891378b0721357d78f8f3cd9fd5d88",
+        "results/group_summary.tsv": "25d02a7eee66b17403a43f2602264944631510689c723d87e8177c4233b487ec",
+        "results/matched_null_design.tsv": "9d2c6116488cb183911bab2a95997e65a6115d8f79e31ac19af9c0a50f67d4e5",
+        "results/null_consensus.tsv": "6236de49c85758361f3cd1cc0185fc08da3707671a199a2c12093f10d957e61a",
+        "results/null_group_medians.tsv": "7877f02aba58c6252496294b047c5bae1f67095b0122659ed5432bbfd99195d7",
+        "results/source_table.tsv": "88221a938ac2a77fe342b593700066e549061c7e262efc604bf42b2983851b4a"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr3:140527120-141575696"
+        ],
+        "sampling_stage_counts": {
+          "same_refalt_fixed_interval": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg10_GPRIN1_del6",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "001563955584b8a1b9738959fc2567fa712c333b34b5f8bb40fc49ab72cde0e8",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:49:32.031171+00:00",
+          "inference_completed_at": "2026-09-08T15:49:33.457079+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "ac7fda3473a1c7a4fb4f6a5d50592dd46e00e6be096bfdfdf83bb18b0c00395a"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 14840,
+            "sha256": "bcad473c204b13b6b637bb4144c9fe62af770a945502e20a9d2f04cb185ce6a7",
+            "size_bytes": 5273502
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:49:38.733774+00:00",
+          "inference_completed_at": "2026-09-08T15:54:05.436672+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "ff9aad35f3789be8f69b4621881fc2573a5773242e1980f8f6ed7cc85ccfa049",
+            "variants": "ac7fda3473a1c7a4fb4f6a5d50592dd46e00e6be096bfdfdf83bb18b0c00395a"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 14840000,
+            "sha256": "4aae6386e376fc859237d3bd92a9b1d74bc2b5076ba813b6a92c10546e2bf2ba",
+            "size_bytes": 5629618116
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "4aae6386e376fc859237d3bd92a9b1d74bc2b5076ba813b6a92c10546e2bf2ba",
+        "data/real_scores.tsv": "bcad473c204b13b6b637bb4144c9fe62af770a945502e20a9d2f04cb185ce6a7",
+        "input/run_config.json": "95cde9052b81dc38689255c201a3e83164455584b400d995c5c14626329ea44e",
+        "results/consensus_summary.json": "06ddb3b901df118fe89b25c549a27de1e36c365b88e0495b9791363ba9a0fc40",
+        "results/group_summary.tsv": "947b6b2a7d214e12a702d90ab0528cbdee1ca1821dedc3af9ed85a66b8c50434",
+        "results/matched_null_design.tsv": "ff9aad35f3789be8f69b4621881fc2573a5773242e1980f8f6ed7cc85ccfa049",
+        "results/null_consensus.tsv": "3b34723b0720c6cedb8c67cbdd2f5b4157e5c40c682bf99f4236a36dedf1c30c",
+        "results/null_group_medians.tsv": "28810c7a62fb4443944a963728178b033bf2ae7185eb2f905f0141c0d840abeb",
+        "results/source_table.tsv": "56861f2a3a44f45581407bb6674fe5dc65064b705b774301edf5305af91af8fb"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr5:176085760-177134336"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg11_AUTS2_del6",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "205b723d312561875327560e72335527775a7b069ea46e7e65f90a6afb38f696",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:55:07.728956+00:00",
+          "inference_completed_at": "2026-09-08T15:55:08.947199+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "fbf0532798d389c22257b97cbe4aff48ad6ab8490555a79f10e46af7cf6903d9"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 3710,
+            "sha256": "a19520aa3ab6e8b03ca58f6b88ee326aec1aa7f6d4ebc7d1df9a3a276155ef72",
+            "size_bytes": 1291768
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:55:14.320916+00:00",
+          "inference_completed_at": "2026-09-08T15:58:06.903198+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "2a868cb9ba7f79cc90edf8e99156e5333bc9a1924fb228961f1a961e8f74c45a",
+            "variants": "fbf0532798d389c22257b97cbe4aff48ad6ab8490555a79f10e46af7cf6903d9"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 3710000,
+            "sha256": "ba418c50c5a2063cda858ad3897f6aa91e6f7ce4e4e2058914650ab33275e87b",
+            "size_bytes": 1375953037
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "ba418c50c5a2063cda858ad3897f6aa91e6f7ce4e4e2058914650ab33275e87b",
+        "data/real_scores.tsv": "a19520aa3ab6e8b03ca58f6b88ee326aec1aa7f6d4ebc7d1df9a3a276155ef72",
+        "input/run_config.json": "4ff2fe577da1ac70e3b90bf5bbd61a2eced0903cdd3d3f5745871fbc783a0dea",
+        "results/consensus_summary.json": "947b3a5156c5515c6ef5dd514a87d9bf35e341823cf7fa33f6c5c1ce6b760ef5",
+        "results/group_summary.tsv": "07eb0d84cd3fd2b4fe1f3d2c77d06b04fd07f49aa75a04fc32b309fbaa5f76de",
+        "results/matched_null_design.tsv": "2a868cb9ba7f79cc90edf8e99156e5333bc9a1924fb228961f1a961e8f74c45a",
+        "results/null_consensus.tsv": "c26a0e2b48fd53b67771e3f8016958388f90c5bd53b59a4f6bc87decfd4a3a25",
+        "results/null_group_medians.tsv": "170d536c0db8b6b8c62b107de35a372e6c9d279637321d8b1c7afcf294c5a75d",
+        "results/source_table.tsv": "7555aa19c4552be9a1570106b561e929936909696b0e45f99678b6b3ccdd0a5b"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr7:69074100-70122676"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg12_CNTFR_snv",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "1630dadfa4f2d9a3a38d326a9267ef31dc99d90d3df1ce79c15c0326a0370ffc",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:58:39.901012+00:00",
+          "inference_completed_at": "2026-09-08T15:58:41.215485+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "581572662361cb72e92f8352381a08bb39c9694654d5fbc9fc6cd56ebc4f2e4c"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 23002,
+            "sha256": "ad27687375174eb73ada2b7d1348585fea826ec2b2da8b9435dde1ba53a16188",
+            "size_bytes": 7994046
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T15:58:46.431838+00:00",
+          "inference_completed_at": "2026-09-08T16:04:13.780159+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "b9262f4d8302d28ea030bcdbf40982df2a207b161adccde22eac0d8098f441dc",
+            "variants": "581572662361cb72e92f8352381a08bb39c9694654d5fbc9fc6cd56ebc4f2e4c"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 23002000,
+            "sha256": "3b90a5207fc13ac5090465d7dbc28e5276a01b6163dc08479c84656bce191dfe",
+            "size_bytes": 8334253251
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "3b90a5207fc13ac5090465d7dbc28e5276a01b6163dc08479c84656bce191dfe",
+        "data/real_scores.tsv": "ad27687375174eb73ada2b7d1348585fea826ec2b2da8b9435dde1ba53a16188",
+        "input/run_config.json": "7489e3a0466d3e4aa5325f463761b406665d182da358cc0ff3607b109013699a",
+        "results/consensus_summary.json": "6a6441c673b353a51a0ebb52179e6188111daa948ba4d92b14f9d2ce00c37374",
+        "results/group_summary.tsv": "84a7fbaf73f717c8bf9926d00c67347cf37cee072ee6f70db864b1c7b14471a9",
+        "results/matched_null_design.tsv": "b9262f4d8302d28ea030bcdbf40982df2a207b161adccde22eac0d8098f441dc",
+        "results/null_consensus.tsv": "cbd555aa1c15a47ce69df6cf83c14368475c3c1e3eac1c2350562af19c2d603b",
+        "results/null_group_medians.tsv": "da928443833f5f6b1207ca86d2c2d2de04ed1467d1bdf1cb7163fc1e06cc0760",
+        "results/source_table.tsv": "dd1caeb83251e9a79d309d403fccbafef06f4e736fa18307f0d1b45f8e76f6a4"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr9:34065416-35113992"
+        ],
+        "sampling_stage_counts": {
+          "same_refalt_fixed_interval": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg13_LOC107984006_BMS1P14_mnv3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "c8bc44816397d414c85ad26064bc92caf8bf9df2a488383a373f58d9df6c26ba",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:05:34.718040+00:00",
+          "inference_completed_at": "2026-09-08T16:05:36.249273+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "3332e5fc44ddfd951c694f800d51c0e1294c9c18dd3609f879a5ab6af0763b39"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 15582,
+            "sha256": "41440709bdb1120dfbb3b7eefd34c3300bc62d42bc4fc8fc2b0d67754b2b4057",
+            "size_bytes": 6065167
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:05:41.601009+00:00",
+          "inference_completed_at": "2026-09-08T16:09:49.522238+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "bacd1232260d992bc2e27652b442833b0fd17e9c9a2f7dc675850760b8df557e",
+            "variants": "3332e5fc44ddfd951c694f800d51c0e1294c9c18dd3609f879a5ab6af0763b39"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 15582000,
+            "sha256": "9ff462dababba311da1c5aa3a2b822c3f3c5f70a07a66bda4dc8d51f33c2ed56",
+            "size_bytes": 6282475107
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "9ff462dababba311da1c5aa3a2b822c3f3c5f70a07a66bda4dc8d51f33c2ed56",
+        "data/real_scores.tsv": "41440709bdb1120dfbb3b7eefd34c3300bc62d42bc4fc8fc2b0d67754b2b4057",
+        "input/run_config.json": "d785fadf770032f944d1aff394191d5d91f683fd7fdaf78d16da6221481771bc",
+        "results/consensus_summary.json": "113b8664b2c9020d0c0503b324bf72f980261bacde07f4f69a126c018d12be0e",
+        "results/group_summary.tsv": "7701ebf731dee57a159359c70d80f2c900aaad4001b1e918c2a3d80ce3e97f07",
+        "results/matched_null_design.tsv": "bacd1232260d992bc2e27652b442833b0fd17e9c9a2f7dc675850760b8df557e",
+        "results/null_consensus.tsv": "abf9afed1e836b1a6b839d5aade7c75eaab4f1bf2515698a3525ebbc88e9d300",
+        "results/null_group_medians.tsv": "35c6b7a9d9f344077e6291559a9805e9a469bc6d8ed30be174665181dfe3caed",
+        "results/source_table.tsv": "d198911aa9d9c88d42e6990eb917c3d672e4d3bdc48bf089811d04f882a4851b"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr9:40060140-41108716"
+        ],
+        "sampling_stage_counts": {
+          "same_refalt_fixed_interval": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg14_MSANTD3_del6",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "100631288e5f53252219e416cca937b20120b1161589136e996ef9b272ba94bf",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:10:54.387344+00:00",
+          "inference_completed_at": "2026-09-08T16:10:55.663832+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "0f89398980228a4224c7219c6de3e05b6cc42a4f4b9a54bc7f62eec6eb93c17c"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 6678,
+            "sha256": "6b51a2ab7beb4e8737ab59e64ad89fdfa1d5e01bf02407457bbab7f9656e1905",
+            "size_bytes": 2400175
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:11:01.016335+00:00",
+          "inference_completed_at": "2026-09-08T16:13:55.000675+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "249098959ee28c08415976226d4d813a02cc1bf210ab124813d220c10f70ef4f",
+            "variants": "0f89398980228a4224c7219c6de3e05b6cc42a4f4b9a54bc7f62eec6eb93c17c"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 6678000,
+            "sha256": "d1eab035c923ee9d998441f11d085e86ee0a85860564746b57191ef74244d4a9",
+            "size_bytes": 2546749342
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "d1eab035c923ee9d998441f11d085e86ee0a85860564746b57191ef74244d4a9",
+        "data/real_scores.tsv": "6b51a2ab7beb4e8737ab59e64ad89fdfa1d5e01bf02407457bbab7f9656e1905",
+        "input/run_config.json": "88606b5b77a50554c6921d1276e19d4e5a44dac7a7c7f5ba2aa5de7fb0c3fcef",
+        "results/consensus_summary.json": "70006f8898415c174a5d9569f57c645d96e30be3ec83ea9513d8f6fdab93c02a",
+        "results/group_summary.tsv": "a65c3f11adfa8acaa8f7b6dbc6b61631b63bc5f919cdbe72f5c477b6659993ac",
+        "results/matched_null_design.tsv": "249098959ee28c08415976226d4d813a02cc1bf210ab124813d220c10f70ef4f",
+        "results/null_consensus.tsv": "b20f39c582f91c5b0323982c870d96914c9b7432da6ac4851c0f6a2e9e6dc616",
+        "results/null_group_medians.tsv": "9eb53ad871673c57795fec0860b510a49061d42fbeb26568b7657dadcdce8f11",
+        "results/source_table.tsv": "a49089823031555cf24dbc38e45136ced7fe43349a6b866842cb7ea13582bc54"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr9:99902965-100951541"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg15_NKX6-2_del4",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "beaf68885c1bbd1fefd170209a1ec67400c7896e681984169ad825535361c6dc",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:14:35.370339+00:00",
+          "inference_completed_at": "2026-09-08T16:14:36.727060+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "9ee3b343fb60023930a8d95b03bd5e383a130fed2541819898caaf17639838a7"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 10759,
+            "sha256": "2a4cb64a89c1e135e8bfb508406373c9cb4d9ae99430c683c58bb580e16b69b6",
+            "size_bytes": 3802686
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:14:41.987263+00:00",
+          "inference_completed_at": "2026-09-08T16:18:14.452837+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "1f0c1970faae937f3a400ff782e6fff939d78733276610bd9d9a8de2e5e001ce",
+            "variants": "9ee3b343fb60023930a8d95b03bd5e383a130fed2541819898caaf17639838a7"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 10759000,
+            "sha256": "3a4d3cd0033874f04a732ffa92a008e01ba0b8131858da0f8db83bf55c67d543",
+            "size_bytes": 4070119576
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "3a4d3cd0033874f04a732ffa92a008e01ba0b8131858da0f8db83bf55c67d543",
+        "data/real_scores.tsv": "2a4cb64a89c1e135e8bfb508406373c9cb4d9ae99430c683c58bb580e16b69b6",
+        "input/run_config.json": "f324fa64fc2256b714ab5a718147a5e1e49d8cb9bfeaf8e11cb859e11b74f418",
+        "results/consensus_summary.json": "7a9ed2113861be7ba282b64a21f7968e28a62f84c624b418d76091757244e733",
+        "results/group_summary.tsv": "19bf971fec3eb638e5628216770c4984a77fe47deccf063ad8d0321d3f12d666",
+        "results/matched_null_design.tsv": "1f0c1970faae937f3a400ff782e6fff939d78733276610bd9d9a8de2e5e001ce",
+        "results/null_consensus.tsv": "41d3447a44ce53649aeeff3ff3e3d7acf891784b09b5c97921f22fd7569144b0",
+        "results/null_group_medians.tsv": "550d8a385b6e4e6846ef18c5b9b5faf4f91c951da40b93b280a7803cd6792cc7",
+        "results/source_table.tsv": "fc1f00b319ebe35ca618af81991550073040a93e487da56842b732b707bf41f4"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr10:132261812-133310388"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg16_HOXC8_del3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "4e1b74739cbbf41c0bc964651ec6947ec9248aadee78b08c91acb2e104fc157c",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:19:05.911907+00:00",
+          "inference_completed_at": "2026-09-08T16:19:07.488508+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "e57983336a720a363c2fbbcfeee341fd059bdfcbda6d369e9db6799548043653"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 26341,
+            "sha256": "b4af398be965dd7566adbddd1b71d4f42284fdcf803324b14dff7445a085f727",
+            "size_bytes": 9123647
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:19:12.785089+00:00",
+          "inference_completed_at": "2026-09-08T16:26:05.252412+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "5a55ba1c597d2aa2865fb3b6a16c609ed3c53e94e1ee153c48b2473d2cbafa0f",
+            "variants": "e57983336a720a363c2fbbcfeee341fd059bdfcbda6d369e9db6799548043653"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 26341000,
+            "sha256": "782027dbe03d5695e61dc2fd51e3ba9b9d2fc6ccf9629fa0183fcfd18e35d6e0",
+            "size_bytes": 9758941555
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "782027dbe03d5695e61dc2fd51e3ba9b9d2fc6ccf9629fa0183fcfd18e35d6e0",
+        "data/real_scores.tsv": "b4af398be965dd7566adbddd1b71d4f42284fdcf803324b14dff7445a085f727",
+        "input/run_config.json": "10bda67ad27df3e281c5a7be25281705d9b43c3aa014cbc62d71e983721d42da",
+        "results/consensus_summary.json": "6fd9db5b404ec6a2df8c58e6d7b8ffa9e68c9a2bf285ec7d9c6a18e70a2eb5fb",
+        "results/group_summary.tsv": "59ce94efe5049508338d2cb1688e02bf76ec11dde276feb94000bc0aee2ab094",
+        "results/matched_null_design.tsv": "5a55ba1c597d2aa2865fb3b6a16c609ed3c53e94e1ee153c48b2473d2cbafa0f",
+        "results/null_consensus.tsv": "4a3300e0d95df72f73b2d13b0cd3322f20d3cef13a28113014ec390f10c4e24d",
+        "results/null_group_medians.tsv": "d501cade1962c7052c49ff4873b17aa4cebac2a5a42634d42623592ff23f6d29",
+        "results/source_table.tsv": "d36b6532701f4505e3a86f841fde9f5176f8517ba3a34c1c80449911812074cd"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr12:53484769-54533345"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg17_RBFOX1_del3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "9d46e4eaa50e938e92088883e4dd0222df1eb4c5d1d8a256a95dd022ec414eab",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:27:35.983673+00:00",
+          "inference_completed_at": "2026-09-08T16:27:37.181053+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "fc566fea492824523f278b801059ac3158c131d936aa23fb17a274daf668edd9"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 2597,
+            "sha256": "5c0b3215b6099906060a3929fb8932e11210dcb9cb56166cd56b06d507270a3b",
+            "size_bytes": 902650
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:27:42.578851+00:00",
+          "inference_completed_at": "2026-09-08T16:30:21.488262+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "eaf6d052d71b4828c3f84d8909e1ebb170e1736a5d47528ef8dd3b8adb064598",
+            "variants": "fc566fea492824523f278b801059ac3158c131d936aa23fb17a274daf668edd9"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 2597000,
+            "sha256": "4098c8d672922037c45c5e3d0c8cfe1ad9f0e756e589b568b455057c9f592ac6",
+            "size_bytes": 957160861
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "4098c8d672922037c45c5e3d0c8cfe1ad9f0e756e589b568b455057c9f592ac6",
+        "data/real_scores.tsv": "5c0b3215b6099906060a3929fb8932e11210dcb9cb56166cd56b06d507270a3b",
+        "input/run_config.json": "ea2880fcde2010d60b467437b5d5ef12aa6fe40164bd8634b70a19f3529745b6",
+        "results/consensus_summary.json": "6702c53bdfecf7924853b836b6ff6b7b49cf34ae20754525e30a67834f50e856",
+        "results/group_summary.tsv": "434c8238a7d0fe860a56777403c0fc259dbf7c1f4082bbe56086f5786ba6950e",
+        "results/matched_null_design.tsv": "eaf6d052d71b4828c3f84d8909e1ebb170e1736a5d47528ef8dd3b8adb064598",
+        "results/null_consensus.tsv": "54936648e88f7ed86c317d1bd74f905af46cb3cbae5aaf6f952504ed7be24aa1",
+        "results/null_group_medians.tsv": "6b546d824c451abd648405901c745d096ac1040615555697e07eb1658e9b5eb6",
+        "results/source_table.tsv": "e09d4037535f59a47175c2ed26b3106890ac905c547d9b095572e7f5e54ff4c4"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr16:5494638-6543214"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg18_SHISA6_del3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "6c05ea61eced8bee29a7d78ad8227fc25e5ecb76d3c2ed7473fc65a92401691d",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:30:51.338978+00:00",
+          "inference_completed_at": "2026-09-08T16:30:52.586232+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "9eff5efa85ab13da96803e45c66a1b7c45ee4105432fc2d9e9339f722e310885"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 7049,
+            "sha256": "a8be059163ec22f124467892542835813ba2392c86868f36942a7d0b435ca89f",
+            "size_bytes": 2476560
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:30:57.812519+00:00",
+          "inference_completed_at": "2026-09-08T16:33:53.576402+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "77bc57b86a47eb2a9230fedd27a93aaa58bef7c6dbee8fa0e806f9ed7bf43ade",
+            "variants": "9eff5efa85ab13da96803e45c66a1b7c45ee4105432fc2d9e9339f722e310885"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 7049000,
+            "sha256": "ab6f60d209ea63b3dc07099f87413190c9e3f35dcc19ef0aea7139e6b6c74e27",
+            "size_bytes": 2638787783
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "ab6f60d209ea63b3dc07099f87413190c9e3f35dcc19ef0aea7139e6b6c74e27",
+        "data/real_scores.tsv": "a8be059163ec22f124467892542835813ba2392c86868f36942a7d0b435ca89f",
+        "input/run_config.json": "7bd74bbebfe45c39fd296cd62c761dfe93eb93c3ddbd0239c64306e24ac5b4b3",
+        "results/consensus_summary.json": "026b7f3b8218185607d8106e16c07ece2f069aa01503adc28972820fd6ad8fd9",
+        "results/group_summary.tsv": "8f72845d057080501cccdeabd8f71f4c5aec112029b0bafb8335a24940be7189",
+        "results/matched_null_design.tsv": "77bc57b86a47eb2a9230fedd27a93aaa58bef7c6dbee8fa0e806f9ed7bf43ade",
+        "results/null_consensus.tsv": "f13d41fe17cf2cc8423750fc817f29313922e40b43139b7fc126ab0230d3efb2",
+        "results/null_group_medians.tsv": "faee04d17fbe07a6bb8533feb21e3358922364f409ba55157b8fd214bcca2152",
+        "results/source_table.tsv": "1dc70904947179edde647a3d10e6fad16731a27a8f31c1a29f7c45a4d7483706"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr17:10716772-11765348"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg19_PTPRT_del9",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "ce2d03b3692d6430411b62ab48cffea523254cac3bbfd99c1be36701f67a46cb",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:34:35.066611+00:00",
+          "inference_completed_at": "2026-09-08T16:34:36.361609+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "3ee2013b4c7c9d0b1b1eef8c1239fa25ccffb0da86880e155e1d231a1f4bfc6b"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 8904,
+            "sha256": "dd8495260908da005d2a281e320022d8fefbc1f7d75d882bc796211d099c629f",
+            "size_bytes": 3162845
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:34:41.964608+00:00",
+          "inference_completed_at": "2026-09-08T16:37:51.288969+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "c44ce656e4dccd1a8ecb7eb0db5b6d498c837a5d9958f1441a9e8b28cc148308",
+            "variants": "3ee2013b4c7c9d0b1b1eef8c1239fa25ccffb0da86880e155e1d231a1f4bfc6b"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 8904000,
+            "sha256": "65e9784443d45b21be8cd316b7f7c03a856d858b5c227baf468d06676df6275d",
+            "size_bytes": 3429473728
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "65e9784443d45b21be8cd316b7f7c03a856d858b5c227baf468d06676df6275d",
+        "data/real_scores.tsv": "dd8495260908da005d2a281e320022d8fefbc1f7d75d882bc796211d099c629f",
+        "input/run_config.json": "2ba1ed7fe4045c006ec8792b4b2b0d22e188df8124977bb990366befe8c1130b",
+        "results/consensus_summary.json": "4c330cf357c021ae5e621143289de21f13c5032fbb37a337c25d46aeef2cb712",
+        "results/group_summary.tsv": "17fe6a139c358126ed4f35ad896eb09f95430ac0177e415555b12e361fd753a1",
+        "results/matched_null_design.tsv": "c44ce656e4dccd1a8ecb7eb0db5b6d498c837a5d9958f1441a9e8b28cc148308",
+        "results/null_consensus.tsv": "9d7d54e9d98b8fefef0e233badb5b449231c194da4e6355717d938e72207297d",
+        "results/null_group_medians.tsv": "9ac55b6c86f017b8c20b9800b95665dd9d216ecac9b040cade230d19f60bb784",
+        "results/source_table.tsv": "14b63156eb65932c1a5ee33efe9fa33ed0276675576a3db09bd64edfc935fa8f"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr20:42665698-43714274"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 581,
+          "same_CG_gc20": 419
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    },
+    {
+      "data_version": "v0.20",
+      "source_run_id": "ccg20_DNAJC5_del3",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "canonical_cache_sha256": "bf97d0fcae71247f63224aab35260847964f299034b4e332354c5210616b3e27",
+      "n_null": 1000,
+      "n_tracks": 371,
+      "inference": {
+        "real": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:38:37.578174+00:00",
+          "inference_completed_at": "2026-09-08T16:38:39.132114+00:00",
+          "method": "score_variant.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "variants": "1ee7b4cfde99520473323a6cb6b56deb5653e8a6a078a0a5e684659d92ab4f5a"
+          },
+          "output": {
+            "completed_variant_count": 1,
+            "row_count": 23744,
+            "sha256": "c1693c4cde4256eca0b6d174152b68eeb80fdefb21df7c5f2c595a3544b12116",
+            "size_bytes": 8307183
+          }
+        },
+        "null": {
+          "status": "complete",
+          "alphagenome_client_version": "0.8.0",
+          "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+          "inference_started_at": "2026-09-08T16:38:44.456662+00:00",
+          "inference_completed_at": "2026-09-08T16:44:45.770515+00:00",
+          "method": "score_variants.RNA_SEQ",
+          "scorer_configuration": [
+            "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+          ],
+          "sequence_length": 1048576,
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "genome_build": "GRCh38",
+          "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+          "backend_revision_source": "operator_declared_API_rollout_boundary",
+          "input_sha256": {
+            "pseudo": "946e9a5373b80e63fa658f08b4c0e4b45842e152564c7a5a7413508d671106fd",
+            "variants": "1ee7b4cfde99520473323a6cb6b56deb5653e8a6a078a0a5e684659d92ab4f5a"
+          },
+          "output": {
+            "completed_variant_count": 1000,
+            "row_count": 23744000,
+            "sha256": "08c08dd88ac95069a93b4e318038ab44b0e4270281d53fd2173833f376f91a65",
+            "size_bytes": 8858997073
+          }
+        }
+      },
+      "original_artifact_sha256": {
+        "data/null_scores.tsv": "08c08dd88ac95069a93b4e318038ab44b0e4270281d53fd2173833f376f91a65",
+        "data/real_scores.tsv": "c1693c4cde4256eca0b6d174152b68eeb80fdefb21df7c5f2c595a3544b12116",
+        "input/run_config.json": "a96a0967e8db45f1e3b2bc42345ea4b651265b8864e4607443e4492defdd0360",
+        "results/consensus_summary.json": "62c380933dc669c4bcf3abab10409c82765f83b63ada33e922f6dfcfc98a079e",
+        "results/group_summary.tsv": "e77cdc830faee3e0145d10d789fe623ab8c99f6db9afb730f445f189d422a3e7",
+        "results/matched_null_design.tsv": "946e9a5373b80e63fa658f08b4c0e4b45842e152564c7a5a7413508d671106fd",
+        "results/null_consensus.tsv": "5b0bc0a80256574850d33ab8810fb6d90de9bf4eeb114ac71f9c0c67a8ed631d",
+        "results/null_group_medians.tsv": "2027d4e9f5186c4b921fca52a2113dc22dad2d89cdc3af789c6e0ba278843564",
+        "results/source_table.tsv": "bfac46594b760a625edd8103010ebeea76eea9470df557ff56196a7ad5e93c05"
+      },
+      "provenance_limitations": [
+        "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+        "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+      ],
+      "null_design": {
+        "n_null_ids": 1000,
+        "input_sequence_length": 1048576,
+        "fixed_intervals": [
+          "chr20:63370907-64419483"
+        ],
+        "sampling_stage_counts": {
+          "same_CG_gc10": 1000
+        },
+        "notes": [
+          "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+          "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+        ]
+      }
+    }
+  ],
+  "notes": [
+    "Only frozen v0.20 gene scores inferred on 2026-09-08 UTC with SDK 0.8.0 are used.",
+    "Serving/building these assets makes no inference calls and generates no new null variants.",
+    "Brain9 is the median of eight adult-region medians plus the pooled median of seven embryo brain-tissue tracks.",
+    "The 153 non-brain tissue and 197 cell/model tracks are display-only pools with all available life stages; neither contributes to Brain9.",
+    "Counts refer to assay tracks, not independent biological replicates. These are model predictions, not experimental expression measurements.",
+    "Direction-selected P/q is exploratory, not a prespecified one-sided test.",
+    "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+    "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+  ]
+}

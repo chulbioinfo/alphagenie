@@ -1,0 +1,11 @@
+CODE LICENSE — OWNER DECISION PENDING
+
+No open-source license has been selected for the original AlphaGENIE code in
+this pre-release distribution. All rights are reserved by the respective
+rights holders unless separately licensed. Do not describe this repository as
+MIT-licensed, Apache-licensed, or open source until the owner replaces this
+file with the approved license and confirms contributor rights.
+
+Third-party components retain their own licenses. Google DeepMind AlphaGenome
+API access and model-derived outputs are governed by separate terms; selecting
+a code license does not relicense those services or outputs. See NOTICE.md.

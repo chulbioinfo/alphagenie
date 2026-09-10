@@ -1,0 +1,9 @@
+# Application and scientific SDK versions used in the local build.
+# Exact transitive snapshot: requirements-lock.txt (Python 3.11, macOS).
+alphagenome==0.8.0
+fastapi==0.141.1
+uvicorn==0.52.4
+numpy==2.4.6
+pandas==2.3.3
+matplotlib==3.11.1
+pydantic==2.13.5

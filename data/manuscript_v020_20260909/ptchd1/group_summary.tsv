@@ -1,0 +1,12 @@
+run_id	variant_group_id	gene_symbol	display_group	group_id	stage	n_tracks	n_raw_effect_rows	n_duplicate_effect_rows	median_effect	min_effect	max_effect	included_in_brain9
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	0.034535676975	0.0056765675	0.036762356535	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	0.038485645879999995	0.038485645879999995	0.038485645879999995	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	0.037323715055	0.0358995194	0.038443326624999996	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Amygdala	adult__brain__amygdala	adult	1	1	0	0.041619896725	0.041619896725	0.041619896725	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.033477903479999994	0.033477903479999994	0.033477903479999994	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Midbrain	adult__brain__midbrain	adult	1	1	0	0.04241240046	0.04241240046	0.04241240046	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.038113921225	0.03704100815	0.0391868343	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	0.024326801500000002	0.024326801500000002	0.024326801500000002	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Embryo	brain__embryo	embryonic	7	7	0	0.01835918464	0.01196813545	0.060571253575	True
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Non-brain tissues	pooled_nonbrain_tissues	all_available_stages	153	153	0	-0.021890759725	-0.199966195015	0.0704839248	False
+ptchd1_1mb	PTCHD1_ins27	PTCHD1	Cells & cell lines	pooled_cells_cell_lines	all_available_stages	197	197	0	0.01644325303	-0.057341575575000005	0.13974535715	False

@@ -1,0 +1,92 @@
+{
+  "data_version": "v0.20",
+  "source_run_id": "ptchd1_1mb",
+  "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+  "canonical_cache_sha256": "e9d5b1602725f858a4f62c8b8b17bee0e25014edbe9bb151f012978a48e199f3",
+  "n_null": 1000,
+  "n_tracks": 371,
+  "inference": {
+    "real": {
+      "status": "complete",
+      "alphagenome_client_version": "0.8.0",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "inference_started_at": "2026-09-08T14:50:09.930007+00:00",
+      "inference_completed_at": "2026-09-08T14:50:11.137215+00:00",
+      "method": "score_variant.RNA_SEQ",
+      "scorer_configuration": [
+        "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+      ],
+      "sequence_length": 1048576,
+      "requested_model_version": "server_default",
+      "resolved_model_version": null,
+      "genome_build": "GRCh38",
+      "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+      "backend_revision_source": "operator_declared_API_rollout_boundary",
+      "input_sha256": {
+        "variants": "7068578d5df77b6e8730e40ef39a075abc77290d7e13df5c62568e6bffe722eb"
+      },
+      "output": {
+        "completed_variant_count": 1,
+        "row_count": 5194,
+        "sha256": "3e051a94a33caf045779e9050e7c0fd4ea9d6f2fa1e4748c8eb773e6dfa04ed3",
+        "size_bytes": 1958887
+      }
+    },
+    "null": {
+      "status": "complete",
+      "alphagenome_client_version": "0.8.0",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "inference_started_at": "2026-09-08T14:50:16.169205+00:00",
+      "inference_completed_at": "2026-09-08T14:54:49.341828+00:00",
+      "method": "score_variants.RNA_SEQ",
+      "scorer_configuration": [
+        "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+      ],
+      "sequence_length": 1048576,
+      "requested_model_version": "server_default",
+      "resolved_model_version": null,
+      "genome_build": "GRCh38",
+      "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+      "backend_revision_source": "operator_declared_API_rollout_boundary",
+      "input_sha256": {
+        "pseudo": "660870ac2bf4b1efbe671aa61e8c6dc588349da1e4d8c4f589f66fb0465a7d9e",
+        "variants": "7068578d5df77b6e8730e40ef39a075abc77290d7e13df5c62568e6bffe722eb"
+      },
+      "output": {
+        "completed_variant_count": 1000,
+        "row_count": 5194000,
+        "sha256": "5c8ce0e71d29522dfc95caa2a8d0ad2300bd6d469e4bfad3f68dd130b690c1d2",
+        "size_bytes": 2146022862
+      }
+    }
+  },
+  "original_artifact_sha256": {
+    "data/null_scores.tsv": "5c8ce0e71d29522dfc95caa2a8d0ad2300bd6d469e4bfad3f68dd130b690c1d2",
+    "data/real_scores.tsv": "3e051a94a33caf045779e9050e7c0fd4ea9d6f2fa1e4748c8eb773e6dfa04ed3",
+    "input/run_config.json": "5e3bbc11402d8ea114a1867aa6b43c1c2eab9bfed464dda820c38f96c974ae7c",
+    "results/consensus_summary.json": "128e7121626c5a9b3e40eab69b544b1595b2ccbe7bd737d3f5da1b6b6914e9ff",
+    "results/group_summary.tsv": "9283d1011fef996962533d54d6daccdf9e171343ec6b0b2bddf050c3d14d2099",
+    "results/matched_null_design.tsv": "660870ac2bf4b1efbe671aa61e8c6dc588349da1e4d8c4f589f66fb0465a7d9e",
+    "results/null_consensus.tsv": "202798dc4090117272228704428b60920de78f1495cc4adb5ca80f703f03830e",
+    "results/null_group_medians.tsv": "592dab05dedd682a7ebcde7bce9d7321674654f3eec759ebba7212707a8a846e",
+    "results/source_table.tsv": "bc72feeddd1bba05e42b5e843926cf624c858c8be8fa7b526bb00b4c3f8f9225"
+  },
+  "provenance_limitations": [
+    "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+    "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+  ],
+  "null_design": {
+    "n_null_ids": 1000,
+    "input_sequence_length": 1048576,
+    "fixed_intervals": [
+      "chrX:22810477-23859053"
+    ],
+    "sampling_stage_counts": {
+      "same_insert_fixed_interval": 1000
+    },
+    "notes": [
+      "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+      "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched."
+    ]
+  }
+}

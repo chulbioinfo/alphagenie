@@ -1,0 +1,12 @@
+run_id	variant_group_id	gene_symbol	display_group	group_id	stage	n_tracks	n_raw_effect_rows	n_duplicate_effect_rows	median_effect	min_effect	max_effect	included_in_brain9
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Cerebral cortex	adult__brain__cerebral_cortex	adult	4	4	0	-0.008690953375	-0.013370871700000002	0.010296821500000001	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Hippocampal formation	adult__brain__hippocampal_formation	adult	1	1	0	-0.015313745200000001	-0.015313745200000001	-0.015313745200000001	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Basal ganglia / striatum	adult__brain__basal_ganglia_striatum	adult	3	3	0	-0.0180988316	-0.0196053977	-0.0078828339	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Amygdala	adult__brain__amygdala	adult	1	1	0	-0.0170764923	-0.0170764923	-0.0170764923	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Diencephalic regions	adult__brain__diencephalic_regions	adult	1	1	0	0.01120233526	0.01120233526	0.01120233526	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Midbrain	adult__brain__midbrain	adult	1	1	0	-0.011241674450000001	-0.011241674450000001	-0.011241674450000001	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Cerebellum	adult__brain__cerebellum	adult	2	2	0	0.014973163275	0.01228201305	0.0176643135	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Whole brain	adult__brain__brain_region_unspecified	adult	1	1	0	-0.0015971661000000002	-0.0015971661000000002	-0.0015971661000000002	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Embryo	brain__embryo	embryonic	7	7	0	0.029282569499999998	-0.0099419359	0.0370430958	True
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Non-brain tissues	pooled_nonbrain_tissues	all_available_stages	153	153	0	-0.0275247095	-0.2142605812	0.08599424374999999	False
+rbfox1_16kb	RBFOX1_del3	RBFOX1	Cells & cell lines	pooled_cells_cell_lines	all_available_stages	197	197	0	-0.01444005965	-0.23659157875	0.07718825300000001	False

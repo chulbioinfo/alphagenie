@@ -1,0 +1,14 @@
+{
+  "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+  "strand": ".",
+  "Assay title": "polyA plus RNA-seq",
+  "ontology_curie": "UBERON:0001870",
+  "biosample_name": "frontal cortex",
+  "biosample_type": "tissue",
+  "biosample_life_stage": "adult",
+  "gtex_tissue": "Brain_Cortex",
+  "data_source": "gtex",
+  "endedness": "paired",
+  "genetically_modified": false,
+  "nonzero_mean": 0.0433241464
+}

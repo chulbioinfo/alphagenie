@@ -1,0 +1,138 @@
+{
+  "real_consensus_delta": 0.037323715055,
+  "empirical_p_two_sided": 0.04195804195804196,
+  "empirical_p_observed_direction": 0.000999000999000999,
+  "p_two_sided": 0.04195804195804196,
+  "p_observed_direction": 0.000999000999000999,
+  "empirical_p_status": "available",
+  "multiple_testing_correction": "None: standalone empirical P; not a member of the 17-variant BH family",
+  "bh_fdr_two_sided": null,
+  "bh_fdr_observed_direction": null,
+  "fdr_status": "not_applicable_standalone",
+  "correction_family": "standalone PTCHD1: empirical P only; not added to the 17-variant cohort",
+  "n_null_consensus": 1000,
+  "n_real_brain_groups": 9,
+  "n_real_brain_tracks": 21,
+  "sequence_length": 1048576,
+  "direction_observed": "increase",
+  "primary_effect_scope": "brain9_adult8_embryo",
+  "primary_effect_groups": [
+    "Cerebral cortex",
+    "Hippocampal formation",
+    "Basal ganglia / striatum",
+    "Amygdala",
+    "Diencephalic regions",
+    "Midbrain",
+    "Cerebellum",
+    "Whole brain",
+    "Embryo"
+  ],
+  "effect_definition": "GeneMaskLFCScorer RNA_SEQ log-fold-change score, centered on the median of 1000 matched-null scores for each track; not a base-resolution ALT-minus-REF abundance difference.",
+  "data_version": "v0.20",
+  "variant_group_id": "PTCHD1_ins27",
+  "gene_symbol": "PTCHD1",
+  "target_gene": "PTCHD1",
+  "variant_class": "insertion_27bp",
+  "chrom": "chrX",
+  "pos1": 23334765,
+  "ref": "T",
+  "alt": "TCGCCGCCGCCGCGGGCGCCGCTGCCGC",
+  "publication_frozen": true,
+  "source_run_id": "ptchd1_1mb",
+  "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+  "source_sdk_version": "0.8.0",
+  "scoring_provenance": {
+    "real": {
+      "status": "complete",
+      "alphagenome_client_version": "0.8.0",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "inference_started_at": "2026-09-08T14:50:09.930007+00:00",
+      "inference_completed_at": "2026-09-08T14:50:11.137215+00:00",
+      "method": "score_variant.RNA_SEQ",
+      "scorer_configuration": [
+        "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+      ],
+      "sequence_length": 1048576,
+      "requested_model_version": "server_default",
+      "resolved_model_version": null,
+      "genome_build": "GRCh38",
+      "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+      "backend_revision_source": "operator_declared_API_rollout_boundary",
+      "input_sha256": {
+        "variants": "7068578d5df77b6e8730e40ef39a075abc77290d7e13df5c62568e6bffe722eb"
+      },
+      "output": {
+        "completed_variant_count": 1,
+        "row_count": 5194,
+        "sha256": "3e051a94a33caf045779e9050e7c0fd4ea9d6f2fa1e4748c8eb773e6dfa04ed3",
+        "size_bytes": 1958887
+      }
+    },
+    "null": {
+      "status": "complete",
+      "alphagenome_client_version": "0.8.0",
+      "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+      "inference_started_at": "2026-09-08T14:50:16.169205+00:00",
+      "inference_completed_at": "2026-09-08T14:54:49.341828+00:00",
+      "method": "score_variants.RNA_SEQ",
+      "scorer_configuration": [
+        "GeneMaskLFCScorer(requested_output=RNA_SEQ)"
+      ],
+      "sequence_length": 1048576,
+      "requested_model_version": "server_default",
+      "resolved_model_version": null,
+      "genome_build": "GRCh38",
+      "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+      "backend_revision_source": "operator_declared_API_rollout_boundary",
+      "input_sha256": {
+        "pseudo": "660870ac2bf4b1efbe671aa61e8c6dc588349da1e4d8c4f589f66fb0465a7d9e",
+        "variants": "7068578d5df77b6e8730e40ef39a075abc77290d7e13df5c62568e6bffe722eb"
+      },
+      "output": {
+        "completed_variant_count": 1000,
+        "row_count": 5194000,
+        "sha256": "5c8ce0e71d29522dfc95caa2a8d0ad2300bd6d469e4bfad3f68dd130b690c1d2",
+        "size_bytes": 2146022862
+      }
+    }
+  },
+  "prediction_provenance": {
+    "provenance_schema_version": 1,
+    "inference_backend_revision": "alphagenome-api-indel-fix-2026-07-14",
+    "inference_run_epoch": "alphagenie_020_ptchd1_frontal_cortex_90mm_20260909",
+    "alphagenome_client_version": "0.8.0",
+    "requested_model_version": "server_default",
+    "genome_build": "GRCh38",
+    "method": "predict_variant.RNA_SEQ",
+    "backend_revision_source": "operator_declared_API_rollout_boundary",
+    "resolved_model_version": null,
+    "inference_started_at": "2026-09-10T00:33:45.129301+00:00",
+    "inference_completed_at": "2026-09-10T00:33:50.939370+00:00"
+  },
+  "prediction_postprocessing": {
+    "version": 1,
+    "method": "reference_coordinate_projection",
+    "coordinate_basis": "GRCh38_reference_0_based",
+    "variant": {
+      "chrom": "chrX",
+      "pos1": 23334765,
+      "ref": "T",
+      "alt": "TCGCCGCCGCCGCGGGCGCCGCTGCCGC"
+    },
+    "net_length_change": 27,
+    "common_prefix_bases": 1,
+    "common_suffix_bases": 0,
+    "reference_edit_length": 0,
+    "alternate_edit_length": 27,
+    "insertion_policy": "maximum_of_shared_left_anchor_and_inserted_segment",
+    "deletion_policy": "zero_at_deleted_reference_positions",
+    "length_changing_replacement_policy": "NaN_within_unmapped_replacement",
+    "unavailable_boundary_policy": "NaN",
+    "unavailable_boundary_positions": 27,
+    "deleted_reference_positions": 0,
+    "raw_artifact": "frontal_cortex_raw_predictions.npz",
+    "raw_track_idx": 2,
+    "is_inference": false,
+    "original_raw_artifact_label": "returned_rna_predictions.npz"
+  }
+}

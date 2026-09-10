@@ -1,0 +1,29 @@
+{
+  "run_id": "ptchd1_1mb",
+  "gene_symbol": "PTCHD1",
+  "category_medians": [
+    0.034535676975,
+    0.038485645879999995,
+    0.037323715055,
+    0.041619896725,
+    0.033477903479999994,
+    0.04241240046,
+    0.038113921225,
+    0.024326801500000002,
+    0.01835918464,
+    -0.021890759725,
+    0.01644325303
+  ],
+  "consensus_effect": 0.037323715055,
+  "null_median": 5.6207170000000065e-05,
+  "real_centered": 0.037267507884999995,
+  "p_two_sided": 0.04195804195804196,
+  "p_observed_direction": 0.000999000999000999,
+  "tail_two_sided": 41,
+  "tail_observed_direction": 0,
+  "n_null": 1000,
+  "observed_tail": "increase",
+  "q_two_sided": null,
+  "q_observed_direction": null,
+  "correction_family": "standalone PTCHD1: empirical P only; not added to the 17-variant cohort"
+}

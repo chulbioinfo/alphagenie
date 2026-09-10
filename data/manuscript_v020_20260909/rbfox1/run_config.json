@@ -1,0 +1,14 @@
+{
+  "alt": "T",
+  "chrom": "chr16",
+  "expected_direction": "unknown",
+  "gene_symbol": "RBFOX1",
+  "inference_run_epoch": "alphagenie_020_postjul14_sdk080_20260908",
+  "null_depth": 1000,
+  "pos1": 6018925,
+  "ref": "TCCG",
+  "run_mode": "api_full",
+  "sequence_length": 16384,
+  "target_gene": "RBFOX1",
+  "variant_group_id": "RBFOX1_del3"
+}

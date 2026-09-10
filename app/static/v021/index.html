@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AlphaGENIE — AlphaGENome-Integrated Explorer. Explore predicted effects of genetic variants, compare tissue-specific signals, and create research figures.">
+  <title>AlphaGENIE · AlphaGENome-Integrated Explorer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/v021/styles.css">
+  <script type="module" src="/static/v021/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to content</a>
+<aside class="rail">
+  <a class="brand" href="#overview" aria-label="AlphaGENIE home">Alpha<span>GENIE</span><small>AlphaGENome-Integrated Explorer</small></a>
+  <nav aria-label="Main navigation">
+    <a href="#overview" data-route="overview" aria-current="page"><span aria-hidden="true">00</span> Overview</a>
+    <a href="#variant" data-route="variant"><span aria-hidden="true">01</span> Single variant</a>
+    <a href="#multi" data-route="multi"><span aria-hidden="true">02</span> Compare variants</a>
+    <a href="#tracks" data-route="tracks"><span aria-hidden="true">03</span> Track library</a>
+    <a href="#local" data-route="local"><span aria-hidden="true">04</span> My analyses</a>
+    <a href="#feedback" data-route="feedback"><span aria-hidden="true">04</span> Feedback</a>
+  </nav>
+  <div class="rail-bottom"><button class="rail-link" data-dialog="guide">How to read results <span aria-hidden="true">↗</span></button>
+    <button class="rail-link" data-dialog="about">About AlphaGENIE</button>
+    <span class="preview-label"><span class="status-dot"></span> Interface v0.21</span>
+  </div>
+</aside>
+<main id="workspace" tabindex="-1">
+  <header class="page-head"><div><p id="pageEyebrow" class="eyebrow">ALPHAGENIE</p><h1 id="pageTitle">Overview</h1></div>
+    <div class="head-actions"><button class="mobile-help text-button" data-dialog="guide">Help</button><button id="newAnalysis" class="button secondary" hidden>New local analysis</button><button id="exportButton" class="button primary" hidden>Export figure <span aria-hidden="true">↓</span></button></div>
+  </header>
+  <div id="status" class="notice" role="status" hidden></div>
+  <section id="overviewView" aria-labelledby="welcomeTitle">
+    <div class="welcome-panel">
+      <p class="eyebrow">AlphaGENome-Integrated Explorer</p>
+      <h2 id="welcomeTitle">Understand predicted effects<br class="wide-break"> of genetic variation.</h2>
+      <p class="welcome-description">AlphaGENIE brings AlphaGenome predictions, tissue-level comparisons and research figures into one place. Explore how a variant may affect RNA signals, inspect the data behind each result, and export the views you need.</p>
+      <div class="welcome-actions"><a class="button primary" href="#variant">Explore saved results <span aria-hidden="true">→</span></a><button class="text-button" data-dialog="guide">How to read the results</button></div>
+      <p class="welcome-status"><span class="status-dot" aria-hidden="true"></span> Local edition · Saved results need no API key. <a href="#local">Run your own analysis →</a></p>
+    </div>
+    <div class="explore-paths" aria-label="Choose an exploration tool">
+      <a class="explore-path" href="#variant"><span class="path-number">01</span><h3>Follow one variant</h3><p>View the gene, predicted RNA curves and tissue-specific effects together.</p><span class="path-link">Single variant <span aria-hidden="true">↗</span></span></a>
+      <a class="explore-path" href="#multi"><span class="path-number">02</span><h3>Compare variants</h3><p>Explore effect patterns, statistical evidence and similarity across the saved cohort.</p><span class="path-link">Variant comparison <span aria-hidden="true">↗</span></span></a>
+      <a class="explore-path" href="#tracks"><span class="path-number">03</span><h3>Find the source data</h3><p>Browse tissue and cell tracks, their origins and how they are grouped.</p><span class="path-link">Track library <span aria-hidden="true">↗</span></span></a>
+    </div>
+    <div class="overview-bottom"><p>For research exploration, not clinical interpretation.</p><button class="text-button" data-dialog="about">About AlphaGENIE & data use ↗</button></div>
+  </section>
+  <section id="singleView" hidden>
+    <div class="selection-bar"><div><span class="eyebrow">SAVED RESULT</span><h2 id="geneTitle">RBFOX1 <span class="badge">Deletion · 16 kb</span></h2></div>
+      <label class="select-label">Choose result<select id="dataset"><option value="rbfox1">RBFOX1 · 16 kb</option><option value="ptchd1">PTCHD1 · 1 Mb</option></select></label>
+    </div>
+    <div id="summary" class="summary-row" aria-live="polite"></div>
+    <div class="context-row"><span>Brain9 · adult brain + embryo <span class="separator">/</span> Data v0.20 <span class="separator">/</span> <span id="locus">GRCh38</span></span><button class="text-button" data-dialog="details">Analysis details <span aria-hidden="true">↗</span></button></div>
+    <section class="figure-card" aria-labelledby="curveTitle">
+      <div class="card-head"><div><span class="panel-index">01</span><h2 id="curveTitle">Gene & RNA prediction</h2></div><button class="text-button" data-dialog="curve">Track details</button></div>
+      <div class="figure-subhead">Frontal cortex <span class="subtle">· UBERON:0001870</span></div>
+      <div class="plot-scroll"><img id="curveImage" class="curve-image" alt="Gene structure, reference and alternate frontal-cortex RNA predictions, and their difference"></div>
+      <p class="caption">Model prediction · input window <span id="inputLength">16,384 bp</span>; plotted gene region may be smaller.</p>
+    </section>
+    <section class="figure-card" aria-labelledby="effectTitle">
+      <div class="card-head"><div><span class="panel-index">02</span><h2 id="effectTitle">RNA effects across tissues</h2></div><button class="text-button" data-dialog="groups">Group definitions</button></div>
+      <div class="chart-toolbar"><p class="subtle">Bar = category median · point = assay track</p><button class="text-button" id="chartOptionsButton" aria-expanded="false" aria-controls="chartOptions">Display options</button></div>
+      <div id="chartOptions" class="chart-options" hidden><label><input id="brainOnly" type="checkbox">Emphasize Brain9</label><label><input id="showPoints" type="checkbox" checked>Show tracks</label><button class="text-button" id="resetChart">Reset highlights</button></div>
+      <div class="plot-scroll"><svg id="effectPlot" role="group" aria-label="Category medians and individual RNA-seq assay tracks"></svg></div>
+      <p class="caption">Hover or select a point to inspect its source. Non-brain tissues and cells are display-only; tracks are not biological replicates.</p>
+      <div id="selectedTrack" class="selected-track" hidden><div><strong id="selectedTrackTitle"></strong><button id="clearTrack" class="text-button">Clear selection</button></div><pre id="selectedTrackText"></pre></div>
+    </section>
+  </section>
+  <section id="multiView" hidden></section>
+  <section id="tracksView" hidden></section>
+  <section id="localView" hidden aria-label="Your local analyses"></section>
+  <section id="feedbackView" hidden aria-labelledby="feedbackTitle">
+    <div class="feedback-intro"><div><h2 id="feedbackTitle">Help improve AlphaGENIE</h2><p>Share a question, report a problem or suggest an improvement.</p></div><button id="writeFeedback" class="button primary" disabled>Write feedback</button></div>
+    <p class="feedback-privacy">No feedback is uploaded automatically by the local edition. Never share API keys or private genomic data in public issues.</p>
+    <div id="feedbackStatus" class="notice" role="status" hidden></div>
+    <section class="figure-card" aria-labelledby="feedbackListTitle"><div class="card-head"><h2 id="feedbackListTitle">Recent feedback</h2><button class="text-button" id="refreshFeedback">Refresh</button></div><div class="feedback-filter-row"><label>Topic <select id="feedbackFilter"><option value="">All topics</option></select></label><span id="feedbackCount" class="subtle"></span></div><div id="feedbackList" class="feedback-list" aria-live="polite"></div></section>
+  </section>
+  <footer class="workspace-footer"><span>Model predictions, not experimental measurements. AlphaGenome-derived outputs: non-commercial research only; not for clinical use. <a href="https://deepmind.google.com/science/alphagenome/output-terms" target="_blank" rel="noopener noreferrer">Output Terms</a>.</span><div><button class="mobile-help text-button" data-dialog="about">Interface v0.21</button><button class="text-button" data-dialog="methods">Methods & provenance</button></div></footer>
+</main>
+<dialog id="detailDialog" aria-labelledby="dialogTitle"><div class="dialog-head"><h2 id="dialogTitle"></h2><button id="closeDialog" class="icon-button" aria-label="Close details">×</button></div><div id="dialogContent" class="dialog-content"></div></dialog>
+<div id="tooltip" role="tooltip" hidden></div>
+<noscript>This interactive explorer requires JavaScript. <a href="/api/manuscript/figures/rbfox1/figure.pdf">Download the verified RBFOX1 manuscript figure.</a></noscript>
+</body>
+</html>

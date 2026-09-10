@@ -1,0 +1,3 @@
+feature	chrom	start	end	strand	gene_name	gene_id	transcript_id	transcript_name	selected_transcript_id	selected_transcript_name	selection_rule
+gene	chr16	5239801	7713340	+	RBFOX1	ENSG00000078328.23			ENST00000550418.6	RBFOX1-211	MANE_Select/Ensembl_canonical/APPRIS priority, then exon length
+exon	chr16	6019023	6019992	+	RBFOX1	ENSG00000078328.23	ENST00000550418.6	RBFOX1-211	ENST00000550418.6	RBFOX1-211	MANE_Select/Ensembl_canonical/APPRIS priority, then exon length

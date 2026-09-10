@@ -1,0 +1,93 @@
+{
+  "status": "frozen_v020_verified",
+  "new_pre_submit_validation": false,
+  "statistical_validation": {
+    "run_id": "rbfox1_16kb",
+    "status": "PASS",
+    "n_null": 1000,
+    "n_tracks": 371,
+    "sequence_length": 16384,
+    "p_two_sided": 0.6293706293706294
+  },
+  "original_target_assignment_qc": [
+    {
+      "variant_group_id": "RBFOX1_del3",
+      "gene_symbol": "RBFOX1",
+      "variant_class": "deletion_3bp",
+      "representation": "input",
+      "sub_index": "0",
+      "chrom": "chr16",
+      "pos1": "6018925",
+      "ref": "TCCG",
+      "alt": "T",
+      "variant_id": "RBFOX1_del3|input|0",
+      "variant_source_file": "[internal reference omitted]",
+      "edit_start0": "6018925.0",
+      "edit_end0": "6018928.0",
+      "edit_center0": "6018926.5",
+      "edit_model": "anchored_deletion_without_anchor",
+      "hg38_ref_status": "PASS_REF_MATCH",
+      "hg38_ref_observed": "TCCG",
+      "alphagenome_interval_start0": "6010734",
+      "alphagenome_interval_end0": "6027118",
+      "gene_annotation_found": "True",
+      "target_gene_on_variant_chrom": "True",
+      "selected_tss_source": "MANE_Select_transcript",
+      "selected_transcript_id": "ENST00000550418.6",
+      "selected_gene_id": "ENSG00000078328.23",
+      "selected_gene_type": "protein_coding",
+      "selected_transcript_type": "protein_coding",
+      "gene_chrom": "chr16",
+      "gene_strand": "+",
+      "gene_start0": "5239801",
+      "gene_end0": "7713340",
+      "selected_tss0": "6019023",
+      "signed_distance_to_selected_tss_bp": "-96.5",
+      "abs_distance_to_selected_tss_bp": "96.5",
+      "n_gencode_transcripts_same_chrom": "40",
+      "n_mane_select_transcripts_same_chrom": "1",
+      "nearest_any_transcript_tss0": "6019023",
+      "nearest_any_transcript_signed_distance_bp": "-96.5",
+      "nearest_any_transcript_id": "ENST00000550418.6",
+      "selected_tss_in_alphagenome_interval": "True",
+      "within_core_tss_window": "True",
+      "within_proximal_promoter_window": "True",
+      "target_assignment_status": "PASS_CORE_TSS_WINDOW",
+      "target_gene": "RBFOX1",
+      "alpha_target_score_status": "PASS_TARGET_TOP_ABS_EFFECT",
+      "target_gene_effect_rank": "1",
+      "target_median_abs_raw_delta": "0.020738602",
+      "target_median_raw_delta": "-0.01682663",
+      "top_gene_name": "RBFOX1",
+      "top_gene_median_abs_raw_delta": "0.020738602",
+      "target_to_top_median_abs_ratio": "1.0",
+      "overall_target_qc_status": "PASS"
+    }
+  ],
+  "null_design": {
+    "n_null_ids": 1000,
+    "input_sequence_length": 16384,
+    "fixed_intervals": [
+      "chr16:6010734-6027118"
+    ],
+    "sampling_stage_counts": {
+      "same_CG_gc10": 296,
+      "gc20_no_CG_requirement": 704
+    },
+    "notes": [
+      "The original matching columns are retained, including historical labels; the numeric interval/config determines input length.",
+      "Some matching dimensions such as CpG overlap and mappability were not assessed. Do not describe all nulls as perfectly TSS/GC/phase matched.",
+      "The historical same_fixed_1Mb_interval text label is retained, but this RBFOX1 context is 16384 bp; 704/1000 nulls use the documented relaxed fallback stage."
+    ]
+  },
+  "notes": [
+    "Only frozen v0.20 gene scores inferred on 2026-09-08 UTC with SDK 0.8.0 are used.",
+    "Serving/building these assets makes no inference calls and generates no new null variants.",
+    "Brain9 is the median of eight adult-region medians plus the pooled median of seven embryo brain-tissue tracks.",
+    "The 153 non-brain tissue and 197 cell/model tracks are display-only pools with all available life stages; neither contributes to Brain9.",
+    "Counts refer to assay tracks, not independent biological replicates. These are model predictions, not experimental expression measurements.",
+    "Direction-selected P/q is exploratory, not a prespecified one-sided test.",
+    "The API requested server_default and did not disclose an immutable model checkpoint. SDK version and rollout boundary are not a weights hash.",
+    "Original matched-null design coordinates can predate v0.20; this is distinct from reuse of earlier numerical predictions."
+  ]
+}

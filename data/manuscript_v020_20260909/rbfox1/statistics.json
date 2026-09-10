@@ -1,0 +1,29 @@
+{
+  "run_id": "rbfox1_16kb",
+  "gene_symbol": "RBFOX1",
+  "category_medians": [
+    -0.008690953375,
+    -0.015313745200000001,
+    -0.0180988316,
+    -0.0170764923,
+    0.01120233526,
+    -0.011241674450000001,
+    0.014973163275,
+    -0.0015971661000000002,
+    0.029282569499999998,
+    -0.0275247095,
+    -0.01444005965
+  ],
+  "consensus_effect": -0.008690953375,
+  "null_median": 0.00029635436249999983,
+  "real_centered": -0.008987307737499999,
+  "p_two_sided": 0.6293706293706294,
+  "p_observed_direction": 0.33166833166833165,
+  "tail_two_sided": 629,
+  "tail_observed_direction": 331,
+  "n_null": 1000,
+  "observed_tail": "decrease",
+  "q_two_sided": null,
+  "q_observed_direction": null,
+  "correction_family": "standalone RBFOX1 16,384-bp context: empirical P only; no 1-Mb BH17 reuse"
+}
