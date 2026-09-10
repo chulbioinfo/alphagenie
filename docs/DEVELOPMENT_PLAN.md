@@ -1,18 +1,19 @@
-# GitHub development plan — v0.21 Local / v0.20 engine
+# GitHub development plan — v0.22 Local / v0.20 engine
 
-Prepared: 2026-09-10. Current package: **0.21.0-local.3**.
+Prepared: 2026-09-10. Current research-preview package: **0.22.0**.
 
 ## Goal and scope
 
-Provide a separately installable, single-user AlphaGENIE package with the v0.21
+Provide a separately installable, single-user AlphaGENIE package with the v0.22
 interface and v0.20 scientific tools. Credentials, local inputs and results are
 not collected by AlphaGENIE operators. Distinguish immutable manuscript results
 from newly submitted API analyses in the interface and provenance.
 
-Creating or pushing a GitHub repository, changing the public website, copying
-production credentials/databases, and spending live API quota are outside this
-local packaging task. All distributed prose and code comments are in English;
-scientific symbols and original biological identifiers are preserved.
+GitHub publication and public website deployment are separate release operations,
+not effects of installation or tests. Copying production credentials/databases
+and spending live API quota are not part of dependency or offline validation.
+All distributed prose and code comments are in English; scientific symbols and
+original biological identifiers are preserved.
 
 ## Design decisions
 
@@ -22,8 +23,11 @@ scientific symbols and original biological identifiers are preserved.
    file, or an environment variable. No web endpoint accepts or returns keys.
    Local file storage is not described as encrypted.
 3. **Loopback-only service:** bind to 127.0.0.1, enforce exact Host/Origin and
-   mutation tokens, and do not trust external CORS/proxies. This is not a public
-   multi-user hosting security model.
+   mutation tokens, and do not trust external CORS/proxies. No account, login,
+   password or recovery workflow is used. Warnings are not access control:
+   other local programs/users may call endpoints and read private status/jobs.
+   Use only an owner-controlled private computer under one trusted OS user,
+   never shared hosting, tunnels or a public/LAN listener.
 4. **Private state:** configuration, SQLite jobs and outputs remain outside the
    source checkout. No operator account, cloud storage or remote deployment.
 5. **Explicit, validated execution:** verify TSV syntax, REF, FAI, GTF, interval
@@ -32,6 +36,9 @@ scientific symbols and original biological identifiers are preserved.
 6. **Reproducibility:** retain raw scores, null designs, output hashes and fresh
    inference timestamps/epochs. Require SDK 0.8.0 but record the provider
    checkpoint as unresolved, not as a pinned model.
+7. **Reviewed dependencies:** hash-lock all 61 existing runtime versions and
+   separately pin current reviewed pip/setuptools wheels. Exact inventories,
+   fail-closed public advisory checks and SHA-pinned CI actions are required.
 
 ## Milestones and release gates
 
@@ -42,10 +49,10 @@ scientific symbols and original biological identifiers are preserved.
 | Interface integration | Implemented | Saved explorer, My analyses, status and downloads; no operator feedback upload |
 | Brain9 adapter | Implemented; offline tested | Exact metadata mapping, all-null completeness, single 11-category display, nine-feature statistics |
 | Frontal cortex curve | Implemented; offline tested | Exact adult GTEx Brain_Cortex track, independent REF/ALT selection, coordinate checks and identity-bound caches |
-| Tests/docs/packaging | Implemented | Offline scientific, security, HTTP and JavaScript checks; English documentation; reviewed source ZIP |
-| Clean-machine/live-provider validation | Required before stable release | New supported OS installation, own-key 10-null smoke test, then 1,000-null single/multi, quota/runtime/disk and failure behavior |
+| Tests/docs/packaging | Implemented; final integration recorded separately | Hash-locked install, offline scientific/security checks, English documentation, release scanner/source archive |
+| Clean-machine/live-provider validation | Partially validated; still required before stable release | Fresh isolated macOS arm64 install passed; other platforms have wheel-resolution dry runs only. Native CI and eligible own-key 10-null then 1,000-null single/multi, quota/runtime/disk/failure checks remain |
 | Redistribution permission | Owner decision required | Code license, contributor rights, manuscript data/output terms, repository owner/name |
-| GitHub publication | Not performed | Explicit repository creation/push after review; CI and pre-release notes/tag |
+| GitHub publication | Separate owner-authorized release operation | Actual push, CI and research-preview tag/release must be confirmed independently; source documentation does not prove them |
 
 ## Implemented scientific contracts
 

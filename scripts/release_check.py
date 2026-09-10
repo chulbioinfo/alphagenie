@@ -9,8 +9,8 @@ from language_check import check_english_release
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORIES = {"alphagenie", "app", "worker", "pipeline", "data", "docs", "examples", "scripts", "tests", ".github"}
-FILES = {"README.md", "README.ko.md", "LICENSE", "NOTICE.md", "SECURITY.md", "requirements.txt",
-         "requirements-lock.txt", "package.json", ".gitignore", ".gitattributes", "SOURCE_ORIGIN.json"}
+FILES = {"README.md", "LICENSE", "NOTICE.md", "SECURITY.md", "requirements.txt",
+         "requirements-lock.txt", "requirements-installer.txt", "package.json", ".gitignore", ".gitattributes", "SOURCE_ORIGIN.json"}
 EXCLUDED_PARTS = {"__pycache__", ".git", ".venv", ".pytest_cache", "node_modules", "dist"}
 BAD_SUFFIXES = {".sqlite", ".sqlite3", ".db", ".log", ".pem", ".key", ".fa", ".fasta", ".fai", ".gtf"}
 PATTERNS = [re.compile(rb"AIza[A-Za-z0-9_-]{30,}"),

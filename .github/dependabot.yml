@@ -1,0 +1,9 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+# Python pins are reviewed with the scientific regression suite and regenerated
+# wheel hashes, not automatically upgraded. CI queries OSV for every locked pin.

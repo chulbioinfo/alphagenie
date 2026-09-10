@@ -1,5 +1,5 @@
-# Application and scientific SDK versions used in the local build.
-# Exact transitive snapshot: requirements-lock.txt (Python 3.11, macOS).
+# Reviewed direct runtime dependencies; not the installation entry point.
+# Use scripts/setup.sh: requirements-lock.txt supplies complete wheel hashes.
 alphagenome==0.8.0
 fastapi==0.141.1
 uvicorn==0.52.4

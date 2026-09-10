@@ -1,4 +1,4 @@
-"""Read-only v0.21 explorer. Rendering uses only the sealed v0.20 release.
+"""Read-only v0.22 explorer. Rendering uses only the sealed v0.20 release.
 
 Local job authorization and downloads live in alphagenie/server.py.
 This module must not import workers, job stores or an AlphaGenome API client.
@@ -13,7 +13,7 @@ from app import manuscript_release as release, manuscript_view as view
 STATIC_ROOT = Path(__file__).resolve().parent / 'static/v021'
 READ_HEADERS = {
     'Cache-Control': 'no-store',
-    'X-AlphaGENIE-UI-Version': 'v0.21',
+    'X-AlphaGENIE-UI-Version': 'v0.22',
     'X-AlphaGENIE-Data-Version': 'v0.20',
     'X-AlphaGENIE-Inference': 'none',
     'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'none'",

@@ -325,9 +325,16 @@ def _figure_bytes(c, opt, kind, *, top_only=False):
         return output.getvalue()
 
 
-@lru_cache(maxsize=12)
+from app.render_cache import RenderCache
+RENDER_CACHE = RenderCache()
+
+
 def _render_cached(key, fingerprint, opt, kind, top_only):
-    return _figure_bytes(verified_context(key), opt, kind, top_only=top_only)
+    return RENDER_CACHE.get((key, fingerprint, opt, kind, top_only),
+                           lambda: _figure_bytes(verified_context(key), opt, kind, top_only=top_only))
+
+
+_render_cached.cache_clear = RENDER_CACHE.clear
 
 
 def render(key, opt, kind='pdf', *, top_only=False):

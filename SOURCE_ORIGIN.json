@@ -1,12 +1,15 @@
 {
-  "package_version": "0.21.0-local.3",
+  "package_version": "0.22.0",
   "assembled_utc_date": "2026-09-10",
-  "origin": "User-owned AlphaGENIE source snapshot; no public Git commit identifier was available",
-  "interface_lineage": "v0.21",
+  "origin": "Originally assembled from a user-owned AlphaGENIE snapshot; copied_sources records original snapshot hashes, not current file hashes",
+  "maintenance_base_git_commit": "b370f5ffb867af1b00add716af74af7fbbe696fa",
+  "interface_lineage": "v0.22 (based on v0.21)",
   "scientific_engine_lineage": "v0.20",
   "saved_release": "alphagenie_manuscript_v020_20260909",
   "saved_release_manifest_sha256": "1dae451a7059f9b4dab8ffb44d27970fb9b69d5a06c974d7d6f9b11ec583ba34",
   "changes": [
+    "v0.22: bounded render memory/work, request budgets and upload admission; no individual login by design",
+    "v0.22: hash-pinned binary dependencies and installer tooling, exact inventory and advisory checks",
     "Versioned metadata-only manuscript Brain9 adapter and 11-category single display",
     "Full catalog/metadata/null-ID completeness and canonical-before-centering guards",
     "Brain9-only multi heatmap/BH/cosine; full 11-category matrix retained",

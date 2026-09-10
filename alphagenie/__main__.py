@@ -11,7 +11,7 @@ from .config import private_write, read_config, state_dir, key_available, save_c
 
 def main():
     os.umask(0o077)
-    parser = argparse.ArgumentParser(description="AlphaGENIE local: v0.21 UI / v0.20 engine")
+    parser = argparse.ArgumentParser(description="AlphaGENIE local: v0.22 UI / v0.20 engine")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("doctor", help="Local installation checks; never contacts the API")
     key = sub.add_parser("key", help="Manage your local key without echo or command-line arguments")
@@ -70,6 +70,7 @@ def main():
         import uvicorn
         from .server import create_app
         print(f"Open http://127.0.0.1:{args.port}/ — keep this terminal open. No public hosting.")
+        print("No login: other local programs or OS users may access local analyses. Use a trusted, single-user computer.")
         uvicorn.run(create_app(args.port), host="127.0.0.1", port=args.port, proxy_headers=False,
                     access_log=False, log_level="warning")
     elif args.command == "_worker":

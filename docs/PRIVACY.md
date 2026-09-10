@@ -17,7 +17,8 @@
 | Save inputs/scores/logs | Private local jobs directory | Variant information, null designs, raw/adjusted scores, provenance, local file paths |
 | Open an external citation/UCSC/terms link | User-selected website | Normal web-request metadata; UCSC links include the chosen genomic coordinates |
 | Manually publish a GitHub issue | GitHub | Only the text/files you choose to submit; not automatic |
-| Install Python dependencies | Configured package registry | Ordinary dependency download requests; no AlphaGenome key is requested |
+| Install Python dependencies | Official PyPI | Hash-verified wheel downloads; no AlphaGenome key is requested |
+| Run the optional dependency advisory check / CI | Public OSV API | Public dependency names and versions only; no credentials, references or variant data |
 
 The inspected SDK 0.8.0 uses TLS gRPC to `gdmscience.googleapis.com:443`, carrying the key in `x-goog-api-key` metadata. Endpoint behavior belongs to the upstream SDK and may change with future releases. The SDK is not vendored or firewalled by this application.
 
@@ -27,7 +28,8 @@ The inspected SDK 0.8.0 uses TLS gRPC to `gdmscience.googleapis.com:443`, carryi
 - File permissions restrict other ordinary OS users; they do **not** encrypt the key or protect it from your own processes, administrator/root, malware, process inspection, backups or sync software. Do not use a shared account.
 - The environment-only key is not written to the credential file. It is available in memory/environment to the server/inference process and necessary scoring subprocesses. It is never passed as a command-line argument.
 - Local non-inference subprocesses do not receive the API key. Operator/cloud/proxy environment variables are not propagated by default.
-- The browser receives a **per-process local request token**, regenerated on server restart and unrelated to the API key. It receives only key-present status, never the credential value. The token protects browser-origin mutations, not malicious programs already running as you.
+- No account, local login, password or recovery workflow is present. The browser receives a per-process request token for CSRF protection and key-present status, never the AlphaGenome credential value. The token is not local-user or local-program authentication.
+- Other local programs or OS users able to reach the loopback listener may read private configuration/status, job lists/details and downloads or call local endpoints. Exact Host/Origin and request-token checks do not isolate them. Filesystem permissions do not restrict an unauthenticated HTTP response. Use only an owner-controlled private computer under a single trusted OS user; never use a shared server/account, tunnel, reverse proxy or public/LAN binding. Warnings are not access control.
 - Known key values/Google-key patterns are redacted from application text logs, state messages and JSON writes. This is defense in depth, not proof against every future dependency error format. Do not publish raw logs or memory dumps without review.
 - The application performs no automatic deletion of results. Use the key-delete command to remove the local credential file; remove/export your own job folders deliberately after reviewing contents. Provider copies and backups are outside the app's control.
 
