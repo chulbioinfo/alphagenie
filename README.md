@@ -32,16 +32,18 @@ The key prompt is hidden. Never paste a real key into a shell command, issue, no
 
 In **My analyses**, paste a TSV, choose the input length and null count, review the transmission consent, and run. One row runs a single variant; 2–20 rows run a comparison. Default: **1,000 nulls per variant**. Large analyses may take substantial time and disk space and consume your API quota. No automatic resume after interruption.
 
-## Two explicitly different workflows
+## Saved results and fresh analysis
 
 | | Saved manuscript explorer | New local analysis |
 |---|---|---|
 | UI | v0.21 | v0.21 local workspace |
 | Numerical source | Frozen v0.20 release; 1,000 nulls each | Fresh inference using v0.20 engine code |
-| Brain endpoint | Brain9: 8 adult categories + Embryo | Original **6 brain groups**, not adult-only |
+| Brain endpoint | Brain9: 8 adult categories + Embryo | Same versioned **Brain9** membership (8 adult + Embryo) |
 | RNA curve | Frontal cortex, UBERON:0001870 | Whole brain, UBERON:0000955 |
 | Multi-variant family | Fixed 17 variants, RGPD1 excluded | All requested variants must complete; first row is cosine reference |
 | Network | None for local viewing/export | Google DeepMind API on explicit run |
+
+Both workflows display **11 categories** for single variants: the nine Brain9 categories, Non-brain tissues, and Cells & cell lines. Only Brain9 enters primary statistics and cosine; multi-variant heatmaps show those nine categories, while the downloadable matrix retains all 11. The reviewed catalog has 371 tracks (14 adult brain + 7 embryonic brain + 153 non-brain tissue + 197 cells). New/missing tracks or changed classification metadata stop analysis for review; no guessed grouping or legacy fallback. See [Brain9 specification](docs/BRAIN9.md).
 
 The SDK is pinned to **0.8.0**, not to an immutable provider checkpoint. New runs are **not guaranteed to reproduce September 2026 numbers**, and are not labeled as the frozen Brain9 analysis. No v0.18 numerical fallback is shipped or used. See the scientific limitations in [Methods](docs/METHODS.md).
 

@@ -186,6 +186,18 @@ class PrivateStateTests(unittest.TestCase):
 
 
 class HttpTests(unittest.TestCase):
+    def test_old_jobs_are_not_relabelled_as_brain9(self):
+        from worker.brain9 import VERSION
+        state = config.state_dir()
+        db = state / "jobs.sqlite"
+        for letter, payload in (("c", {"analysis_mode": "custom_api_local_brain6"}),
+                                ("d", {"classification_version": VERSION})):
+            job_store.create_job(db, job_id=letter*32, run_mode="api_full", input_payload=payload,
+                                 job_dir=state / "jobs" / (letter*32))
+            response = self.request("GET", "/api/local/jobs/" + letter*32)
+            self.assertEqual(response[0], 200)
+            self.assertIn("Legacy Brain6" if letter == "c" else "Brain9 (adult 8 + Embryo)", response[2]["endpoint"])
+
     @classmethod
     def setUpClass(cls):
         cls.stack = ExitStack()
@@ -263,7 +275,7 @@ class HttpTests(unittest.TestCase):
         with patch.object(self.app.state.manager, "launch", return_value="c"*32) as launch:
             response = self.request("POST", "/api/local/jobs", {"tsv": TSV, "consent": True}, self.auth())
             self.assertEqual(response[0], 202)
-            self.assertEqual(response[2]["endpoint"], "brain6")
+            self.assertEqual(response[2]["endpoint"], "Brain9")
             self.assertEqual(launch.call_args.args[0][0]["null_depth"], 1000)
 
     def test_saved_data_all_55_downloads_preserved_without_api(self):
@@ -326,7 +338,7 @@ class CohortAndTrackGuards(unittest.TestCase):
                 multi, "load_single_result", return_value={"fixture": True}
             ), patch.object(multi, "combine_single_results", side_effect=AssertionError("Reduced family forbidden")) as combine:
                 multi.run_multi_variant_job(db_path=str(root / "unused"), job_id="f"*32,
-                    payload={"rows": [{"variant_group_id": "a"}, {"variant_group_id": "b"}], "analysis_mode": "custom_api_local_brain6"},
+                    payload={"rows": [{"variant_group_id": "a"}, {"variant_group_id": "b"}], "analysis_mode": "custom_api_local_brain9"},
                     job_dir=str(root), v04_reference_run="unused", v04_pipeline_dir="unused", hg38_fasta="unused", gencode_gtf="unused")
                 combine.assert_not_called()
                 self.assertEqual(update.call_args.kwargs["status"], "failed")
@@ -334,13 +346,14 @@ class CohortAndTrackGuards(unittest.TestCase):
 
     def test_missing_cosine_reference_is_not_replaced(self):
         from worker import run_multi_variant_job as multi
-        item = {"summary": {"variant_group_id": "present", "gene_symbol": "TEST", "empirical_p_two_sided": .1,
+        from worker.brain9 import provenance, SCOPE
+        item = {"summary": {"classification": provenance(), "primary_effect_scope": SCOPE, "variant_group_id": "present", "gene_symbol": "TEST", "empirical_p_two_sided": .1,
                             "empirical_p_observed_direction": .2},
-                "group": pd.DataFrame({"display_group": multi.BRAIN_GROUPS, "median_effect": [.1]*6}),
-                "source": pd.DataFrame({"effect": [.1]}), "job": {"job_id": "present"}}
+                "group": pd.DataFrame({"display_group": multi.BRAIN_GROUPS, "median_effect": [.1]*9}),
+                "source": pd.DataFrame({"effect": [.1], "track_key": ["fixture"], "display_group": [multi.BRAIN_GROUPS[0]]}), "job": {"job_id": "present"}}
         with tempfile.TemporaryDirectory() as temp:
             with self.assertRaisesRegex(ValueError, "reference is unavailable"):
-                multi.combine_single_results(job_id="test", payload={"reference_variant_group_id": "missing"},
+                multi.combine_single_results(job_id="test", payload={"rows": [{"variant_group_id": "present"}], "reference_variant_group_id": "missing"},
                                              single_results=[item], results_dir=Path(temp))
 
     def test_multi_html_escapes_user_labels(self):

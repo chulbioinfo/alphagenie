@@ -38,14 +38,11 @@ RED = "#B2182B"
 DARK = "#222222"
 GRAY = "#777777"
 
-BRAIN_GROUPS = [
-    "Whole brain",
-    "Cortex / frontal cortex",
-    "Hippocampus",
-    "Basal ganglia",
-    "Cerebellum",
-    "Other brain",
-]
+from worker.brain9 import (
+    BRAIN_TISSUE_GROUPS, DISPLAY_ONLY_GROUPS, SCOPE as BRAIN9_SCOPE,
+    VERSION as CLASSIFICATION_VERSION, provenance as classification_provenance,
+)
+BRAIN_GROUPS = list(BRAIN_TISSUE_GROUPS)
 
 
 def safe_id(value: object, fallback: str = "variant") -> str:
@@ -83,13 +80,12 @@ def finite_float(value: object) -> float | None:
 
 
 def cosine(a: list[float | None], b: list[float | None]) -> tuple[float | None, float | None, int]:
-    pairs = [(x, y) for x, y in zip(a, b, strict=False) if x is not None and y is not None]
-    if not pairs:
-        return None, None, 0
-    av = np.array([x for x, _ in pairs], dtype=float)
-    bv = np.array([y for _, y in pairs], dtype=float)
+    if len(a) != 9 or len(b) != 9 or any(finite_float(x) is None for x in [*a, *b]):
+        raise ValueError("Brain9 cosine requires all nine finite category values")
+    pairs = list(zip(a, b, strict=True))
+    av, bv = np.asarray(a, dtype=float), np.asarray(b, dtype=float)
     denom = float(np.linalg.norm(av) * np.linalg.norm(bv))
-    sim = float(np.dot(av, bv) / denom) if denom > 0 else None
+    sim = float(np.clip(np.dot(av, bv) / denom, -1, 1)) if denom > 0 else None
     nz = [(x, y) for x, y in pairs if x != 0 and y != 0]
     agreement = float(sum(math.copysign(1, x) == math.copysign(1, y) for x, y in nz) / len(nz)) if nz else None
     return sim, agreement, len(pairs)
@@ -107,8 +103,8 @@ def load_single_result(job: dict[str, Any]) -> dict[str, Any]:
     return {
         "job": job,
         "summary": read_json(summary_path),
-        "group": pd.read_csv(group_path, sep="\t"),
-        "source": pd.read_csv(source_path, sep="\t"),
+        "group": pd.read_csv(group_path, sep="\t", float_precision="round_trip"),
+        "source": pd.read_csv(source_path, sep="\t", float_precision="round_trip"),
     }
 
 
@@ -120,6 +116,13 @@ def combine_single_results(
     results_dir: Path,
 ) -> dict[str, Any]:
     results_dir.mkdir(parents=True, exist_ok=True)
+    requested = payload.get("rows") or []
+    if not requested or len(single_results) != len(requested):
+        raise ValueError("Cohort requires every requested variant; no reduced-family summary")
+    expected_ids = [str(row["variant_group_id"]) for row in requested]
+    actual_ids = [str(item["summary"].get("variant_group_id")) for item in single_results]
+    if len(set(expected_ids)) != len(expected_ids) or set(actual_ids) != set(expected_ids):
+        raise ValueError("Cohort variant identities differ from the requested family")
     group_names = [group for group, _ in FULL_GROUP_ORDER]
     rows_for_matrix: list[dict[str, Any]] = []
     ranking_rows: list[dict[str, Any]] = []
@@ -127,11 +130,18 @@ def combine_single_results(
     p_obs: list[float | None] = []
     p_two: list[float | None] = []
 
+    expected_tracks = None
     for item in single_results:
         summary = item["summary"]
+        if summary.get("classification", {}).get("version") != CLASSIFICATION_VERSION or summary.get("primary_effect_scope") != BRAIN9_SCOPE:
+            raise ValueError("Cohort requires the same versioned Brain9 classification for every variant")
         group = item["group"]
         source = item["source"].copy()
         sub_job = item["job"]
+        tracks = set(source["track_key"]) if "track_key" in source else set()
+        if not tracks or (expected_tracks is not None and tracks != expected_tracks):
+            raise ValueError("Cohort track membership differs between variants")
+        expected_tracks = tracks
         variant_group_id = str(summary.get("variant_group_id") or sub_job.get("input", {}).get("variant_group_id"))
         gene_symbol = str(summary.get("gene_symbol") or sub_job.get("input", {}).get("gene_symbol"))
         source["multi_job_id"] = job_id
@@ -149,6 +159,8 @@ def combine_single_results(
 
         obs = finite_float(summary.get("empirical_p_observed_direction"))
         two = finite_float(summary.get("empirical_p_two_sided"))
+        if obs is None or two is None:
+            raise ValueError("Cohort empirical P must be finite for every requested variant")
         p_obs.append(obs)
         p_two.append(two)
         ranking_rows.append(
@@ -180,6 +192,7 @@ def combine_single_results(
 
     matrix = pd.DataFrame(rows_for_matrix)
     ranking = pd.DataFrame(ranking_rows)
+    group_track_counts = single_results[0]["source"].groupby("display_group")["track_key"].nunique().to_dict()
     reference_id = str(payload.get("reference_variant_group_id") or "")
     if not reference_id and not ranking.empty:
         reference_id = str(ranking.iloc[0]["variant_group_id"])
@@ -227,13 +240,14 @@ def combine_single_results(
         "n_variants_completed": len(single_results),
         "effect_definition": "GeneMaskLFC score minus trackwise matched-null median (predicted RNA log fold change, ALT versus REF)",
         "primary_inference": "two-sided empirical p and BH FDR; observed-direction one-sided values are exploratory",
-        "similarity_scope": payload.get("similarity_scope") or "brain_tissue_6_groups",
-        "primary_effect_scope": "brain_tissue_6_groups",
+        "similarity_scope": BRAIN9_SCOPE,
+        "classification": classification_provenance(),
+        "primary_effect_scope": BRAIN9_SCOPE,
         "primary_effect_groups": BRAIN_GROUPS,
-        "supportive_groups_displayed_not_primary": [
-            "Developmental brain / neural progenitor",
-            "Neural / glial cells",
-        ],
+        "display_only_groups": list(DISPLAY_ONLY_GROUPS),
+        "heatmap_groups": BRAIN_GROUPS,
+        "matrix_groups": group_names,
+        "group_track_counts": {key: int(value) for key, value in group_track_counts.items()},
         "heatmap_row_order": payload.get("heatmap_row_order") or "consensus",
         "source_tables": {
             "source_table": "source_table.tsv",
@@ -260,6 +274,7 @@ def combine_single_results(
         heatmap_row_order=str(payload.get("heatmap_row_order") or "consensus"),
         out_prefix=results_dir / "multi_variant_plot",
         provenance_label=figure_provenance_label(summary),
+        group_track_counts=group_track_counts,
     )
     write_multi_plot_html(results_dir / "multi_variant_plot.html", results_dir / "multi_variant_plot.svg", summary)
     return summary
@@ -349,6 +364,7 @@ def make_multi_plot(
     fdr_panel_width: float | None = None,
     cosine_panel_width: float | None = None,
     provenance_label: str | None = None,
+    group_track_counts: dict[str, int] | None = None,
 ) -> None:
     width_mm = float(figure_width_mm or DEFAULT_MULTI_FIGURE_WIDTH_MM)
     height_mm = float(figure_height_mm or DEFAULT_MULTI_FIGURE_HEIGHT_MM)
@@ -358,8 +374,10 @@ def make_multi_plot(
         _panel_weight(fdr_panel_width, 2.0),
         _panel_weight(cosine_panel_width, 1.0),
     ]
-    group_names = [group for group, _ in FULL_GROUP_ORDER]
-    labels = [label for _, label in FULL_GROUP_ORDER]
+    group_names = BRAIN_GROUPS
+    labels = [label for _, label in FULL_GROUP_ORDER[:9]]
+    if group_track_counts is not None:
+        labels = [f"{label} ({group_track_counts[group]})" for group, label in FULL_GROUP_ORDER[:9]]
     ranking = ranking.copy()
     ranking["real_consensus_delta_num"] = pd.to_numeric(ranking["real_consensus_delta"], errors="coerce")
     if heatmap_row_order == "cosine" and not cosine_table.empty:
@@ -431,8 +449,8 @@ def make_multi_plot(
     ax0.set_xticks(np.arange(len(labels)))
     ax0.set_xticklabels(labels, rotation=45, ha="right", fontsize=_multi_font(4.4, scale))
     ax0.tick_params(length=0)
-    ax0.set_title("A  Adjusted RNA log fold change", loc="left", fontsize=_multi_font(5.2, scale), fontweight="bold", pad=2 * scale)
-    for boundary in PLOT_SECTION_BOUNDARIES:
+    ax0.set_title("A  Brain9 adjusted RNA log fold change", loc="left", fontsize=_multi_font(5.2, scale), fontweight="bold", pad=2 * scale)
+    for boundary in (7.5,):
         ax0.axvline(boundary, color="black", lw=0.8)
     cbar = fig.colorbar(im, ax=ax0, fraction=0.028, pad=0.012)
     cbar.ax.tick_params(labelsize=_multi_font(4.2, scale), length=1.4 * scale)
@@ -490,8 +508,9 @@ def make_multi_plot(
                 zorder=4,
             )
         fdr = finite_float(row.get("bh_fdr_two_sided_multi"))
-        if fdr is not None and (fdr <= 0.05 or str(row.get("variant_group_id")) == str(reference_id)):
-            y_label = max([v for v in [row_y_obs, row_y_two] if v is not None], default=-math.log10(fdr))
+        fdr_obs = finite_float(row.get("bh_fdr_observed_direction_multi"))
+        if (fdr is not None and fdr <= 0.05) or (fdr_obs is not None and fdr_obs <= 0.05) or str(row.get("variant_group_id")) == str(reference_id):
+            y_label = max([v for v in [row_y_obs, row_y_two] if v is not None], default=0.0)
             dx, dy, ha = label_offsets.get(str(row.get("gene_symbol")), (0, 5, "center"))
             text_label = label_by_variant.get(str(row.get("variant_group_id")), str(row.get("gene_symbol")))
             ax1.annotate(
@@ -537,7 +556,7 @@ def make_multi_plot(
     )
 
     cos = cosine_table.set_index("variant_group_id").reindex(order).reset_index()
-    cos_values = pd.to_numeric(cos["brain_cosine_similarity"], errors="coerce").fillna(0).to_numpy(dtype=float)
+    cos_values = pd.to_numeric(cos["brain_cosine_similarity"], errors="coerce").to_numpy(dtype=float)
     y = np.arange(len(cos))
     bar_colors = [
         "#3B231C" if vid == reference_id else ("#2B6CB0" if value >= 0 else "#B7B7B7")
@@ -545,6 +564,8 @@ def make_multi_plot(
     ]
     ax2.axvline(0, color=DARK, lw=0.7)
     ax2.barh(y, cos_values, color=bar_colors, height=0.72)
+    for index in np.flatnonzero(~np.isfinite(cos_values)):
+        ax2.text(0.02, index, "NA (zero norm)", fontsize=_multi_font(4.2, scale), va="center")
     ax2.set_yticks(y)
     cos_labels = [
         label_by_variant.get(str(row.get("variant_group_id")), str(row.get("gene_symbol") or ""))
@@ -664,6 +685,8 @@ def run_multi_variant_job(
             )
             single_payload = dict(row)
             single_payload["run_mode"] = "api_full"
+            single_payload["analysis_mode"] = "custom_api_local_brain9"
+            single_payload["classification_version"] = CLASSIFICATION_VERSION
             manifest_entry = subjob_manifest[idx - 1]
             manifest_entry.update(
                 {

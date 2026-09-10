@@ -69,6 +69,17 @@ One active analysis is allowed per private state directory. Multi-variant jobs r
 
 ## Outputs and stopping
 
+New analyses use the strict manuscript Brain9/11-category mapping described in
+[BRAIN9.md](BRAIN9.md). If provider metadata or track membership changes, inspect
+`classification_audit.json` / `.tsv` in the failed job's private `results/`
+directory. Do not bypass this error by relabeling tracks or substituting old
+scores. Classification receipts are also downloadable for successful jobs.
+
+When upgrading from local.1, stop the old server first, replace only the source
+checkout with this version, and restart from the new checkout. Keep your private
+state directory. Existing Brain6 jobs remain legacy; no automatic conversion or
+new API run occurs.
+
 Browser downloads list result figures, source tables, null summary/design, QC and provenance where produced. Full raw real/null TSVs and sidecars remain under `~/.alphagenie/jobs/<job-id>/`. No broad file-browser or upload-to-operator endpoint exists.
 
 Ctrl+C in the server terminal stops that server's active process group. Already sent remote requests cannot be recalled. An abrupt OS kill/crash can leave an inference worker alive; the inherited analysis lock prevents a second overlapping run. Restart the server to inspect status and wait for it to finish. Do not delete lock/state files to bypass this safeguard while a worker may still be alive. No automatic retry is performed. A lost worker is marked interrupted only when no analysis lock remains held.

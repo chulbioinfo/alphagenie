@@ -35,7 +35,9 @@ python -m alphagenie doctor
 ## 분석 해석에서 반드시 구분할 점
 
 - **저장된 논문 결과:** v0.20 / Brain9(성인 8개 범주 + Embryo) / frontal cortex / 분석당 1,000 null. 17변이 cohort와 RBFOX1 16kb single은 별개입니다.
-- **신규 사용자 분석:** v0.20 기존 worker의 **6개 뇌 그룹 + Whole brain**입니다. 이 그룹은 성인 전용이 아닙니다. 신규 결과를 Brain9 논문 재현 결과라고 표시하지 않습니다.
+- **신규 사용자 분석:** v0.20 점수 생성에 논문과 동일한 **Brain9 분류(성인 8개 범주 + Embryo)**를 적용합니다. 단일 그림에는 Non-brain tissues와 Cells & cell lines를 추가한 11개 범주를 표시하되, 주 통계·heatmap·cosine에는 Brain9의 9개 범주만 사용합니다. 전체 11개 범주의 값은 다운로드 matrix에도 보존합니다.
+- 분류는 검토된 371개 track-key와 조직 유형·donor life stage 등 원본 메타데이터를 검증합니다. 새 track, 누락, 메타데이터 변경, 불완전 null은 임의로 보정하지 않고 중단합니다. [Brain9 상세 정의](docs/BRAIN9.md)를 확인하세요.
+- 새 real/null 점수를 생성하므로 저장된 점수를 가져오지 않습니다. 별도 RNA 곡선은 현재 **Whole brain**이며, 저장된 frontal cortex 곡선과 다릅니다. 같은 분류가 같은 API 수치의 재현을 보장하지는 않습니다.
 - 다중 분석은 모든 요청 변이가 성공해야 cohort BH/cosine을 만듭니다. 일부 실패 시 완료된 개별 결과를 보존하고 합산 결과는 만들지 않습니다.
 - SDK 0.8.0을 고정해도 Google 서버 checkpoint는 고정되지 않습니다. 새 API 숫자가 기존 저장 결과와 같다는 보장은 없습니다. v0.18 데이터로 대체하지 않습니다.
 - 저장된 single 그림에는 현재의 인터랙티브 점 표시·위아래 패널·크기 지정 PDF 기능이 유지됩니다. 신규 분석 그림은 기존 엔진 렌더러를 사용하며, 동일한 사용자 지정 PDF 편집 기능은 후속 개발 항목입니다.

@@ -8,7 +8,7 @@ Browser (127.0.0.1 only)
                     → isolated worker process
                          ├─ local matched-null generation / target QC
                          ├─ real + null score requests → Google DeepMind API
-                         ├─ local Brain6 statistics / BH / cosine
+                         ├─ versioned Brain9 statistics / BH / cosine
                          └─ Whole brain prediction → local figure + source files
 ```
 
@@ -19,7 +19,7 @@ No external database, remote storage, cloud authentication or operator feedback 
 ## Important boundaries
 
 - Source code is portable; references, credential file and runtime jobs are user-specific and excluded from source archives.
-- Saved data use Brain9; custom engine uses Brain6. They are different endpoints, not interchangeable format options.
+- Saved data and fresh scores now share versioned Brain9 membership. `worker/brain9.py` reads only hash-bound classification metadata, never saved scores. New catalog drift fails closed. Old Brain6 local jobs keep their legacy labels; no migration or reanalysis is automatic.
 - An input-only preset button never copies old scores into a new job.
 - All API jobs are fresh; loading/reformatting frozen outputs never touches the SDK client.
 - Generated HTML from the old worker is not served. Generated files must resolve beneath the correct private job root.

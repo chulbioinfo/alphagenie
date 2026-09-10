@@ -69,61 +69,11 @@ DEMO_SPECS: dict[str, dict[str, Any]] = {
     },
 }
 
-BRAIN_TISSUE_GROUPS = (
-    "Whole brain",
-    "Cortex / frontal cortex",
-    "Hippocampus",
-    "Basal ganglia",
-    "Cerebellum",
-    "Other brain",
-)
-
-NONBRAIN_TISSUE_GROUPS = ("Non-brain tissue / other",)
-
-SUPPORTIVE_NEURAL_GROUPS = (
-    "Developmental brain / neural progenitor",
-    "Neural / glial cells",
-)
-
-CELL_AND_CELL_LINE_GROUPS = (
-    *SUPPORTIVE_NEURAL_GROUPS,
-    "Primary non-brain cell",
-    "Non-brain cell line",
-    "In vitro non-neural",
-)
-
-FULL_GROUP_ORDER = [
-    ("Whole brain", "Whole brain"),
-    ("Cortex / frontal cortex", "Cortex/FC"),
-    ("Hippocampus", "Hipp."),
-    ("Basal ganglia", "BG"),
-    ("Cerebellum", "Cereb."),
-    ("Other brain", "Other brain"),
-    ("Non-brain tissue / other", "Non-brain"),
-    ("Developmental brain / neural progenitor", "Dev/NP"),
-    ("Neural / glial cells", "Neural/glial"),
-    ("Primary non-brain cell", "Primary"),
-    ("Non-brain cell line", "Cell line"),
-    ("In vitro non-neural", "In vitro diff"),
-]
-
-PLOT_SECTION_BOUNDARIES = (
-    len(BRAIN_TISSUE_GROUPS) - 0.5,
-    len(BRAIN_TISSUE_GROUPS) + len(NONBRAIN_TISSUE_GROUPS) - 0.5,
-)
-
-PLOT_SECTION_LABELS = (
-    {"label": "Brain tissues", "start": 0, "end": len(BRAIN_TISSUE_GROUPS) - 1},
-    {
-        "label": "Non-brain tissues",
-        "start": len(BRAIN_TISSUE_GROUPS),
-        "end": len(BRAIN_TISSUE_GROUPS) + len(NONBRAIN_TISSUE_GROUPS) - 1,
-    },
-    {
-        "label": "Cells / lines",
-        "start": len(BRAIN_TISSUE_GROUPS) + len(NONBRAIN_TISSUE_GROUPS),
-        "end": len(FULL_GROUP_ORDER) - 1,
-    },
+from worker.brain9 import (
+    BRAIN_TISSUE_GROUPS, NONBRAIN_TISSUE_GROUPS, SUPPORTIVE_NEURAL_GROUPS,
+    CELL_AND_CELL_LINE_GROUPS, FULL_GROUP_ORDER, PLOT_SECTION_BOUNDARIES, PLOT_SECTION_LABELS,
+    DISPLAY_ONLY_GROUPS, SCOPE as BRAIN9_SCOPE, provenance as classification_provenance,
+    canonicalize_scores,
 )
 
 PRIMARY_BRAIN_TISSUE_GROUPS = set(BRAIN_TISSUE_GROUPS)
@@ -1245,7 +1195,7 @@ def make_plot(
     input_text = f"{int(input_length):,} bp" if input_length is not None else "NA"
     subtitle = (
         f"run_mode={summary.get('run_mode', 'unknown')}; "
-        f"brain consensus={consensus_text}; "
+        f"Brain9 consensus={consensus_text}; "
         f"two-sided empirical P={p_text}; input={input_text}; "
         f"complete nulls={summary.get('n_null_consensus', 'NA')}"
     )
@@ -1607,6 +1557,8 @@ consensus_brain_adjusted_rna_log_fold_change: {summary.get('real_consensus_delta
 empirical_p_two_sided: {summary.get('empirical_p_two_sided')}
 single_variant_multiple_testing_family_size: 1
 observed_direction_one_sided_status: exploratory
+primary_effect_scope: {summary.get('primary_effect_scope')}
+classification_version: {summary.get('classification', {}).get('version')}
 primary_brain_coverage: {json.dumps(summary.get('primary_brain_coverage', {}), sort_keys=True)}
 ```
 
@@ -1620,8 +1572,11 @@ between RNA prediction tracks and does not use the GeneMaskLFC score.
 Two-sided tests are primary. Observed-direction one-sided tests are exploratory;
 the direction was selected from the observed effect, not prespecified.
 Single-variant displays report the empirical P value without a multi-variant
-correction. Legacy bh_fdr fields equal P for this one-test family. The CCG20
-summary separately applies Benjamini-Hochberg correction across its 20 variants.
+correction. Legacy bh_fdr fields equal P for this one-test family. Multi-variant
+summaries apply Benjamini-Hochberg correction across the complete requested family.
+Brain9 is the median of eight adult-category medians and one pooled embryonic
+brain-tissue median. Non-brain tissues and cells/lines are display-only pools.
+The target-vs-neighbor QC uses all-track raw scores, not Brain9-adjusted effects.
 """
     write_text(path, text)
 
@@ -1662,15 +1617,6 @@ def run_command(
             raise RuntimeError(f"command failed with exit code {proc.returncode}: {' '.join(cmd)}")
 
 
-def classify_brain_group_from_v04(v04_pipeline_dir: Path):
-    lib_path = v04_pipeline_dir / "scripts" / "lib"
-    if str(lib_path) not in sys.path:
-        sys.path.insert(0, str(lib_path))
-    from v04_common import classify_brain_group
-
-    return classify_brain_group
-
-
 def complete_primary_brain_consensus(
     group_summary: pd.DataFrame,
     null_effects: pd.DataFrame,
@@ -1679,7 +1625,7 @@ def complete_primary_brain_consensus(
     requested_null_depth: int | None,
     coverage_out: Path,
 ) -> tuple[np.ndarray, pd.Series, dict[str, Any]]:
-    """Require six real groups and use only six-group-complete null variants."""
+    """Require nine real groups and use only nine-group-complete null variants."""
     real = group_summary.set_index("display_group")["median_effect"].reindex(BRAIN_TISSUE_GROUPS)
     real = pd.to_numeric(real, errors="coerce")
     real_finite = np.isfinite(real.to_numpy(dtype=float))
@@ -1703,10 +1649,10 @@ def complete_primary_brain_consensus(
     if missing_real:
         failure_reasons.append("real effect is missing finite values for primary brain groups: " + ", ".join(missing_real))
     if not complete_ids:
-        failure_reasons.append("no null variants have finite values in all six primary brain groups")
+        failure_reasons.append("no null variants have finite values in all nine primary brain groups")
     if publication_depth and (not requested_count_matches or incomplete_ids):
         failure_reasons.append(
-            f"publication analysis requires {requested_null_depth} complete six-group null variants; "
+            f"publication analysis requires {requested_null_depth} complete nine-group null variants; "
             f"observed {len(complete_ids)} complete and {len(incomplete_ids)} incomplete"
         )
     coverage = {
@@ -1725,7 +1671,7 @@ def complete_primary_brain_consensus(
         },
         "publication_depth_required": publication_depth,
         "publication_depth_passed": publication_depth and not failure_reasons,
-        "complete_case_rule": "finite group median in every one of the six primary brain groups (not adult-only)",
+        "complete_case_rule": "finite group median in every one of the nine primary brain groups (eight adult categories plus pooled embryonic brain tissue)",
         "failure_reasons": failure_reasons,
     }
     write_json(coverage_out, coverage)
@@ -1765,7 +1711,6 @@ def compute_from_scores(
     null_scores: Path,
     results_dir: Path,
 ) -> dict[str, Any]:
-    classify_brain_group = classify_brain_group_from_v04(v04_pipeline_dir)
     target = str(payload.get("target_gene") or payload["gene_symbol"]).upper()
     variant_group_id = str(payload["variant_group_id"])
 
@@ -1811,7 +1756,7 @@ def compute_from_scores(
         }
         usecols = [col for col in header if col in preferred]
         frames: list[pd.DataFrame] = []
-        for chunk in pd.read_csv(path, sep="\t", usecols=usecols, chunksize=chunksize, low_memory=False):
+        for chunk in pd.read_csv(path, sep="\t", usecols=usecols, chunksize=chunksize, low_memory=False, float_precision="round_trip", dtype={"null_id": str}):
             required = {"variant_group_id", "output_type", "variant_scorer", "gene_name"}
             if not required.issubset(chunk.columns):
                 missing = ", ".join(sorted(required - set(chunk.columns)))
@@ -1832,60 +1777,22 @@ def compute_from_scores(
     null = read_target_score_rows(null_scores)
     if null.empty:
         raise ValueError(f"no null RNA_SEQ target rows for {variant_group_id}/{target}")
-    all_null_ids = sorted(null["null_id"].dropna().astype(str).unique().tolist())
-
-    def track_key(df: pd.DataFrame) -> pd.Series:
-        return (
-            df["track_name"].astype(str)
-            + "||"
-            + df["biosample_name"].astype(str)
-            + "||"
-            + df["ontology_curie"].astype(str)
-            + "||"
-            + df["data_source"].astype(str)
-        )
-
-    real_groups = real.apply(classify_brain_group, axis=1, result_type="expand")
-    real["display_group"] = real_groups[0]
-    real["track_scope"] = real_groups[1]
-    real["track_key"] = track_key(real)
-    real["raw_score"] = pd.to_numeric(real["raw_score"], errors="coerce")
-    null_groups = null.apply(classify_brain_group, axis=1, result_type="expand")
-    null["display_group"] = null_groups[0]
-    null["track_scope"] = null_groups[1]
-    null["track_key"] = track_key(null)
-    null["raw_score"] = pd.to_numeric(null["raw_score"], errors="coerce")
-
-    null_medians = null.groupby("track_key")["raw_score"].median()
-    real["null_median"] = real["track_key"].map(null_medians)
-    real["effect"] = real["raw_score"] - real["null_median"]
-    null["null_median"] = null["track_key"].map(null_medians)
-    null["effect"] = null["raw_score"] - null["null_median"]
-    real = real[np.isfinite(real["effect"])].copy()
-    if real.empty:
-        raise ValueError("no real rows remained after trackwise null-centering")
-    null = null[np.isfinite(null["effect"])].copy()
-    if null.empty:
-        raise ValueError("no null rows remained after trackwise null-centering")
-    raw_real_rows = int(real.shape[0])
-    raw_null_rows = int(null.shape[0])
-
-    def collapse_real_track_rows(df: pd.DataFrame) -> pd.DataFrame:
-        numeric_cols = ["raw_score", "null_median", "effect"]
-        meta_cols = [col for col in df.columns if col not in set(numeric_cols + ["track_key"])]
-        grouped = df.groupby("track_key", sort=False)
-        meta = grouped[meta_cols].first().reset_index()
-        values = grouped[numeric_cols].median().reset_index()
-        counts = grouped.size().reset_index(name="n_raw_effect_rows")
-        out = meta.merge(values, on="track_key", how="left").merge(counts, on="track_key", how="left")
-        out["n_duplicate_effect_rows"] = out["n_raw_effect_rows"] - 1
-        return out
-
-    real = collapse_real_track_rows(real)
-    null = (
-        null.groupby(["null_id", "display_group", "track_scope", "track_key"], sort=False, as_index=False)["effect"]
-        .median()
+    raw_real_rows, raw_null_rows = len(real), len(null)
+    matched_design = copy_matched_null_design(payload, data_dir=null_scores.parent, results_dir=results_dir)
+    if matched_design is None:
+        raise ValueError("Fresh Brain9 analysis requires its original matched-null design for null ID verification")
+    expected_null_ids = None
+    if matched_design is not None:
+        design = pd.read_csv(matched_design, sep="\t", dtype=str)
+        if "null_id" not in design or design["null_id"].isna().any():
+            raise ValueError("Matched-null design is missing null IDs")
+        expected_null_ids = design["null_id"].tolist()
+    requested_null_depth = int(payload["null_depth"]) if payload.get("null_depth") is not None else None
+    real, null, classification_audit = canonicalize_scores(
+        real, null, requested_null_depth=requested_null_depth,
+        audit_out=results_dir / "classification_audit.json", expected_null_ids=expected_null_ids,
     )
+    all_null_ids = sorted(null["null_id"].unique().tolist())
 
     group_rows = []
     for group, label in FULL_GROUP_ORDER:
@@ -1896,6 +1803,7 @@ def compute_from_scores(
         group_rows.append(
             {
                 "display_group": group,
+                "included_in_brain9": group in PRIMARY_BRAIN_TISSUE_GROUPS,
                 "label": f"{label} ({n_tracks})",
                 "n_tracks": n_tracks,
                 "n_raw_effect_rows": n_raw,
@@ -1937,10 +1845,11 @@ def compute_from_scores(
     null_consensus.rename("consensus_effect").rename_axis("null_id").to_csv(
         results_dir / "null_consensus.tsv", sep="\t", float_format="%.17g"
     )
-    matched_design = copy_matched_null_design(payload, data_dir=null_scores.parent, results_dir=results_dir)
     reproducibility_source_files = {
         "null_consensus": "null_consensus.tsv",
         "null_group_medians": "null_group_medians.tsv",
+        "classification_audit": "classification_audit.json",
+        "classification_tracks": "classification_audit.tsv",
     }
     if matched_design is not None:
         reproducibility_source_files["matched_null_design"] = matched_design.name
@@ -1951,9 +1860,11 @@ def compute_from_scores(
         "effect_definition": "GeneMaskLFC score minus trackwise matched-null median",
         "effect_units": "matched-null-adjusted predicted RNA log fold change",
         "logarithm_base": "not exposed by API client",
-        "primary_effect_scope": "brain_tissue_6_groups",
+        "primary_effect_scope": BRAIN9_SCOPE,
+        "classification": classification_provenance(),
+        "classification_audit": classification_audit,
         "primary_effect_groups": list(BRAIN_TISSUE_GROUPS),
-        "supportive_neural_groups_displayed_not_primary": list(SUPPORTIVE_NEURAL_GROUPS),
+        "display_only_groups": list(DISPLAY_ONLY_GROUPS),
         "n_real_brain_tracks": int(real[real["display_group"].isin(PRIMARY_BRAIN_TISSUE_GROUPS)].shape[0]),
         "n_raw_real_effect_rows": raw_real_rows,
         "n_canonical_real_effect_rows": int(real.shape[0]),
@@ -1963,7 +1874,7 @@ def compute_from_scores(
         "primary_brain_coverage": coverage,
         "reproducibility_source_files": reproducibility_source_files,
         "matched_null_design_available": matched_design is not None,
-        "null_consensus_export_definition": "median across the six primary-group null effects before consensus-null median centering",
+        "null_consensus_export_definition": "median across the nine primary-group null effects before consensus-null median centering",
         "n_raw_null_effect_rows": raw_null_rows,
         "n_canonical_null_effect_rows": int(null.shape[0]),
         "n_duplicate_null_effect_rows": int(raw_null_rows - null.shape[0]),
@@ -2295,6 +2206,8 @@ def run_job(
             "whole_brain_prediction_status": str(results_dir / "whole_brain_prediction_status.json"),
         }
         optional_artifacts = {
+            "classification_audit": results_dir / "classification_audit.json",
+            "classification_tracks": results_dir / "classification_audit.tsv",
             "null_consensus": results_dir / "null_consensus.tsv",
             "null_group_medians": results_dir / "null_group_medians.tsv",
             "matched_null_design": results_dir / "matched_null_design.tsv",

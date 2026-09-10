@@ -1,5 +1,5 @@
 {
-  "package_version": "0.21.0-local.1",
+  "package_version": "0.21.0-local.2",
   "assembled_utc_date": "2026-09-10",
   "origin": "User-owned AlphaGENIE source snapshot; no public Git commit identifier was available",
   "interface_lineage": "v0.21",
@@ -7,6 +7,9 @@
   "saved_release": "alphagenie_manuscript_v020_20260909",
   "saved_release_manifest_sha256": "1dae451a7059f9b4dab8ffb44d27970fb9b69d5a06c974d7d6f9b11ec583ba34",
   "changes": [
+    "Versioned metadata-only manuscript Brain9 adapter and 11-category single display",
+    "Full catalog/metadata/null-ID completeness and canonical-before-centering guards",
+    "Brain9-only multi heatmap/BH/cosine; full 11-category matrix retained",
     "Separate localhost CLI/server and credential store",
     "v0.21 local analysis page; operator feedback removed",
     "Portable pipeline imports; child environment and redaction guards",

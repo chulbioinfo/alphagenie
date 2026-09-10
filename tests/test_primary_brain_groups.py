@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 
 from worker import run_single_variant_job as worker
+from brain9_fixtures import small_catalog, score_row
 
 
 class PrimaryBrainCoverageTests(unittest.TestCase):
@@ -19,7 +20,7 @@ class PrimaryBrainCoverageTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.real = pd.DataFrame({
             "display_group": worker.BRAIN_TISSUE_GROUPS,
-            "median_effect": [1.0] * 6,
+            "median_effect": [1.0] * 9,
         })
 
     def nulls(self, count=2):
@@ -45,7 +46,7 @@ class PrimaryBrainCoverageTests(unittest.TestCase):
     def test_incomplete_null_excluded_in_exploratory_analysis(self):
         null = self.nulls(3).iloc[:-1]
         real, consensus, receipt = self.compute(null, requested=3)
-        np.testing.assert_equal(real, [1] * 6)
+        np.testing.assert_equal(real, [1] * 9)
         self.assertEqual(consensus.to_dict(), {"0": 0, "1": 1})
         self.assertEqual(receipt["excluded_incomplete_null_ids"], ["2"])
         self.assertEqual(receipt["status"], "warning")
@@ -55,7 +56,7 @@ class PrimaryBrainCoverageTests(unittest.TestCase):
         null.loc[0, "effect"] = np.inf
         _, consensus, receipt = self.compute(null)
         self.assertEqual(consensus.to_dict(), {"1": 1})
-        self.assertEqual(receipt["null_group_count_distribution"]["5"], 1)
+        self.assertEqual(receipt["null_group_count_distribution"]["8"], 1)
 
     def test_publication_depth_requires_all_requested_nulls(self):
         with self.assertRaisesRegex(ValueError, "requires 1000 complete"):
@@ -72,40 +73,28 @@ class PrimaryBrainCoverageTests(unittest.TestCase):
         self.assertEqual(receipt["n_null_incomplete"], 1)
 
     def test_summary_uses_complete_nulls_and_correct_effect_description(self):
-        def row(group_index, value, null_id=None):
-            value_row = {
-                "variant_group_id": "TEST", "output_type": "RNA_SEQ",
-                "variant_scorer": "GeneMaskLFCScorer", "gene_name": "TEST",
-                "track_name": f"track{group_index}",
-                "biosample_name": worker.BRAIN_TISSUE_GROUPS[group_index],
-                "ontology_curie": f"TEST:{group_index}", "data_source": "TEST",
-                "raw_score": value,
-            }
-            if null_id is not None:
-                value_row["null_id"] = null_id
-            return value_row
-        real = pd.DataFrame([row(i, 2) for i in range(6)])
-        null = pd.DataFrame([
-            row(i, value, null_id) for null_id, value in (("a", 0), ("b", 1), ("c", 2))
-            for i in range(6) if not (null_id == "c" and i == 5)
-        ])
+        real = pd.DataFrame([score_row(i, 2) for i in range(11)])
+        null = pd.DataFrame([score_row(i, value, null_id)
+                             for null_id, value in (("a", 0), ("b", 1), ("c", 2)) for i in range(11)])
         real_path, null_path = self.root / "real.tsv", self.root / "null.tsv"
         real.to_csv(real_path, sep="\t", index=False)
         null.to_csv(null_path, sep="\t", index=False)
-        classifier = lambda r: (r["biosample_name"], "brain")
-        with patch.object(worker, "classify_brain_group_from_v04", return_value=classifier):
+        pd.DataFrame({"null_id": ["a", "b", "c"]}).to_csv(
+            self.root / "matched_deletion_nulls.tsv", sep="\t", index=False)
+        catalog = small_catalog()
+        with patch("worker.brain9.registry", return_value=catalog):
             summary = worker.compute_from_scores(
-                payload={"variant_group_id": "TEST", "gene_symbol": "TEST", "ref": "AC", "alt": "A", "null_depth": 3},
+                payload={"variant_group_id": "TEST_del3", "gene_symbol": "TEST", "ref": "AC", "alt": "A", "null_depth": 3},
                 v04_pipeline_dir=self.root, real_scores=real_path, null_scores=null_path,
                 results_dir=self.root / "results",
             )
-        self.assertEqual(summary["n_real_brain_groups"], 6)
-        self.assertEqual(summary["n_null_consensus"], 2)
+        self.assertEqual(summary["n_real_brain_groups"], 9)
+        self.assertEqual(summary["n_null_consensus"], 3)
         self.assertEqual(summary["effect_definition"], "GeneMaskLFC score minus trackwise matched-null median")
         self.assertEqual(summary["observed_direction_one_sided_status"], "exploratory_not_prespecified")
-        self.assertAlmostEqual(summary["empirical_p_two_sided"], 1 / 3)
+        self.assertAlmostEqual(summary["empirical_p_two_sided"], .75)
         self.assertAlmostEqual(summary["real_consensus_delta"], 1)
-        self.assertEqual(summary["primary_brain_coverage"]["n_null_incomplete"], 1)
+        self.assertEqual(summary["primary_brain_coverage"]["n_null_incomplete"], 0)
 
 
 if __name__ == "__main__":

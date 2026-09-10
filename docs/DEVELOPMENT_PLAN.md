@@ -1,6 +1,6 @@
 # GitHub 개발 계획 — v0.21 Local / v0.20 engine
 
-작성: 2026-09-10 · 패키지 버전: 0.21.0-local.1
+작성: 2026-09-10 · 패키지 버전: 0.21.0-local.2
 
 ## 목표와 범위
 
@@ -29,9 +29,14 @@
 | 6. 공개 권한 확정 | **소유자 결정 필요** | 코드 라이선스, 기여자 권리, bundled manuscript outputs 공개 권한·Google 약관, 저장소 소유자/이름 |
 | 7. GitHub 공개 | 미실행 | 비밀정보 스캔 후 명시적인 저장소 생성·push, CI 결과, release note/tag |
 
+## 이번 수정에서 구현한 Brain9 adapter
+
+`worker/brain9.py`에 논문용 371-track metadata-only 매핑을 버전·SHA256으로 고정했다. 성인 8개 범주(14 tracks) + Embryo(7 tracks)의 Brain9과 Non-brain tissues(153) / Cells & cell lines(197)를 사용한다. 이 버전은 정확한 논문 멤버십 모드이며 미래 API catalog가 달라지면 수를 임의로 맞추지 않고 중단한다. 확장된 catalog는 검토 후 별도 분류 버전으로 제공해야 한다.
+
+Real/null 각각의 분류 메타데이터, 동일 track 집합, null별 완전성·설계 ID·유한 값을 검증한다. 중복은 null별·track별 중앙값으로 먼저 합친다. 단일 그림 11범주, multi heatmap·P·BH·cosine은 Brain9 9범주, 전체 matrix는 11범주다. 예전 로컬 Brain6 작업은 재명명하지 않는다. 실제 API 재분석이나 기존 frozen 수치 변경은 하지 않았다.
+
 ## 다음 기능 개발 — 이번 초안에 포함되지 않은 것
 
-- **신규 API의 Brain9/11-category adapter:** frozen release의 track key·life stage·ontology 분류를 별도 버전으로 정의. 새 track은 확인 전 unknown 처리. adult14/embryo7 등 고정 숫자를 미래 API에 강제하지 않는다. 전체 real/null track matrix를 동일하게 재분류하고 누락/중복/1,000-null completeness를 검증한다.
 - **신규 frontal cortex 곡선:** UBERON:0001870와 GTEx Brain_Cortex, RNA strand 조건을 명시적으로 선택. 없을 때 Whole brain/첫 track으로 대체하지 않고 unavailable 표시.
 - **신규 결과의 v0.21 interactive/stacked exporter 통합:** 원본 엔진 PDF와 숫자 동일성 테스트 후 shared point payload와 figure adapter를 연결한다. 현재 사용자 지정 stacked PDF는 saved single 결과용이다.
 - OS keychain 기반 선택적 암호화 저장, 사용자 지정 null seed/분류/모델 버전은 각각 검증된 설정으로 추가한다. 현재 seed는 20260527이며 서버 모델은 미확정이다.

@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 
 from worker import run_single_variant_job as worker
+from brain9_fixtures import small_catalog, score_row
 
 
 class NullSourceExportTests(unittest.TestCase):
@@ -28,23 +29,13 @@ class NullSourceExportTests(unittest.TestCase):
         }
 
     def score_row(self, group_index, value, null_id=None):
-        row = {
-            "variant_group_id": self.payload["variant_group_id"],
-            "output_type": "RNA_SEQ", "variant_scorer": "GeneMaskLFCScorer",
-            "gene_name": "TEST", "track_name": f"track{group_index}",
-            "biosample_name": worker.BRAIN_TISSUE_GROUPS[group_index],
-            "ontology_curie": f"TEST:{group_index}", "data_source": "TEST",
-            "raw_score": value,
-        }
-        if null_id is not None:
-            row["null_id"] = null_id
-        return row
+        return score_row(group_index, value, null_id)
 
     def score_fixture(self, count):
-        real = pd.DataFrame([self.score_row(g, 0.42 + 0.031 * g) for g in range(6)])
+        real = pd.DataFrame([self.score_row(g, 0.42 + 0.031 * g) for g in range(11)])
         null = pd.DataFrame([
             self.score_row(g, (i - count / 2) / count + 0.031 * g, f"null_{i:04d}")
-            for i in range(count) for g in range(6)
+            for i in range(count) for g in range(11)
         ])
         real_path, null_path = self.data / "real_scores.tsv", self.data / "null_scores.tsv"
         real.to_csv(real_path, sep="\t", index=False)
@@ -52,8 +43,8 @@ class NullSourceExportTests(unittest.TestCase):
         return real_path, null_path
 
     def summarize(self, real_path, null_path):
-        classifier = lambda row: (row["biosample_name"], "brain")
-        with patch.object(worker, "classify_brain_group_from_v04", return_value=classifier), patch.object(
+        catalog = small_catalog()
+        with patch("worker.brain9.registry", return_value=catalog), patch.object(
             worker.np.random, "default_rng", side_effect=AssertionError("exports must not generate nulls")
         ):
             return worker.compute_from_scores(
@@ -92,7 +83,7 @@ class NullSourceExportTests(unittest.TestCase):
         self.assertEqual(center, summary["null_consensus_median"])
         self.assertEqual((self.results / "matched_null_design.tsv").read_bytes(), original_bytes[design])
         self.assertTrue(summary["matched_null_design_available"])
-        self.assertEqual(set(summary["reproducibility_source_files"]), {"null_consensus", "null_group_medians", "matched_null_design"})
+        self.assertEqual(set(summary["reproducibility_source_files"]), {"null_consensus", "null_group_medians", "matched_null_design", "classification_audit", "classification_tracks"})
         for path, content in original_bytes.items():
             self.assertEqual(hashlib.sha256(path.read_bytes()).digest(), hashlib.sha256(content).digest())
 
@@ -100,11 +91,9 @@ class NullSourceExportTests(unittest.TestCase):
         real_path, null_path = self.score_fixture(3)
         self.payload["null_depth"] = 3
         (self.data / "matched_insertion_nulls.tsv").write_text("wrong class\n")
-        summary = self.summarize(real_path, null_path)
-        self.assertFalse(summary["matched_null_design_available"])
-        self.assertNotIn("matched_null_design", summary["reproducibility_source_files"])
+        with self.assertRaisesRegex(ValueError, "requires its original matched-null design"):
+            self.summarize(real_path, null_path)
         self.assertFalse((self.results / "matched_null_design.tsv").exists())
-        self.assertEqual(len(pd.read_csv(self.results / "null_consensus.tsv", sep="\t")), 3)
 
     def test_design_kind_selection_and_missing_source_preserves_previous_export(self):
         for ref, alt, kind in (("T", "TCCG", "insertion"), ("A", "G", "substitution"), ("TCCG", "T", "deletion")):

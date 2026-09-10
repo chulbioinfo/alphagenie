@@ -64,8 +64,10 @@ class JobManager:
                 jid = uuid.uuid4().hex
                 root = self.jobs / jid
                 root.mkdir(mode=0o700)
+                from worker.brain9 import VERSION, ANALYSIS_MODE
+                rows = [{**row, "analysis_mode": ANALYSIS_MODE, "classification_version": VERSION} for row in rows]
                 payload = {"rows": rows, "dataset_name": dataset_name,
-                           "analysis_mode": "custom_api_local_brain6", "validation": validation,
+                           "analysis_mode": ANALYSIS_MODE, "classification_version": VERSION, "validation": validation,
                            "reference_variant_group_id": rows[0]["variant_group_id"],
                            "sequence_length": rows[0]["sequence_length"], "null_depth": rows[0]["null_depth"],
                            "inference_run_epoch": jid, "inference_backend_revision": "unresolved_server_default",

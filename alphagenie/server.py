@@ -113,7 +113,7 @@ def create_app(port=8877):
     def status():
         cfg = read_config()
         return {"token": token, "key_configured": key_available(), "references_configured": bool(cfg),
-                "ui_version": "0.21", "engine_version": "0.20", "new_analysis_endpoint": "brain6",
+                "ui_version": "0.21", "engine_version": "0.20", "new_analysis_endpoint": "Brain9",
                 "saved_result_endpoint": "Brain9", "key_entry": "terminal only",
                 "external_inference_provider": "Google DeepMind AlphaGenome API"}
 
@@ -127,7 +127,7 @@ def create_app(port=8877):
             raise HTTPException(422, "Explicit consent to API transmission and applicable terms is required")
         rows = parse_variants(body.tsv, body.sequence_length, body.null_depth)
         jid = manager.launch(rows, body.dataset_name)
-        return {"job_id": jid, "status": "submitted", "endpoint": "brain6", "new_api_run": True}
+        return {"job_id": jid, "status": "submitted", "endpoint": "Brain9", "new_api_run": True}
 
     def get_job(jid):
         if not re.fullmatch(r"[0-9a-f]{32}(?:_[0-9]{2})?", jid):
@@ -139,7 +139,10 @@ def create_app(port=8877):
 
     def public_job(job):
         result = {k: job[k] for k in ("job_id", "status", "stage", "message", "progress_percent", "created_at")}
-        result["endpoint"] = "brain6 (not manuscript Brain9)"
+        from worker.brain9 import ENDPOINT, VERSION
+        # Do not relabel pre-upgrade Brain6 jobs merely because the server upgraded.
+        result["endpoint"] = (ENDPOINT if job["input"].get("classification_version") == VERSION
+                              else "Legacy Brain6 / unversioned analysis (not Brain9)")
         result["files"] = {key: f"/api/local/jobs/{job['job_id']}/files/{key}" for key, val in job["result"].items()
                            if key != "job_dir" and Path(val).is_file() and Path(val).suffix != ".html"}
         result["requested_variants"] = len(job["input"].get("rows", [job["input"]]))

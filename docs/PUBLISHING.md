@@ -9,7 +9,7 @@ This folder is a standalone Git repository candidate. No remote repository, push
 - [ ] Configure repository owner/name, private vulnerability reporting, issue templates and maintainers. No fake author/contact/DOI is supplied.
 - [ ] Test a clean install on supported platforms. The exact dependency snapshot is not a platform-independent hash lock.
 - [ ] Using your own eligible key, explicitly run a 10-null smoke test and then the intended 1,000-null single/multi analyses. Review raw-score provenance and null completeness. Development did not spend API quota to do this.
-- [ ] Read `docs/METHODS.md`: custom Brain6/Whole brain is not the saved Brain9/cortex workflow.
+- [ ] Read `docs/METHODS.md`: fresh Brain9 scores and Whole brain curves are not the saved numerical/cortex inference; review the strict catalog contract in `docs/BRAIN9.md`.
 - [ ] Run tests and the release scanner; inspect the staged diff and every file to be published. Never include personal `.alphagenie`, `.env`, raw jobs, references or credentials.
 
 ## Local checks

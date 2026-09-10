@@ -90,3 +90,12 @@ test('progressive disclosure and separate local submission remain in the deliver
   assert(app.includes("location.hash='local'"));assert(!app.includes('temporarily unavailable'));
   assert(!/fetch\([^)]*,\s*\{[^}]*method:\s*['"]POST/.test(app));
 });
+
+test('fresh analysis explains Brain9, separate pools, strict mapping and unchanged curve',()=>{
+  const text=fs.readFileSync(new URL('../app/static/v021/local.js',import.meta.url),'utf8');
+  for(const phrase of ['eight adult brain categories + Embryo','excluded from Brain9 statistics and cosine',
+    'Single plots show all 11 categories','unknown or changed classification metadata',
+    'curve remains Whole brain (UBERON:0000955)','saved scores are not reused'])assert(text.includes(phrase),phrase);
+  assert(!text.includes('original six brain groups'));
+  assert(!text.includes('new Brain6 run'));
+});
