@@ -31,16 +31,53 @@ class NullSourceExportTests(unittest.TestCase):
     def score_row(self, group_index, value, null_id=None):
         return score_row(group_index, value, null_id)
 
-    def score_fixture(self, count):
+    def score_fixture(self, count, null_ids=None):
+        null_ids = [f"null_{i:04d}" for i in range(count)] if null_ids is None else null_ids
         real = pd.DataFrame([self.score_row(g, 0.42 + 0.031 * g) for g in range(11)])
         null = pd.DataFrame([
-            self.score_row(g, (i - count / 2) / count + 0.031 * g, f"null_{i:04d}")
+            self.score_row(g, (i - count / 2) / count + 0.031 * g, null_ids[i])
             for i in range(count) for g in range(11)
         ])
         real_path, null_path = self.data / "real_scores.tsv", self.data / "null_scores.tsv"
         real.to_csv(real_path, sep="\t", index=False)
         null.to_csv(null_path, sep="\t", index=False)
         return real_path, null_path
+
+    def design_fixture(self, count, kind="deletion", null_ids=None, id_schema="native"):
+        null_ids = [f"null_{i:04d}" for i in range(count)] if null_ids is None else null_ids
+        ref, alt = self.payload["ref"], self.payload["alt"]
+        rows = []
+        for i in range(count):
+            row = {
+                "null_variant_id": null_ids[i],
+                "matched_real_variant_id": f"chr1:100:{ref}>{alt}",
+                "matched_real_variant_group_id": self.payload["variant_group_id"],
+                "gene_symbol": "TEST", "target_gene": "TEST", "chrom": "chr1",
+                "pos_1based": 1000 + i, "ref_normalized": ref, "alt_normalized": alt,
+                "sequence_phase": ref[1:] if kind == "deletion" else ref,
+                "tss_distance_bin": "same_fixed_1Mb_interval",
+                "promoter_orientation": "matched_real_promoter_interval", "gc_decile": "10",
+                "cpg_overlap": "not_assessed_fixed_interval",
+                "mappability_bin": "not_assessed_fixed_interval", "exclusion_flags": "",
+                "matching_status": "matched", "gc_fraction": 1.0,
+                "fixed_interval": "chr1:0-1048576", "sampling_stage": "gc10",
+            }
+            if kind == "deletion":
+                row["deletion_length"] = len(ref) - len(alt)
+            elif kind == "insertion":
+                row.update(insertion_length=len(alt) - len(ref), inserted_sequence=alt[1:],
+                           sampling_stage="same_insert_fixed_interval")
+            else:
+                row.update(substitution_length=len(ref), edit_offsets="0",
+                           representation="normalized", sampling_stage="gc10_fixed_interval")
+            if id_schema in {"alias", "both"}:
+                row["null_id"] = null_ids[i]
+            if id_schema == "alias":
+                del row["null_variant_id"]
+            rows.append(row)
+        design = self.data / f"matched_{kind}_nulls.tsv"
+        pd.DataFrame(rows).to_csv(design, sep="\t", index=False)
+        return design
 
     def summarize(self, real_path, null_path):
         catalog = small_catalog()
@@ -54,12 +91,7 @@ class NullSourceExportTests(unittest.TestCase):
 
     def test_thousand_null_exports_reproduce_p_and_preserve_original_design(self):
         real_path, null_path = self.score_fixture(1000)
-        design = self.data / "matched_deletion_nulls.tsv"
-        pd.DataFrame([
-            {"null_id": f"null_{i:04d}", "variant_group_id": "TEST_del3", "chrom": "chr1",
-             "pos1": 1000 + i, "ref": "TCCG", "alt": "T", "match_stage": "gc10"}
-            for i in range(1000)
-        ]).to_csv(design, sep="\t", index=False)
+        design = self.design_fixture(1000)
         original_bytes = {p: p.read_bytes() for p in (real_path, null_path, design)}
         summary = self.summarize(real_path, null_path)
         consensus = pd.read_csv(self.results / "null_consensus.tsv", sep="\t", float_precision="round_trip")
@@ -86,6 +118,141 @@ class NullSourceExportTests(unittest.TestCase):
         self.assertEqual(set(summary["reproducibility_source_files"]), {"null_consensus", "null_group_medians", "matched_null_design", "classification_audit", "classification_tracks"})
         for path, content in original_bytes.items():
             self.assertEqual(hashlib.sha256(path.read_bytes()).digest(), hashlib.sha256(content).digest())
+
+    def test_ten_null_native_designs_and_compatibility_aliases(self):
+        null_ids = [f"{i:04d}" for i in range(10)]
+        self.payload["null_depth"] = 10
+        for kind, ref, alt in (("deletion", "TCCG", "T"),
+                               ("insertion", "T", "TCCG"),
+                               ("substitution", "A", "G")):
+            for id_schema in ("native", "alias", "both"):
+                with self.subTest(kind=kind, id_schema=id_schema):
+                    self.payload.update(ref=ref, alt=alt)
+                    self.results = self.root / f"results-{kind}-{id_schema}"
+                    real_path, null_path = self.score_fixture(10, null_ids)
+                    design = self.design_fixture(10, kind, null_ids, id_schema)
+                    original_bytes = {p: p.read_bytes() for p in (real_path, null_path, design)}
+                    summary = self.summarize(real_path, null_path)
+                    self.assertEqual(summary["n_null_consensus"], 10)
+                    self.assertTrue(summary["matched_null_design_available"])
+                    audit = json.loads((self.results / "classification_audit.json").read_text())
+                    self.assertTrue(audit["matched_null_design_ids_checked"])
+                    for name in ("null_consensus.tsv", "null_group_medians.tsv"):
+                        exported = pd.read_csv(self.results / name, sep="\t", dtype={"null_id": str})
+                        self.assertEqual(exported["null_id"].tolist(), null_ids)
+                    self.assertEqual((self.results / "matched_null_design.tsv").read_bytes(),
+                                     original_bytes[design])
+                    for path, content in original_bytes.items():
+                        self.assertEqual(path.read_bytes(), content)
+
+    def test_design_reader_preserves_literal_ids_and_source_bytes(self):
+        null_ids = ["0007", "7", "NA", "N/A", "null", "nan", "1e3", "  spaced  "]
+        for id_schema in ("native", "alias", "both"):
+            with self.subTest(id_schema=id_schema):
+                design = self.design_fixture(len(null_ids), null_ids=null_ids, id_schema=id_schema)
+                original = design.read_bytes()
+                self.assertEqual(worker.read_matched_null_ids(design), null_ids)
+                self.assertEqual(design.read_bytes(), original)
+
+    def test_literal_null_ids_survive_score_loading_and_summary_exports(self):
+        null_ids = ["0007", "7", "NA", "N/A", "null", "nan", "1e3", "id8", "id9", "id10"]
+        self.payload["null_depth"] = len(null_ids)
+        real_path, null_path = self.score_fixture(len(null_ids), null_ids)
+        design = self.design_fixture(len(null_ids), null_ids=null_ids)
+        original = design.read_bytes()
+        summary = self.summarize(real_path, null_path)
+        self.assertEqual(summary["n_null_consensus"], len(null_ids))
+        for name in ("null_consensus.tsv", "null_group_medians.tsv"):
+            exported = pd.read_csv(self.results / name, sep="\t", dtype={"null_id": str}, keep_default_na=False)
+            self.assertEqual(exported["null_id"].tolist(), sorted(null_ids))
+        self.assertEqual((self.results / "matched_null_design.tsv").read_bytes(), original)
+
+    def test_design_reader_rejects_empty_and_blank_ids(self):
+        design = self.data / "matched_deletion_nulls.tsv"
+        design.write_bytes(b"")
+        with self.assertRaisesRegex(ValueError, "missing null IDs"):
+            worker.read_matched_null_ids(design)
+        self.assertEqual(design.read_bytes(), b"")
+        for id_column in ("null_variant_id", "null_id"):
+            for rows in ("", "\tmatched\n", "   \tmatched\n", '"\t"\tmatched\n'):
+                with self.subTest(id_column=id_column, rows=rows):
+                    design.write_text(f"{id_column}\tmatching_status\n{rows}")
+                    original = design.read_bytes()
+                    with self.assertRaisesRegex(ValueError, "missing null IDs"):
+                        worker.read_matched_null_ids(design)
+                    self.assertEqual(design.read_bytes(), original)
+
+    def test_ten_null_invalid_designs_fail_before_consensus_exports(self):
+        self.payload["null_depth"] = 10
+        real_path, null_path = self.score_fixture(10)
+        cases = ("no_id", "blank_native", "blank_alias", "duplicate_native", "duplicate_alias",
+                 "conflicting_columns", "blank_dual_alias", "mismatched_score_ids", "wrong_design_count")
+        for case in cases:
+            with self.subTest(case=case):
+                self.results = self.root / f"results-{case}"
+                id_schema = "alias" if case.endswith("_alias") and case != "blank_dual_alias" else "native"
+                if case in {"conflicting_columns", "blank_dual_alias"}:
+                    id_schema = "both"
+                design = self.design_fixture(10, id_schema=id_schema)
+                frame = pd.read_csv(design, sep="\t", dtype=str, keep_default_na=False)
+                id_column = "null_id" if id_schema == "alias" else "null_variant_id"
+                expected_error = "missing null IDs"
+                if case == "no_id":
+                    frame = frame.drop(columns=id_column)
+                elif case.startswith("blank"):
+                    frame.loc[0, "null_id" if case == "blank_dual_alias" else id_column] = "   "
+                elif case.startswith("duplicate"):
+                    frame.loc[1, id_column] = frame.loc[0, id_column]
+                    expected_error = "duplicate null IDs"
+                elif case == "conflicting_columns":
+                    frame["null_id"] = frame["null_id"].iloc[::-1].tolist()
+                    expected_error = "conflicting null ID columns"
+                elif case == "mismatched_score_ids":
+                    frame.loc[0, id_column] = "unscored_null"
+                    expected_error = "scored null IDs differ from the sampled matched-null design"
+                else:
+                    frame = frame.iloc[:-1]
+                    expected_error = "scored null IDs differ from the sampled matched-null design"
+                frame.to_csv(design, sep="\t", index=False)
+                original_bytes = {p: p.read_bytes() for p in (real_path, null_path, design)}
+                with self.assertRaisesRegex(ValueError, expected_error):
+                    self.summarize(real_path, null_path)
+                for name in ("null_consensus.tsv", "null_group_medians.tsv", "consensus_summary.json"):
+                    self.assertFalse((self.results / name).exists())
+                for path, content in original_bytes.items():
+                    self.assertEqual(path.read_bytes(), content)
+
+    def test_native_design_does_not_relax_requested_null_count(self):
+        self.payload["null_depth"] = 10
+        real_path, null_path = self.score_fixture(9)
+        self.design_fixture(9)
+        with self.assertRaisesRegex(ValueError, "requires 10 complete nulls; observed 9"):
+            self.summarize(real_path, null_path)
+        audit = json.loads((self.results / "classification_audit.json").read_text())
+        self.assertEqual(audit["status"], "failed")
+        self.assertFalse((self.results / "null_consensus.tsv").exists())
+
+    def test_native_design_does_not_relax_complete_tracks_or_finite_scores(self):
+        self.payload["null_depth"] = 10
+        self.design_fixture(10)
+        for case, expected_error in (
+            ("missing_track", "every null must contain the same complete track set"),
+            ("nonfinite_score", "null contains nonfinite raw scores"),
+        ):
+            with self.subTest(case=case):
+                self.results = self.root / f"results-{case}"
+                real_path, null_path = self.score_fixture(10)
+                null = pd.read_csv(null_path, sep="\t")
+                if case == "missing_track":
+                    null = null.iloc[:-1]
+                else:
+                    null.loc[0, "raw_score"] = np.inf
+                null.to_csv(null_path, sep="\t", index=False)
+                with self.assertRaisesRegex(ValueError, expected_error):
+                    self.summarize(real_path, null_path)
+                audit = json.loads((self.results / "classification_audit.json").read_text())
+                self.assertEqual(audit["status"], "failed")
+                self.assertFalse((self.results / "null_consensus.tsv").exists())
 
     def test_missing_design_is_explicit_and_does_not_copy_another_variant_class(self):
         real_path, null_path = self.score_fixture(3)

@@ -14,7 +14,7 @@ Browser (127.0.0.1 only)
 
 `alphagenie/config.py` owns state and key lifecycle. `validation.py` performs offline preflight. `server.py` provides the exact loopback boundary, per-process request token and saved/personal-job routes; it does not expose the API credential. `runner.py` creates fresh job identities and starts a separate process. The existing `worker`/`pipeline` handle scientific computation. `app/manuscript_release.py` verifies every saved asset against the sealed manifest; `manuscript_view.py` renders saved figures without modifying them.
 
-No external database, remote storage, cloud authentication or operator feedback service is used. The local SQLite store is durable and outside the repository; the browser holds transient presentation state and a local request token, never the AlphaGenome key. The exact current production `app/main.py`, launch agents, tunnel settings and deployment scripts are intentionally excluded. Distribution/UI version 0.22 does not change the v0.20 scientific/data lineage or retained `v021` source paths.
+No external database, remote storage, cloud authentication or operator feedback service is used. The local SQLite store is durable and outside the repository; the browser holds transient presentation state and a local request token, never the AlphaGenome key. The exact current production `app/main.py`, launch agents, tunnel settings and deployment scripts are intentionally excluded. Distribution/UI version 0.23 does not change the v0.20 scientific/data lineage or retained `v021` source paths.
 
 ## Private-computer trust boundary
 

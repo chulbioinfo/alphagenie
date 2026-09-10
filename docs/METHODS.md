@@ -2,7 +2,7 @@
 
 ## Version meaning
 
-`0.22.0` names this local distribution. **v0.22** is the current interface version, continuing the v0.21 UI lineage; **v0.20** is the preserved scientific engine/data lineage. The 0.22 release changes packaging, request safeguards and user-facing warnings, not scientific formulas, saved scores, null arrays, track selection or recorded inference dates. The older internal pipeline directory name in the source history does not mean that this package uses v0.18 predictions. Six original pipeline scripts are included under `pipeline/scripts/`; no v0.18 numerical cache is shipped and local job entry rejects demo/legacy mode.
+`0.23.0` names this local distribution. **v0.23** is the current interface version, continuing the v0.21/v0.22 UI lineage; **v0.20** is the preserved scientific engine/data lineage. The 0.23 release corrects matched-null ID compatibility and result export registration while retaining the 0.22 packaging and request safeguards. Scientific formulas, saved scores, null arrays, track selection and recorded inference dates are unchanged. The older internal pipeline directory name in the source history does not mean that this package uses v0.18 predictions. Six original pipeline scripts are included under `pipeline/scripts/`; no v0.18 numerical cache is shipped and local job entry rejects demo/legacy mode.
 
 ### Saved manuscript workflow
 

@@ -1,13 +1,15 @@
 {
-  "package_version": "0.22.0",
+  "package_version": "0.23.0",
   "assembled_utc_date": "2026-09-10",
   "origin": "Originally assembled from a user-owned AlphaGENIE snapshot; copied_sources records original snapshot hashes, not current file hashes",
-  "maintenance_base_git_commit": "b370f5ffb867af1b00add716af74af7fbbe696fa",
-  "interface_lineage": "v0.22 (based on v0.21)",
+  "maintenance_base_git_commit": "7146d1fdc6a38456a5b3d7a67961efc292dbc96d",
+  "interface_lineage": "v0.23 (based on v0.21/v0.22)",
   "scientific_engine_lineage": "v0.20",
   "saved_release": "alphagenie_manuscript_v020_20260909",
   "saved_release_manifest_sha256": "1dae451a7059f9b4dab8ffb44d27970fb9b69d5a06c974d7d6f9b11ec583ba34",
   "changes": [
+    "v0.23: native matched-null design IDs and compatible aliases validated without rewriting originals",
+    "v0.23: string ID preservation through scoring summaries and complete-cohort null download registration",
     "v0.22: bounded render memory/work, request budgets and upload admission; no individual login by design",
     "v0.22: hash-pinned binary dependencies and installer tooling, exact inventory and advisory checks",
     "Versioned metadata-only manuscript Brain9 adapter and 11-category single display",

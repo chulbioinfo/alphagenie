@@ -8,7 +8,7 @@ from release_check import ROOT, source_files, verify
 
 if __name__ == "__main__":
     receipt = verify()
-    target = ROOT / "dist/AlphaGENIE-v0.22.0-Brain9-FrontalCortex-English.zip"
+    target = ROOT / "dist/AlphaGENIE-v0.23.0-Brain9-FrontalCortex-English.zip"
     target.parent.mkdir(exist_ok=True)
     # Never silently replace a previously delivered archive.
     with zipfile.ZipFile(target, "x", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as archive:

@@ -1,5 +1,37 @@
 # Validation records
 
+## v0.23.0 integration — 2026-09-10
+
+Distribution **0.23.0**, interface **0.23**, engine/data **0.20**, SDK **0.8.0**.
+The versioned source passed **118 Python tests and 8 Node UI-logic tests**.
+Python regressions used isolated temporary state with external sockets/provider
+channels blocked; no actual API key was read and no provider request was made.
+
+- Native deletion/insertion/substitution design IDs, compatible aliases, dual
+  columns, literal `NA`/leading-zero IDs, malformed IDs, exact null counts and
+  strict track/finite-score validation are covered end-to-end.
+- All **70 sealed manuscript assets** remain hash-identical. Scientific formulas,
+  sampling, Brain9 membership, Frontal cortex selection and the **63-package**
+  installed inventory are unchanged.
+- An existing user-triggered RBFOX1 16-kb run had already produced 371 real
+  track scores and ten complete 371-track nulls before the prior ID-reader
+  failure. A separate, network-blocked diagnostic replay of those scores passed
+  corrected summary, Brain9, single-job finalization, PDF/SVG/PNG/HTML and 13
+  local download handlers. The original failed job and files were preserved.
+  Cortex prediction was explicitly mocked as unavailable, not newly inferred.
+- Cohort null exports are registered only when current child exports are all
+  available; string IDs survive combination, and stale exports are withheld.
+- Existing v0.22 native CI passed on macOS arm64/Intel and Linux arm64/x86_64
+  ([record](https://github.com/chulbioinfo/alphagenie/actions/runs/34514964806)).
+  That historical result is not evidence of a v0.23 CI run; inspect the current
+  commit's GitHub Actions result separately.
+
+These tests do not establish live-provider end-to-end success, a generated new
+cortex curve, clinical validity or multi-user isolation. New analysis remains
+explicit and can consume provider quota. Final source-archive identity, current
+CI and deployment status must be checked for the release actually published.
+Older records below are preserved as historical evidence.
+
 ## v0.22.0 integration — 2026-09-10
 
 Distribution **0.22.0**, interface **0.22**, engine/data **0.20**, AlphaGenome SDK **0.8.0**. No live AlphaGenome inference or provider-authentication request was made by these checks. The scientific package versions, sealed manuscript values, original inference dates and historical record below are preserved.

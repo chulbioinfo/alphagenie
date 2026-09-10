@@ -1,10 +1,10 @@
-# GitHub development plan — v0.22 Local / v0.20 engine
+# GitHub development plan — v0.23 Local / v0.20 engine
 
-Prepared: 2026-09-10. Current research-preview package: **0.22.0**.
+Prepared: 2026-09-10. Current research-preview package: **0.23.0**.
 
 ## Goal and scope
 
-Provide a separately installable, single-user AlphaGENIE package with the v0.22
+Provide a separately installable, single-user AlphaGENIE package with the v0.23
 interface and v0.20 scientific tools. Credentials, local inputs and results are
 not collected by AlphaGENIE operators. Distinguish immutable manuscript results
 from newly submitted API analyses in the interface and provenance.

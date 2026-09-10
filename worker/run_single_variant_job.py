@@ -1682,6 +1682,31 @@ def copy_matched_null_design(
     return None
 
 
+def read_matched_null_ids(path: Path) -> list[str]:
+    """Read sampled IDs without rewriting the original design or inventing IDs.
+
+    Native generators write ``null_variant_id``; their scorer exports the same
+    identifiers as ``null_id``. Accept the latter for compatible existing
+    designs, but require exact agreement when both columns are present.
+    """
+    try:
+        design = pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False)
+    except pd.errors.EmptyDataError as exc:
+        raise ValueError("Matched-null design is missing null IDs") from exc
+    columns = [name for name in ("null_variant_id", "null_id") if name in design]
+    if design.empty or not columns:
+        raise ValueError("Matched-null design is missing null IDs")
+    for column in columns:
+        ids = design[column]
+        if ids.isna().any() or ids.str.strip().eq("").any():
+            raise ValueError("Matched-null design is missing null IDs")
+        if ids.duplicated().any():
+            raise ValueError("Matched-null design has duplicate null IDs")
+    if len(columns) == 2 and not design[columns[0]].equals(design[columns[1]]):
+        raise ValueError("Matched-null design has conflicting null ID columns")
+    return design[columns[0]].tolist()
+
+
 def compute_from_scores(
     *,
     payload: dict[str, Any],
@@ -1735,7 +1760,7 @@ def compute_from_scores(
         }
         usecols = [col for col in header if col in preferred]
         frames: list[pd.DataFrame] = []
-        for chunk in pd.read_csv(path, sep="\t", usecols=usecols, chunksize=chunksize, low_memory=False, float_precision="round_trip", dtype={"null_id": str}):
+        for chunk in pd.read_csv(path, sep="\t", usecols=usecols, chunksize=chunksize, low_memory=False, float_precision="round_trip", dtype={"null_id": str}, keep_default_na=False):
             required = {"variant_group_id", "output_type", "variant_scorer", "gene_name"}
             if not required.issubset(chunk.columns):
                 missing = ", ".join(sorted(required - set(chunk.columns)))
@@ -1760,12 +1785,7 @@ def compute_from_scores(
     matched_design = copy_matched_null_design(payload, data_dir=null_scores.parent, results_dir=results_dir)
     if matched_design is None:
         raise ValueError("Fresh Brain9 analysis requires its original matched-null design for null ID verification")
-    expected_null_ids = None
-    if matched_design is not None:
-        design = pd.read_csv(matched_design, sep="\t", dtype=str)
-        if "null_id" not in design or design["null_id"].isna().any():
-            raise ValueError("Matched-null design is missing null IDs")
-        expected_null_ids = design["null_id"].tolist()
+    expected_null_ids = read_matched_null_ids(matched_design)
     requested_null_depth = int(payload["null_depth"]) if payload.get("null_depth") is not None else None
     real, null, classification_audit = canonicalize_scores(
         real, null, requested_null_depth=requested_null_depth,

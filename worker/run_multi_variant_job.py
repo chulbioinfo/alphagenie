@@ -222,10 +222,12 @@ def combine_single_results(
     for item in single_results:
         null_path = Path(item['job']['job_dir']) / 'results/null_consensus.tsv'
         if null_path.is_file():
-            table = pd.read_csv(null_path, sep='\t', float_precision='round_trip')
+            table = pd.read_csv(null_path, sep='\t', float_precision='round_trip',
+                                dtype={'null_id': str}, keep_default_na=False)
             table.insert(0, 'variant_group_id', item['summary']['variant_group_id'])
             null_tables.append(table)
-    if len(null_tables) == len(single_results) and null_tables:
+    complete_null_export = len(null_tables) == len(single_results) and bool(null_tables)
+    if complete_null_export:
         pd.concat(null_tables, ignore_index=True).to_csv(results_dir / 'multi_null_consensus.tsv', sep='\t', index=False)
     matrix.to_csv(results_dir / "multi_group_matrix.tsv", sep="\t", index=False)
     ranking.to_csv(results_dir / "multi_consensus_ranking.tsv", sep="\t", index=False)
@@ -256,6 +258,8 @@ def combine_single_results(
             "cosine": "multi_reference_cosine.tsv",
         },
     }
+    if complete_null_export:
+        summary['source_tables']['null_consensus'] = 'multi_null_consensus.tsv'
     real_provenance = (single_results[0]['summary'].get('scoring_provenance') or {}).get('real') if single_results else None
     if real_provenance:
         fields = ('inference_backend_revision', 'inference_run_epoch', 'alphagenome_client_version',
@@ -765,6 +769,10 @@ def run_multi_variant_job(
             "validation_report": str(root / "input" / "validation_report.json"),
             "subjob_manifest": str(root / "input" / "subjob_manifest.json"),
         }
+        null_export = results_dir / "multi_null_consensus.tsv"
+        if (summary.get("source_tables", {}).get("null_consensus") == null_export.name
+                and null_export.is_file()):
+            result["multi_null_consensus"] = str(null_export)
         update_job(
             db,
             job_id,

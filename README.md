@@ -1,12 +1,12 @@
 # AlphaGENIE Local
 
-**AlphaGENome-Integrated Explorer** — distribution **0.22.0**, v0.22 interface with the preserved v0.20 RNA analysis engine and manuscript data.
+**AlphaGENome-Integrated Explorer** — distribution **0.23.0**, v0.23 interface with the preserved v0.20 RNA analysis engine and manuscript data.
 
 Download this repository, run the interface on your own computer, and use **your own AlphaGenome API key**. No AlphaGENIE account or operator-hosted API proxy is involved.
 
 > **Privacy:** This distribution contains no API key collection endpoint, telemetry or automatic feedback upload to AlphaGENIE. Keys stay in your local environment and are used to authenticate requests directly to Google DeepMind's AlphaGenome API. New inference sends variants/intervals and your key to Google; it is **not fully offline computation**. See [Privacy](docs/PRIVACY.md).
 
-[Installation](docs/INSTALL.md) · [Release notes](docs/RELEASE_NOTES_v0.22.md) · [Methods](docs/METHODS.md) · [Development plan](docs/DEVELOPMENT_PLAN.md) · [Security](SECURITY.md)
+[Installation](docs/INSTALL.md) · [Release notes](docs/RELEASE_NOTES_v0.23.md) · [Methods](docs/METHODS.md) · [Development plan](docs/DEVELOPMENT_PLAN.md) · [Security](SECURITY.md)
 
 ## Quick start
 
@@ -38,7 +38,7 @@ In **My analyses**, paste a TSV, choose the input length and null count, review 
 
 | | Saved manuscript explorer | New local analysis |
 |---|---|---|
-| UI | v0.22 | v0.22 local workspace |
+| UI | v0.23 | v0.23 local workspace |
 | Numerical source | Frozen v0.20 release; 1,000 nulls each | Fresh inference using v0.20 engine code |
 | Brain endpoint | Brain9: 8 adult categories + Embryo | Same versioned **Brain9** membership (8 adult + Embryo) |
 | RNA curve | Frontal cortex, UBERON:0001870 | Same adult GTEx Brain_Cortex, polyA+, unstranded track |
@@ -57,7 +57,7 @@ Included: interactive saved-result dots, source-track search, stacked custom-dim
 
 ```text
 alphagenie/       local CLI, private config, reference preflight, server, job runner
-app/             v0.22 interface and saved-result rendering (retained v021 paths)
+app/             v0.23 interface and saved-result rendering (retained v021 paths)
 worker/          v0.20 inference/statistics/plotting engine, local safety patches
 pipeline/scripts/ real/null scoring, indel/SNV null generation, reference QC
 data/            hash-verified v0.20 manuscript examples (no credentials)

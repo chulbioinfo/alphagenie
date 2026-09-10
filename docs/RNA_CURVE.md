@@ -1,6 +1,6 @@
 # Frontal cortex RNA curve
 
-The 0.22.0 distribution retains the track identity introduced in local.3 and used by the v0.21 saved manuscript explorer:
+The 0.23.0 distribution retains the track identity introduced in local.3 and used by the v0.21 saved manuscript explorer:
 
 | Field | Required value |
 |---|---|

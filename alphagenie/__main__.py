@@ -11,7 +11,7 @@ from .config import private_write, read_config, state_dir, key_available, save_c
 
 def main():
     os.umask(0o077)
-    parser = argparse.ArgumentParser(description="AlphaGENIE local: v0.22 UI / v0.20 engine")
+    parser = argparse.ArgumentParser(description="AlphaGENIE local: v0.23 UI / v0.20 engine")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("doctor", help="Local installation checks; never contacts the API")
     key = sub.add_parser("key", help="Manage your local key without echo or command-line arguments")

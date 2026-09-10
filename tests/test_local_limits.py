@@ -85,7 +85,7 @@ class LocalLimitTests(unittest.TestCase):
         self.assertNotIn("api_key", status)
         self.assertNotIn("csrf_token", status)
         self.assertNotIn("set-cookie", headers)
-        self.assertEqual(status["ui_version"], "0.22")
+        self.assertEqual(status["ui_version"], "0.23")
         self.assertEqual(self.request("GET", "/api/local/jobs")[2]["jobs"][0]["job_id"], jid)
         self.assertEqual(self.request("GET", f"/api/local/jobs/{jid}/files/test_tsv")[2], b"synthetic\tprivate\n")
         for path in ("/api/local/session", "/api/local/logout"):
