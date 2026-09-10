@@ -75,10 +75,15 @@ New analyses use the strict manuscript Brain9/11-category mapping described in
 directory. Do not bypass this error by relabeling tracks or substituting old
 scores. Classification receipts are also downloadable for successful jobs.
 
-When upgrading from local.1, stop the old server first, replace only the source
+New RNA curves select the exact adult GTEx Brain_Cortex (Frontal cortex,
+UBERON:0001870) polyA+ unstranded track. If unavailable or ambiguous, the curve
+is marked unavailable; existing scores remain valid and no other tissue is
+substituted. See [RNA_CURVE.md](RNA_CURVE.md).
+
+When upgrading from local.1 or local.2, stop the old server first, replace only the source
 checkout with this version, and restart from the new checkout. Keep your private
-state directory. Existing Brain6 jobs remain legacy; no automatic conversion or
-new API run occurs.
+state directory. Existing Brain6 jobs and Whole brain curves remain legacy; no automatic
+conversion, relabeling or new API run occurs.
 
 Browser downloads list result figures, source tables, null summary/design, QC and provenance where produced. Full raw real/null TSVs and sidecars remain under `~/.alphagenie/jobs/<job-id>/`. No broad file-browser or upload-to-operator endpoint exists.
 

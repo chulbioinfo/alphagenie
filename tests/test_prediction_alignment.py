@@ -67,15 +67,15 @@ class PredictionAlignmentTests(unittest.TestCase):
     def test_offline_upgrade_preserves_inference_and_is_idempotent(self):
         with tempfile.TemporaryDirectory() as temp:
             directory = Path(temp)
-            source = directory / "whole_brain_prediction.tsv"
+            source = directory / "frontal_cortex_prediction.tsv"
             frame([10,20,30,999,888,40,50,60]).to_csv(source, sep="\t", index=False)
             original_raw = source.read_bytes()
             original_inference = {"inference_started_at": "2026-09-08T14:00:00Z", "inference_completed_at": "2026-09-08T14:00:05Z"}
-            status_path = directory / "whole_brain_prediction_status.json"
+            status_path = directory / "frontal_cortex_prediction_status.json"
             status_path.write_text(json.dumps({"status": "ok", "inference_provenance": original_inference}))
             status = align_existing_prediction(directory, variant())
             self.assertEqual(status["inference_provenance"], original_inference)
-            self.assertEqual((directory / "whole_brain_prediction_raw.tsv").read_bytes(), original_raw)
+            self.assertEqual((directory / "frontal_cortex_prediction_raw.tsv").read_bytes(), original_raw)
             receipt = status_path.read_bytes()
             aligned = source.read_bytes()
             align_existing_prediction(directory, variant())

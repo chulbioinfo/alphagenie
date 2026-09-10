@@ -85,7 +85,8 @@ BH adjustment or cosine similarity.
 - Old local Brain6 jobs remain labeled legacy; this update does not reanalyze,
   relabel or overwrite them. All sealed manuscript artifacts remain unchanged.
 
-The separate new-run RNA curve still uses **Whole brain UBERON:0000955**.
-This classification update does not change it into the saved frontal-cortex
-curve (UBERON:0001870). Current API weights are not pinned by SDK 0.8.0, so
-matching the grouping does not guarantee matching the saved numerical results.
+As of local.3, the separate new-run RNA curve uses the same adult **Frontal cortex,
+GTEx Brain_Cortex, UBERON:0001870, polyA+ unstranded** track as the saved explorer.
+Whole brain remains a valid Brain9 bar category, not the RNA curve source.
+See [RNA curve selection](RNA_CURVE.md). Current API weights are not pinned by SDK
+0.8.0, so matching the grouping and track does not guarantee matching saved values.

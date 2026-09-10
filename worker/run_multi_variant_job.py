@@ -687,6 +687,8 @@ def run_multi_variant_job(
             single_payload["run_mode"] = "api_full"
             single_payload["analysis_mode"] = "custom_api_local_brain9"
             single_payload["classification_version"] = CLASSIFICATION_VERSION
+            from worker.rna_curve import SPEC_ID as CURVE_SPEC_ID
+            single_payload["curve_spec_id"] = CURVE_SPEC_ID
             manifest_entry = subjob_manifest[idx - 1]
             manifest_entry.update(
                 {

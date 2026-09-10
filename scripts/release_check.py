@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import sys
+from language_check import check_english_release
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORIES = {"alphagenie", "app", "worker", "pipeline", "data", "docs", "examples", "scripts", "tests", ".github"}
@@ -38,6 +39,7 @@ def source_files():
 
 def verify():
     files = source_files()
+    english_files = check_english_release(files)
     for path in files:
         if path.stat().st_size >= 95 * 1024 * 1024:
             raise ValueError(f"File too large for ordinary GitHub source: {path.relative_to(ROOT)}")
@@ -56,6 +58,7 @@ def verify():
         if not path.is_relative_to(data.resolve()) or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
             raise ValueError(f"Saved manuscript integrity failure: {relative}")
     return {"status": "passed", "source_files": len(files), "sealed_assets": len(actual),
+            "english_text_files_checked": english_files,
             "size_bytes": sum(p.stat().st_size for p in files), "real_api_calls": 0,
             "warning": "Heuristic scan is not a guarantee; inspect staged files and confirm licensing before publication."}
 

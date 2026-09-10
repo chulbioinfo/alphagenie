@@ -6,7 +6,7 @@ Download this repository, run the interface on your own computer, and use **your
 
 > **Privacy:** This distribution contains no API key collection endpoint, telemetry or automatic feedback upload to AlphaGENIE. Keys stay in your local environment and are used to authenticate requests directly to Google DeepMind's AlphaGenome API. New inference sends variants/intervals and your key to Google; it is **not fully offline computation**. See [Privacy](docs/PRIVACY.md).
 
-[한국어 안내](README.ko.md) · [Installation](docs/INSTALL.md) · [Methods](docs/METHODS.md) · [Development plan](docs/DEVELOPMENT_PLAN.md) · [Security](SECURITY.md)
+[Installation](docs/INSTALL.md) · [Methods](docs/METHODS.md) · [Development plan](docs/DEVELOPMENT_PLAN.md) · [Security](SECURITY.md)
 
 ## Quick start
 
@@ -39,11 +39,13 @@ In **My analyses**, paste a TSV, choose the input length and null count, review 
 | UI | v0.21 | v0.21 local workspace |
 | Numerical source | Frozen v0.20 release; 1,000 nulls each | Fresh inference using v0.20 engine code |
 | Brain endpoint | Brain9: 8 adult categories + Embryo | Same versioned **Brain9** membership (8 adult + Embryo) |
-| RNA curve | Frontal cortex, UBERON:0001870 | Whole brain, UBERON:0000955 |
+| RNA curve | Frontal cortex, UBERON:0001870 | Same adult GTEx Brain_Cortex, polyA+, unstranded track |
 | Multi-variant family | Fixed 17 variants, RGPD1 excluded | All requested variants must complete; first row is cosine reference |
 | Network | None for local viewing/export | Google DeepMind API on explicit run |
 
 Both workflows display **11 categories** for single variants: the nine Brain9 categories, Non-brain tissues, and Cells & cell lines. Only Brain9 enters primary statistics and cosine; multi-variant heatmaps show those nine categories, while the downloadable matrix retains all 11. The reviewed catalog has 371 tracks (14 adult brain + 7 embryonic brain + 153 non-brain tissue + 197 cells). New/missing tracks or changed classification metadata stop analysis for review; no guessed grouping or legacy fallback. See [Brain9 specification](docs/BRAIN9.md).
+
+New RNA curves use the [exact v0.21 Frontal cortex selector](docs/RNA_CURVE.md), with no Whole brain, BA9, ENCODE or embryo fallback. All documentation, comments and interface text are in English. The legacy `README.ko.md` filename is only an English documentation redirect.
 
 The SDK is pinned to **0.8.0**, not to an immutable provider checkpoint. New runs are **not guaranteed to reproduce September 2026 numbers**, and are not labeled as the frozen Brain9 analysis. No v0.18 numerical fallback is shipped or used. See the scientific limitations in [Methods](docs/METHODS.md).
 

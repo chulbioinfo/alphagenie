@@ -188,15 +188,18 @@ class PrivateStateTests(unittest.TestCase):
 class HttpTests(unittest.TestCase):
     def test_old_jobs_are_not_relabelled_as_brain9(self):
         from worker.brain9 import VERSION
+        from worker.rna_curve import SPEC_ID
         state = config.state_dir()
         db = state / "jobs.sqlite"
         for letter, payload in (("c", {"analysis_mode": "custom_api_local_brain6"}),
-                                ("d", {"classification_version": VERSION})):
+                                ("d", {"classification_version": VERSION}),
+                                ("e", {"classification_version": VERSION, "curve_spec_id": SPEC_ID})):
             job_store.create_job(db, job_id=letter*32, run_mode="api_full", input_payload=payload,
                                  job_dir=state / "jobs" / (letter*32))
             response = self.request("GET", "/api/local/jobs/" + letter*32)
             self.assertEqual(response[0], 200)
             self.assertIn("Legacy Brain6" if letter == "c" else "Brain9 (adult 8 + Embryo)", response[2]["endpoint"])
+            self.assertIn("Frontal cortex" if letter == "e" else "Legacy curve", response[2]["rna_curve"])
 
     @classmethod
     def setUpClass(cls):
@@ -321,12 +324,12 @@ class FrozenStatisticsTests(unittest.TestCase):
 
 
 class CohortAndTrackGuards(unittest.TestCase):
-    def test_whole_brain_does_not_fallback_to_cortex(self):
-        from worker.run_single_variant_job import choose_whole_brain_track
+    def test_cortex_does_not_fallback_to_whole_brain(self):
+        from worker.rna_curve import choose_frontal_cortex_track, TRACK_SPEC
         with self.assertRaises(ValueError):
-            choose_whole_brain_track(pd.DataFrame([{"ontology_curie": "UBERON:0001870", "biosample_name": "cortex"}]))
-        data = pd.DataFrame([{"ontology_curie": "UBERON:0001870"}, {"ontology_curie": "UBERON:0000955"}])
-        self.assertEqual(choose_whole_brain_track(data), 1)
+            choose_frontal_cortex_track(pd.DataFrame([{"ontology_curie": "UBERON:0000955", "biosample_name": "brain"}]))
+        data = pd.DataFrame([{"ontology_curie": "UBERON:0000955"}, TRACK_SPEC])
+        self.assertEqual(choose_frontal_cortex_track(data), 1)
 
     def test_partial_cohort_is_withheld(self):
         from worker import run_multi_variant_job as multi

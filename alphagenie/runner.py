@@ -65,9 +65,11 @@ class JobManager:
                 root = self.jobs / jid
                 root.mkdir(mode=0o700)
                 from worker.brain9 import VERSION, ANALYSIS_MODE
-                rows = [{**row, "analysis_mode": ANALYSIS_MODE, "classification_version": VERSION} for row in rows]
+                from worker.rna_curve import SPEC_ID as CURVE_SPEC_ID
+                rows = [{**row, "analysis_mode": ANALYSIS_MODE, "classification_version": VERSION, "curve_spec_id": CURVE_SPEC_ID} for row in rows]
                 payload = {"rows": rows, "dataset_name": dataset_name,
-                           "analysis_mode": ANALYSIS_MODE, "classification_version": VERSION, "validation": validation,
+                           "analysis_mode": ANALYSIS_MODE, "classification_version": VERSION,
+                           "curve_spec_id": CURVE_SPEC_ID, "validation": validation,
                            "reference_variant_group_id": rows[0]["variant_group_id"],
                            "sequence_length": rows[0]["sequence_length"], "null_depth": rows[0]["null_depth"],
                            "inference_run_epoch": jid, "inference_backend_revision": "unresolved_server_default",

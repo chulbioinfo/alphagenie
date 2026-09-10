@@ -28,6 +28,11 @@ if str(APP_ROOT) not in sys.path:
 
 from app.job_store import update_job
 from alphagenie.security import redact
+from worker.rna_curve import (
+    SPEC_ID as CURVE_SPEC_ID, TRACK_SPEC as CURVE_TRACK_SPEC,
+    ONTOLOGY as CURVE_ONTOLOGY, choose_frontal_cortex_track,
+    selection_receipt, selection_matches, track_pair_to_frame,
+)
 from worker.inference_provenance import (
     cache_provenance_matches,
     complete_inference,
@@ -338,8 +343,10 @@ def prediction_cache_key(
             "sequence_length": int(payload.get("sequence_length", 1_048_576)),
             "inference_identity": identity or inference_identity(payload, gencode_gtf),
             "output_type": "RNA_SEQ",
-            "ontology_terms": ["UBERON:0000955"],
-            "track_selection_version": 1,
+            "ontology_terms": [CURVE_ONTOLOGY],
+            "track_selection_version": 2,
+            "curve_spec_id": CURVE_SPEC_ID,
+            "required_track_metadata": CURVE_TRACK_SPEC,
             "track_alignment_version": PREDICTION_TRACK_ALIGNMENT_VERSION,
         },
         sort_keys=True,
@@ -495,58 +502,7 @@ def write_gene_model_tsv(
     pd.DataFrame(rows, columns=columns).to_csv(out_path, sep="\t", index=False)
 
 
-def choose_whole_brain_track(metadata: pd.DataFrame) -> int:
-    if metadata is None or metadata.empty:
-        raise ValueError("Whole brain RNA track metadata unavailable")
-    best_idx = None
-    best_score = -10**9
-    for idx, row in metadata.reset_index(drop=True).iterrows():
-        if str(row.get("ontology_curie", "")) != "UBERON:0000955":
-            continue
-        text = " ".join(str(row.get(col, "")) for col in metadata.columns).lower()
-        score = 0
-        if str(row.get("ontology_curie", "")) == "UBERON:0000955":
-            score += 10
-        if str(row.get("biosample_name", "")).lower() == "brain":
-            score += 6
-        if "polya plus rna-seq" in text or "polya plus" in text:
-            score += 3
-        if str(row.get("data_source", "")).lower() == "encode":
-            score += 1
-        for tissue in ("cortex", "cerebell", "hippocamp", "caudate", "putamen"):
-            if tissue in text:
-                score -= 2
-        if score > best_score:
-            best_idx = int(idx)
-            best_score = score
-    if best_idx is None:
-        raise ValueError("Whole brain UBERON:0000955 track unavailable; no tissue fallback")
-    return best_idx
-
-
-def tdata_track_to_frame(tdata_ref: Any, tdata_alt: Any, track_idx: int) -> pd.DataFrame:
-    ref_values = np.asarray(tdata_ref.values)
-    alt_values = np.asarray(tdata_alt.values)
-    if ref_values.ndim == 1:
-        ref_track = ref_values
-    else:
-        ref_track = ref_values[:, track_idx]
-    if alt_values.ndim == 1:
-        alt_track = alt_values
-    else:
-        alt_track = alt_values[:, track_idx]
-    n_pos = len(ref_track)
-    positions = np.arange(n_pos) * int(tdata_ref.resolution) + int(tdata_ref.interval.start)
-    return pd.DataFrame(
-        {
-            "position": positions.astype(int),
-            "ref_prediction": ref_track.astype(float),
-            "alt_prediction": alt_track.astype(float),
-        }
-    )
-
-
-def generate_whole_brain_prediction(
+def generate_frontal_cortex_prediction(
     *,
     payload: dict[str, Any],
     prediction_out: Path,
@@ -590,7 +546,7 @@ def generate_whole_brain_prediction(
             variant=variant,
             requested_outputs={dna_client.OutputType.RNA_SEQ},
             organism=dna_client.Organism.HOMO_SAPIENS,
-            ontology_terms=["UBERON:0000955"],
+            ontology_terms=[CURVE_ONTOLOGY],
         )
     except Exception as exc:
         status = {
@@ -623,16 +579,31 @@ def generate_whole_brain_prediction(
         return status
 
     metadata = ref_td.metadata.reset_index(drop=True).copy()
-    track_idx = choose_whole_brain_track(metadata)
-    prediction = tdata_track_to_frame(ref_td, alt_td, track_idx)
-    meta_row = metadata.iloc[track_idx].to_dict() if len(metadata) else {}
+    alt_metadata = alt_td.metadata.reset_index(drop=True).copy()
+    try:
+        selection = selection_receipt(metadata, alt_metadata)
+        track_idx = selection["reference_track_index"]
+        alt_track_idx = selection["alternate_track_index"]
+        prediction = track_pair_to_frame(ref_td, alt_td, track_idx, alt_track_idx)
+        if (ref_td.interval.chromosome, ref_td.interval.start, ref_td.interval.end) != (interval.chromosome, interval.start, interval.end):
+            raise ValueError("RNA output interval does not match the requested interval")
+    except ValueError as exc:
+        status = {"status": "unavailable", "reason": str(exc), "api_called": True,
+                  "prediction_cache_key": cache_key, "inference_provenance": provenance,
+                  "curve_spec_id": CURVE_SPEC_ID, "ontology_terms": [CURVE_ONTOLOGY]}
+        write_json(status_out, status)
+        return status
+    meta_row = metadata.iloc[track_idx].to_dict()
+    alt_meta_row = alt_metadata.iloc[alt_track_idx].to_dict()
     for key, value in meta_row.items():
         prediction[key] = value
     prediction["track_idx"] = track_idx
+    prediction["alternate_track_idx"] = alt_track_idx
+    prediction["curve_spec_id"] = CURVE_SPEC_ID
     prediction["variant_group_id"] = payload.get("variant_group_id")
     prediction["gene_symbol"] = payload.get("gene_symbol")
     prediction_out.parent.mkdir(parents=True, exist_ok=True)
-    raw_prediction_out = prediction_out.with_name("whole_brain_prediction_raw.tsv")
+    raw_prediction_out = prediction_out.with_name("frontal_cortex_prediction_raw.tsv")
     prediction.to_csv(raw_prediction_out, sep="\t", index=False)
     prediction, alignment_metadata = align_prediction_frame(prediction, payload)
     prediction.to_csv(prediction_out, sep="\t", index=False)
@@ -649,10 +620,16 @@ def generate_whole_brain_prediction(
         "api_called": True,
         "prediction_cache_key": cache_key,
         "inference_provenance": provenance,
-        "ontology_terms": ["UBERON:0000955"],
+        "ontology_terms": [CURVE_ONTOLOGY],
         "interval": {"chrom": interval.chromosome, "start": int(interval.start), "end": int(interval.end)},
         "track_idx": track_idx,
         "track_metadata": {str(k): str(v) for k, v in meta_row.items()},
+        "alternate_track_metadata": {str(k): str(v) for k, v in alt_meta_row.items()},
+        "track_selection": selection,
+        "curve_spec_id": CURVE_SPEC_ID,
+        "tissue_label": "Frontal cortex",
+        "resolution_bp": 1,
+        "input_sequence_length": sequence_length,
         "visualization_alignment": {
             **alignment_metadata,
             "aligned_at": utc_now(),
@@ -665,17 +642,17 @@ def generate_whole_brain_prediction(
     return status
 
 
-def ensure_whole_brain_prediction(
+def ensure_frontal_cortex_prediction(
     *,
     payload: dict[str, Any],
     results_dir: Path,
     cache_root: Path,
     gencode_gtf: Path,
 ) -> dict[str, Any]:
-    prediction_out = results_dir / "whole_brain_prediction.tsv"
-    raw_prediction_out = results_dir / "whole_brain_prediction_raw.tsv"
+    prediction_out = results_dir / "frontal_cortex_prediction.tsv"
+    raw_prediction_out = results_dir / "frontal_cortex_prediction_raw.tsv"
     gene_model_out = results_dir / "gene_model.tsv"
-    status_out = results_dir / "whole_brain_prediction_status.json"
+    status_out = results_dir / "frontal_cortex_prediction_status.json"
     identity = inference_identity(payload, gencode_gtf)
     key = prediction_cache_key(payload, identity=identity)
     key_dir = cache_root / "_prediction_cache" / key
@@ -691,14 +668,16 @@ def ensure_whole_brain_prediction(
             cache_dir = (key_dir / pointer["generation"]).resolve()
             if not cache_dir.is_relative_to(key_dir.resolve()):
                 raise ValueError("cache generation is outside its identity directory")
-            cache_prediction = cache_dir / "whole_brain_prediction.tsv"
-            cache_raw = cache_dir / "whole_brain_prediction_raw.tsv"
+            cache_prediction = cache_dir / "frontal_cortex_prediction.tsv"
+            cache_raw = cache_dir / "frontal_cortex_prediction_raw.tsv"
             cache_gene = cache_dir / "gene_model.tsv"
-            cache_status = cache_dir / "whole_brain_prediction_status.json"
+            cache_status = cache_dir / "frontal_cortex_prediction_status.json"
             status = json.loads(cache_status.read_text())
             artifacts = (cache_prediction, cache_raw, cache_gene, cache_status)
             if not all(path.is_file() and path.stat().st_size > 0 for path in artifacts):
                 raise ValueError("cache generation is incomplete")
+            if not selection_matches(status, payload):
+                raise ValueError("cache does not contain the required Frontal cortex track identity")
             if not cache_provenance_matches(status, identity, key):
                 raise ValueError("cache inference provenance is missing or incompatible")
             if not prediction_alignment_valid(status, cache_prediction, cache_raw):
@@ -717,14 +696,14 @@ def ensure_whole_brain_prediction(
     # stale curve as a new result nor overwrite a previously valid generation.
     generation = f"generations/{uuid.uuid4().hex}"
     cache_dir = key_dir / generation
-    cache_prediction = cache_dir / "whole_brain_prediction.tsv"
-    cache_raw = cache_dir / "whole_brain_prediction_raw.tsv"
+    cache_prediction = cache_dir / "frontal_cortex_prediction.tsv"
+    cache_raw = cache_dir / "frontal_cortex_prediction_raw.tsv"
     cache_gene = cache_dir / "gene_model.tsv"
-    cache_status = cache_dir / "whole_brain_prediction_status.json"
+    cache_status = cache_dir / "frontal_cortex_prediction_status.json"
 
     try:
         cache_dir.mkdir(parents=True, exist_ok=True)
-        status = generate_whole_brain_prediction(
+        status = generate_frontal_cortex_prediction(
             payload=payload,
             prediction_out=cache_prediction,
             gene_model_out=cache_gene,
@@ -739,7 +718,7 @@ def ensure_whole_brain_prediction(
         write_json(cache_status, status)
 
     results_dir.mkdir(parents=True, exist_ok=True)
-    valid = cache_provenance_matches(status, identity, key) and all(
+    valid = selection_matches(status, payload) and cache_provenance_matches(status, identity, key) and all(
         path.is_file() and path.stat().st_size > 0 for path in (cache_prediction, cache_raw, cache_gene)
     ) and prediction_alignment_valid(status, cache_prediction, cache_raw)
     if valid:
@@ -770,7 +749,7 @@ def prediction_files_available(prediction_path: Path, gene_model_path: Path) -> 
     return prediction_path.exists() and gene_model_path.exists() and prediction_path.stat().st_size > 0
 
 
-def plot_whole_brain_prediction_axes(
+def plot_frontal_cortex_prediction_axes(
     ax_gene: Any,
     ax_pred: Any,
     ax_delta: Any,
@@ -790,7 +769,7 @@ def plot_whole_brain_prediction_axes(
         ax_pred.text(
             0.5,
             0.5,
-            "Whole brain REF/ALT RNA prediction track unavailable",
+            "Frontal cortex REF/ALT RNA prediction track unavailable",
             ha="center",
             va="center",
             transform=ax_pred.transAxes,
@@ -881,15 +860,15 @@ def plot_whole_brain_prediction_axes(
         ax_gene.axvline(variant_x, color="#e729d8", linewidth=0.8, alpha=0.85)
     ax_pred.set_ylim(0, ymax)
     track_label_parts = [
-        str(pred.iloc[0].get("biosample_name", "brain")),
+        str(pred.iloc[0].get("biosample_name", "frontal cortex")),
         str(pred.iloc[0].get("strand", "")),
-        str(pred.iloc[0].get("ontology_curie", "UBERON:0000955")),
+        str(pred.iloc[0].get("ontology_curie", CURVE_ONTOLOGY)),
         str(pred.iloc[0].get("Assay title", pred.iloc[0].get("name", "RNA-seq"))),
     ]
     track_label = " ".join(part for part in track_label_parts if part and part.lower() != "nan")
     ax_pred.set_ylabel("RNA\nprediction", fontsize=fs(7))
     ax_pred.set_title(
-        f"Whole brain RNA_SEQ prediction: {track_label}",
+        f"Frontal cortex RNA_SEQ prediction: {track_label}",
         loc="left",
         fontsize=fs(8),
         fontweight="bold",
@@ -1070,7 +1049,7 @@ def render_prediction_panel_inline_svg(
     ax_gene = fig.add_subplot(gs[0])
     ax_pred = fig.add_subplot(gs[1], sharex=ax_gene)
     ax_delta = fig.add_subplot(gs[2], sharex=ax_gene)
-    plot_whole_brain_prediction_axes(
+    plot_frontal_cortex_prediction_axes(
         ax_gene,
         ax_pred,
         ax_delta,
@@ -1112,7 +1091,7 @@ def make_plot(
     x_labels = [f"{r.short_label}\n({r.n_tracks})" for r in groups.itertuples(index=False)]
     x_positions = list(range(len(groups)))
     position = {group: i for i, (group, _) in enumerate(FULL_GROUP_ORDER)}
-    prediction_path = source_table.parent / "whole_brain_prediction.tsv"
+    prediction_path = source_table.parent / "frontal_cortex_prediction.tsv"
     gene_model_path = source_table.parent / "gene_model.tsv"
 
     width_mm = float(figure_width_mm or DEFAULT_SINGLE_FIGURE_WIDTH_MM)
@@ -1133,7 +1112,7 @@ def make_plot(
     ax_delta = fig.add_subplot(gs[2], sharex=ax_gene)
     ax = fig.add_subplot(gs[3])
     plot_summary = dict(summary)
-    plot_whole_brain_prediction_axes(
+    plot_frontal_cortex_prediction_axes(
         ax_gene,
         ax_top,
         ax_delta,
@@ -1224,7 +1203,7 @@ def make_plot(
     )
     fig.subplots_adjust(left=0.105, right=0.985, top=0.94, bottom=0.19, hspace=1.05)
     label = figure_provenance_label(summary)
-    if (summary.get('whole_brain_prediction_status') or {}).get('visualization_alignment', {}).get('version'):
+    if (summary.get('frontal_cortex_prediction_status') or {}).get('visualization_alignment', {}).get('version'):
         label += ' | RNA curves REF-coordinate aligned'
     fig.text(0.105, 0.025, label, fontsize=5.0 * scale, color='#666666', ha='left', va='bottom')
     html_out.parent.mkdir(parents=True, exist_ok=True)
@@ -2161,19 +2140,19 @@ def run_job(
             db,
             job_id,
             stage="predict_tracks",
-            message="Predicting/caching Whole brain REF/ALT RNA_SEQ track",
+            message="Predicting/caching Frontal cortex REF/ALT RNA_SEQ track",
             progress_percent=92,
         )
         if run_mode == "demo_cached":
             prediction_status = load_demo_prediction(payload, results_dir)
         else:
-            prediction_status = ensure_whole_brain_prediction(
+            prediction_status = ensure_frontal_cortex_prediction(
                 payload=payload,
                 results_dir=results_dir,
                 cache_root=root.parent,
                 gencode_gtf=Path(gencode_gtf),
             )
-        summary["whole_brain_prediction_status"] = prediction_status
+        summary["frontal_cortex_prediction_status"] = prediction_status
         write_json(results_dir / "consensus_summary.json", summary)
 
         update_job(
@@ -2200,10 +2179,10 @@ def run_job(
             "group_summary": str(results_dir / "group_summary.tsv"),
             "consensus_summary": str(results_dir / "consensus_summary.json"),
             "qc_summary": str(results_dir / "qc_summary.md"),
-            "whole_brain_prediction": str(results_dir / "whole_brain_prediction.tsv"),
-            "whole_brain_prediction_raw": str(results_dir / "whole_brain_prediction_raw.tsv"),
+            "frontal_cortex_prediction": str(results_dir / "frontal_cortex_prediction.tsv"),
+            "frontal_cortex_prediction_raw": str(results_dir / "frontal_cortex_prediction_raw.tsv"),
             "gene_model": str(results_dir / "gene_model.tsv"),
-            "whole_brain_prediction_status": str(results_dir / "whole_brain_prediction_status.json"),
+            "frontal_cortex_prediction_status": str(results_dir / "frontal_cortex_prediction_status.json"),
         }
         optional_artifacts = {
             "classification_audit": results_dir / "classification_audit.json",

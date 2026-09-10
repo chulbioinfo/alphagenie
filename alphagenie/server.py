@@ -115,6 +115,7 @@ def create_app(port=8877):
         return {"token": token, "key_configured": key_available(), "references_configured": bool(cfg),
                 "ui_version": "0.21", "engine_version": "0.20", "new_analysis_endpoint": "Brain9",
                 "saved_result_endpoint": "Brain9", "key_entry": "terminal only",
+                "new_rna_curve": "Frontal cortex; GTEx Brain_Cortex; UBERON:0001870; polyA+; unstranded",
                 "external_inference_provider": "Google DeepMind AlphaGenome API"}
 
     @app.post("/api/local/validate")
@@ -143,6 +144,10 @@ def create_app(port=8877):
         # Do not relabel pre-upgrade Brain6 jobs merely because the server upgraded.
         result["endpoint"] = (ENDPOINT if job["input"].get("classification_version") == VERSION
                               else "Legacy Brain6 / unversioned analysis (not Brain9)")
+        from worker.rna_curve import SPEC_ID as CURVE_SPEC_ID
+        result["rna_curve"] = ("Frontal cortex (GTEx Brain_Cortex, UBERON:0001870)"
+                               if job["input"].get("curve_spec_id") == CURVE_SPEC_ID
+                               else "Legacy curve: inspect the recorded track metadata; not relabeled")
         result["files"] = {key: f"/api/local/jobs/{job['job_id']}/files/{key}" for key, val in job["result"].items()
                            if key != "job_dir" and Path(val).is_file() and Path(val).suffix != ".html"}
         result["requested_variants"] = len(job["input"].get("rows", [job["input"]]))

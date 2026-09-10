@@ -1,5 +1,5 @@
 {
-  "package_version": "0.21.0-local.2",
+  "package_version": "0.21.0-local.3",
   "assembled_utc_date": "2026-09-10",
   "origin": "User-owned AlphaGENIE source snapshot; no public Git commit identifier was available",
   "interface_lineage": "v0.21",
@@ -15,7 +15,8 @@
     "Portable pipeline imports; child environment and redaction guards",
     "Fresh UUID epoch with unresolved provider backend",
     "No demo/legacy run mode; incomplete cohort/missing reference fail closed",
-    "Whole brain exact ontology required",
+    "Exact adult GTEx Frontal cortex selection, independent REF/ALT track matching and identity-bound curve caches",
+    "English-only documentation, interface prose and source comments",
     "Inherited process lock and non-resuming restart behavior"
   ],
   "copied_sources": [

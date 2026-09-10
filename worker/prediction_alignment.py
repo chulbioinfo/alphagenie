@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 
 TRACK_ALIGNMENT_VERSION = 1
-RAW_PREDICTION_NAME = "whole_brain_prediction_raw.tsv"
+RAW_PREDICTION_NAME = "frontal_cortex_prediction_raw.tsv"
 
 
 def _sha256(path: Path) -> str:
@@ -144,9 +144,9 @@ def align_existing_prediction(results_dir: Path | str, payload: Mapping[str, Any
     only if both recorded hashes and the allele representation still match.
     """
     results_dir = Path(results_dir)
-    prediction = results_dir / "whole_brain_prediction.tsv"
+    prediction = results_dir / "frontal_cortex_prediction.tsv"
     raw = results_dir / RAW_PREDICTION_NAME
-    status_path = results_dir / "whole_brain_prediction_status.json"
+    status_path = results_dir / "frontal_cortex_prediction_status.json"
     if not prediction.is_file() or not status_path.is_file():
         raise ValueError("Prediction TSV and original inference status are required for alignment")
     status = json.loads(status_path.read_text())

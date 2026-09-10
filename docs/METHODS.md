@@ -2,7 +2,7 @@
 
 ## Version meaning
 
-`0.21.0-local.2` names this local distribution. **v0.21** is the UI lineage; **v0.20** is the preserved scientific engine/data lineage. The older internal pipeline directory name in the source history does not mean that this package uses v0.18 predictions. Six original pipeline scripts are included under `pipeline/scripts/`; no v0.18 numerical cache is shipped and local job entry rejects demo/legacy mode.
+`0.21.0-local.3` names this local distribution. **v0.21** is the UI lineage; **v0.20** is the preserved scientific engine/data lineage. The older internal pipeline directory name in the source history does not mean that this package uses v0.18 predictions. Six original pipeline scripts are included under `pipeline/scripts/`; no v0.18 numerical cache is shipped and local job entry rejects demo/legacy mode.
 
 ### Saved manuscript workflow
 
@@ -23,7 +23,7 @@ The saved RNA curve is GTEx **Brain_Cortex, UBERON:0001870**, polyA+ RNA-seq, un
 7. Two-sided empirical P compares the observed absolute statistic to the null-consensus distribution after recentering by its median, using the **plus-one** correction `(exceedances + 1)/(N + 1)`. Observed-direction P is exploratory and direction-selected after seeing the effect, not a prespecified one-sided test.
 8. A standalone result has an empirical P, not a cohort FDR. Historical compatibility fields named `bh_fdr_two_sided` in a single result may equal P; do not interpret them as multi-variant correction.
 9. For multi-variant runs, all requested variants must succeed before cohort summary. BH correction is then across the requested family; cosine compares the complete nine-group, uncentered Brain9 effect vector to the **first requested row**, with ascending-consensus row order by default. The heatmap uses the nine Brain9 categories; the source matrix retains all 11 categories. Partial failures retain successful individual results but do not produce a reduced-family cohort. Missing/nonfinite category values fail. Zero-norm cosine is exported as missing and labeled NA, never substituted with zero.
-10. The additional curve predicts **Whole brain UBERON:0000955** with the original engine, using reference-coordinate alignment for REF/ALT indels. Per-position `ALT − REF` curve values are not the adjusted GeneMaskLFC statistic shown by the bars.
+10. The additional curve selects adult **Frontal cortex, GTEx Brain_Cortex, UBERON:0001870, polyA plus RNA-seq, unstranded (`.`)** as in the v0.21 saved explorer. Require a unique exact metadata match independently in REF and ALT, equal requested intervals, 1-bp resolution and finite raw arrays. Missing/ambiguous tracks yield an unavailable curve without substituting Whole brain, BA9, ENCODE or embryo. Reference-coordinate alignment for REF/ALT indels is unchanged; see [RNA curve contract](RNA_CURVE.md). Per-position `ALT − REF` curve values are not the adjusted GeneMaskLFC statistic shown by the bars.
 
 ## Null model limitations
 
@@ -33,7 +33,7 @@ This is not a complete match for TSS distance, replication phase, CpG, mappabili
 
 New local runs record a fresh UUID epoch, actual scoring/prediction start/end UTC times, installed SDK, scorer settings, input/output hashes, annotation path/stat, requested model `server_default`, and **unresolved provider checkpoint**. Pinning the SDK does not pin Google backend weights. Do not equate a current API execution with a July rollout or the September saved inference. Score sidecars refuse incompatible/unprovenanced appends.
 
-The v0.20 score/null generation is reused, and the local.2 adapter applies the manuscript Brain9 aggregation with canonical-before-centering duplicate handling; other local patches affect credential handling, portability, preflight, run-mode restrictions, error redaction, cohort completeness and truthful provenance labels. Missing Whole brain metadata now fails closed instead of selecting an unrelated first track, and a missing cosine reference is not replaced. See `SOURCE_ORIGIN.json` for copied file hashes. Newly rendered figures can vary with installed fonts; the original sealed figures retain their hashes.
+The v0.20 score/null generation is reused, and the local.2 adapter applies the manuscript Brain9 aggregation with canonical-before-centering duplicate handling; other local patches affect credential handling, portability, preflight, run-mode restrictions, error redaction, cohort completeness and truthful provenance labels. Missing Frontal cortex metadata now fails closed instead of selecting an unrelated track, and a missing cosine reference is not replaced. The local.3 curve adapter validates identity, window, alignment and hashes on cache access; old Whole brain curves are not relabeled. See `SOURCE_ORIGIN.json` for copied file hashes. Newly rendered figures can vary with installed fonts; the original sealed figures retain their hashes.
 
 ## Reading and citing
 

@@ -28,7 +28,7 @@ DeepMind. This local edition does not claim approval for a public operator-key
 API service. New local analyses use the user's own key and transmit requests
 directly to Google DeepMind; AlphaGENIE operators do not collect the key.
 New local runs use the versioned manuscript Brain9 classification, but fresh API
-scores and a separate Whole brain curve are not the frozen frontal-cortex data. See docs/METHODS.md and docs/PRIVACY.md.
+scores and Frontal cortex curves are not the frozen manuscript inference. See docs/METHODS.md and docs/PRIVACY.md.
 
 When redistributing these materials, retain this notice and the applicable use
 restrictions, consult the full terms, and identify any further modifications.
