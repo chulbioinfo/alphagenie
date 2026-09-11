@@ -2,7 +2,7 @@
 
 ## Version meaning
 
-`0.23.0` names this local distribution. **v0.23** is the current interface version, continuing the v0.21/v0.22 UI lineage; **v0.20** is the preserved scientific engine/data lineage. The 0.23 release corrects matched-null ID compatibility and result export registration while retaining the 0.22 packaging and request safeguards. Scientific formulas, saved scores, null arrays, track selection and recorded inference dates are unchanged. The older internal pipeline directory name in the source history does not mean that this package uses v0.18 predictions. Six original pipeline scripts are included under `pipeline/scripts/`; no v0.18 numerical cache is shipped and local job entry rejects demo/legacy mode.
+`0.24.0` names this local distribution. **v0.24** names the interface and verified data presentation; **v0.20** remains the immutable scientific source lineage. The new release includes the reviewed fresh-epoch guard, portable curve comparison and fail-closed numerical checks. The September 11 verification used one fresh provider inference epoch for 19 contexts and separate web/GitHub aggregation of the same raw scores. Fixed seed 20260527 regenerated the same matched-null designs. This verifies fixed-design reproduction, not independent null resampling or two provider experiments. Scientific formulas, saved artifact bytes, track selection and original source timestamps are preserved. Verification timestamps are separate metadata. See [verification](VERIFICATION_v0.24.md). No v0.18 numerical cache is shipped and local job entry rejects demo/legacy mode.
 
 ### Saved manuscript workflow
 

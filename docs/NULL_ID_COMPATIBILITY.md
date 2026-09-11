@@ -1,6 +1,6 @@
 # Matched-null ID compatibility fix
 
-This local correction applies to the v0.23 interface / v0.20 analysis engine. It
+This local correction was introduced in v0.23 and is retained by the v0.24 interface / v0.20 analysis engine. It
 does not change inference, null sampling, the Brain9 classification, numerical
 score values, or the sealed manuscript assets.
 

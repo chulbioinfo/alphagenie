@@ -1,12 +1,12 @@
 # AlphaGENIE Local
 
-**AlphaGENome-Integrated Explorer** — distribution **0.23.0**, v0.23 interface with the preserved v0.20 RNA analysis engine and manuscript data.
+**AlphaGENome-Integrated Explorer** — distribution **0.24.0**, interface and verified data presentation **v0.24**, with preserved v0.20 scientific source lineage.
 
 Download this repository, run the interface on your own computer, and use **your own AlphaGenome API key**. No AlphaGENIE account or operator-hosted API proxy is involved.
 
 > **Privacy:** This distribution contains no API key collection endpoint, telemetry or automatic feedback upload to AlphaGENIE. Keys stay in your local environment and are used to authenticate requests directly to Google DeepMind's AlphaGenome API. New inference sends variants/intervals and your key to Google; it is **not fully offline computation**. See [Privacy](docs/PRIVACY.md).
 
-[Installation](docs/INSTALL.md) · [Release notes](docs/RELEASE_NOTES_v0.23.md) · [Methods](docs/METHODS.md) · [Development plan](docs/DEVELOPMENT_PLAN.md) · [Security](SECURITY.md)
+[Installation](docs/INSTALL.md) · [Release notes](docs/RELEASE_NOTES_v0.24.md) · [Methods](docs/METHODS.md) · [Development plan](docs/DEVELOPMENT_PLAN.md) · [Security](SECURITY.md)
 
 ## Quick start
 
@@ -38,8 +38,8 @@ In **My analyses**, paste a TSV, choose the input length and null count, review 
 
 | | Saved manuscript explorer | New local analysis |
 |---|---|---|
-| UI | v0.23 | v0.23 local workspace |
-| Numerical source | Frozen v0.20 release; 1,000 nulls each | Fresh inference using v0.20 engine code |
+| UI | v0.24 | v0.24 local workspace |
+| Numerical source | Sealed v0.20 artifacts, reproduced in the September 11 verification; 1,000 nulls each | Fresh inference using the reviewed Brain9 engine |
 | Brain endpoint | Brain9: 8 adult categories + Embryo | Same versioned **Brain9** membership (8 adult + Embryo) |
 | RNA curve | Frontal cortex, UBERON:0001870 | Same adult GTEx Brain_Cortex, polyA+, unstranded track |
 | Multi-variant family | Fixed 17 variants, RGPD1 excluded | All requested variants must complete; first row is cosine reference |
@@ -49,7 +49,7 @@ Both workflows display **11 categories** for single variants: the nine Brain9 ca
 
 New RNA curves retain the [exact Frontal cortex selector introduced in v0.21](docs/RNA_CURVE.md), with no Whole brain, BA9, ENCODE or embryo fallback. All active documentation, comments and interface text are in English.
 
-The SDK is pinned to **0.8.0**, not to an immutable provider checkpoint. New runs are **not guaranteed to reproduce September 2026 numbers**, and are not labeled as the frozen Brain9 analysis. No v0.18 numerical fallback is shipped or used. See the scientific limitations in [Methods](docs/METHODS.md).
+The SDK is pinned to **0.8.0**, not to an immutable provider checkpoint. The recorded September 11 verification freshly scored 19 contexts with 1,000 nulls each and reproduced the saved results. The fixed seed regenerated the same null designs; web and GitHub code separately aggregated the same fresh raw scores. This verifies reproducibility for that epoch, not future backend behavior. See the [verification record](docs/VERIFICATION_v0.24.md) and [Methods](docs/METHODS.md). No v0.18 numerical fallback is shipped or used.
 
 Included: interactive saved-result dots, source-track search, stacked custom-dimension PDF export, original Figure 2/3/4 PDFs, saved null arrays/source tables, single/multi inference, matched-null generation, empirical statistics, BH/cosine, local job status and downloads. New-run figures currently use the original engine renderer; the configurable stacked exporter applies to saved single-variant results only.
 
@@ -57,7 +57,7 @@ Included: interactive saved-result dots, source-track search, stacked custom-dim
 
 ```text
 alphagenie/       local CLI, private config, reference preflight, server, job runner
-app/             v0.23 interface and saved-result rendering (retained v021 paths)
+app/             v0.24 interface and saved-result rendering (retained v021 paths)
 worker/          v0.20 inference/statistics/plotting engine, local safety patches
 pipeline/scripts/ real/null scoring, indel/SNV null generation, reference QC
 data/            hash-verified v0.20 manuscript examples (no credentials)
@@ -73,6 +73,6 @@ AlphaGenome is developed by **Google DeepMind**; AlphaGENIE is an independent re
 
 The [AlphaGenome API terms](https://deepmind.google.com/science/alphagenome/terms) and [output terms](https://deepmind.google.com/science/alphagenome/output-terms) apply separately from this repository's code license. Review them before use or redistribution. The included output notice accompanies downloads. No claim of DeepMind approval for this distribution is made.
 
-**Research preview / pre-release local package.** A fresh isolated macOS arm64 install passed the 63-package lock/inventory checks; Linux x86_64/aarch64 and macOS Intel passed wheel-resolution dry runs, not native execution. Real-key end-to-end inference, independent clean-machine validation and actual GitHub CI remain stable-release gates. Development tests use mocks and sealed data, without real AlphaGenome requests; see the dated [validation record](docs/VALIDATION.md).
+**Research preview / pre-release local package.** The dated validation record distinguishes live provider inference from offline tests and records the scope of native-platform checks. The September 11 study used the staged web inference path and GitHub aggregation; it did not execute a second complete API experiment through the local UI. Release tests run without provider calls. See [validation](docs/VALIDATION.md) and the current commit's GitHub Actions results.
 
 The code license remains **owner decision pending; all rights reserved unless separately licensed**. Do not describe this as an open-source release. See [LICENSE](LICENSE), [NOTICE](NOTICE.md), and [publishing checklist](docs/PUBLISHING.md). These source files do not establish a completed GitHub release or public website deployment, and do not push or publish automatically.

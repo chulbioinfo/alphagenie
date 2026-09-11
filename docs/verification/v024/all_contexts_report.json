@@ -1,0 +1,1206 @@
+{
+  "contexts": [
+    {
+      "context": "rbfox1_16kb",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.33166833166833165,
+            "v0_20": 0.33166833166833165
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.6293706293706294,
+            "v0_20": 0.6293706293706294
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.008690953375,
+            "v0_20": -0.008690953375
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg01_ZZZ3_del3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.0969030969030969,
+            "v0_20": 0.0969030969030969
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.1008991008991009,
+            "v0_20": 0.1008991008991009
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.0065813661,
+            "v0_20": 0.0065813661
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg05_FZD7_del8",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.2977022977022977,
+            "v0_20": 0.2977022977022977
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.6473526473526473,
+            "v0_20": 0.6473526473526473
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.00192442535,
+            "v0_20": -0.00192442535
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg06_TRAF3IP1_del3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.001998001998001998,
+            "v0_20": 0.001998001998001998
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.001998001998001998,
+            "v0_20": 0.001998001998001998
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.029024959035000002,
+            "v0_20": -0.029024959035000002
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg07_RNPEPL1_del3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.003996003996003996,
+            "v0_20": 0.003996003996003996
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.004995004995004995,
+            "v0_20": 0.004995004995004995
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.03381271648,
+            "v0_20": -0.03381271648
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg08_GSK3B_del1",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.004995004995004995,
+            "v0_20": 0.004995004995004995
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.004995004995004995,
+            "v0_20": 0.004995004995004995
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.00872409345,
+            "v0_20": 0.00872409345
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg09_SPSB4_snv",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.000999000999000999,
+            "v0_20": 0.000999000999000999
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.000999000999000999,
+            "v0_20": 0.000999000999000999
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.035276054960000004,
+            "v0_20": 0.035276054960000004
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg10_GPRIN1_del6",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.023976023976023976,
+            "v0_20": 0.023976023976023976
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.023976023976023976,
+            "v0_20": 0.023976023976023976
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.06740719095,
+            "v0_20": 0.06740719095
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg11_AUTS2_del6",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.026973026973026972,
+            "v0_20": 0.026973026973026972
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.13186813186813187,
+            "v0_20": 0.13186813186813187
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.008982419949999999,
+            "v0_20": -0.008982419949999999
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg12_CNTFR_snv",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.000999000999000999,
+            "v0_20": 0.000999000999000999
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.002997002997002997,
+            "v0_20": 0.002997002997002997
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.00698938967,
+            "v0_20": 0.00698938967
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg13_LOC107984006_BMS1P14_mnv3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.03496503496503497,
+            "v0_20": 0.03496503496503497
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.060939060939060936,
+            "v0_20": 0.060939060939060936
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.0036041737000000003,
+            "v0_20": 0.0036041737000000003
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg14_MSANTD3_del6",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.07192807192807193,
+            "v0_20": 0.07192807192807193
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.1088911088911089,
+            "v0_20": 0.1088911088911089
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.007656812995000001,
+            "v0_20": -0.007656812995000001
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg15_NKX6-2_del4",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.000999000999000999,
+            "v0_20": 0.000999000999000999
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.001998001998001998,
+            "v0_20": 0.001998001998001998
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.06408017584999999,
+            "v0_20": -0.06408017584999999
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg16_HOXC8_del3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.16783216783216784,
+            "v0_20": 0.16783216783216784
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.42357642357642356,
+            "v0_20": 0.42357642357642356
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.00197982783,
+            "v0_20": -0.00197982783
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg17_RBFOX1_del3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.017982017982017984,
+            "v0_20": 0.017982017982017984
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.022977022977022976,
+            "v0_20": 0.022977022977022976
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.014061332065000001,
+            "v0_20": -0.014061332065000001
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg18_SHISA6_del3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.1068931068931069,
+            "v0_20": 0.1068931068931069
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.10789210789210789,
+            "v0_20": 0.10789210789210789
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.01688241867,
+            "v0_20": -0.01688241867
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg19_PTPRT_del9",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.18981018981018982,
+            "v0_20": 0.18981018981018982
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.45454545454545453,
+            "v0_20": 0.45454545454545453
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": -0.0020205676750000004,
+            "v0_20": -0.0020205676750000004
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ccg20_DNAJC5_del3",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.015984015984015984,
+            "v0_20": 0.015984015984015984
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.15084915084915085,
+            "v0_20": 0.15084915084915085
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.00282716752,
+            "v0_20": 0.00282716752
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    },
+    {
+      "context": "ptchd1_1mb",
+      "fresh_vs_sealed_v0_20": {
+        "summary": {
+          "empirical_p_observed_direction": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.000999000999000999,
+            "v0_20": 0.000999000999000999
+          },
+          "empirical_p_two_sided": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.04195804195804196,
+            "v0_20": 0.04195804195804196
+          },
+          "real_consensus_delta": {
+            "difference": 0.0,
+            "exact": true,
+            "fresh": 0.037323715055,
+            "v0_20": 0.037323715055
+          }
+        },
+        "track_values": {
+          "effect": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "null_median": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          },
+          "raw_score": {
+            "changed_tracks": 0,
+            "exact": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      },
+      "fresh_web_vs_github": {
+        "status": "exact",
+        "summary_fields_exact": [
+          "real_consensus_delta",
+          "empirical_p_two_sided",
+          "empirical_p_observed_direction",
+          "n_null_consensus",
+          "n_real_brain_groups",
+          "n_real_brain_tracks",
+          "direction_observed",
+          "primary_effect_scope",
+          "primary_effect_groups",
+          "group_track_counts"
+        ],
+        "table_rows": {
+          "group_summary": 11,
+          "null_consensus": 1000,
+          "null_group_medians": 1000,
+          "source_table": 371
+        }
+      }
+    }
+  ],
+  "interpretation": "Fresh staged-web and GitHub summaries use the same newly inferred score files; equality validates independent software aggregation, not provider checkpoint identity.",
+  "offline": true,
+  "provider_calls": 0,
+  "run_epoch": "dc23d1efac044e49a9f162e6561673d7",
+  "status": "passed"
+}

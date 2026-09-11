@@ -1,0 +1,414 @@
+{
+  "schema": "alphagenie_fresh_curve_cross_validation_v2",
+  "status": "passed",
+  "provider_calls": 0,
+  "offline": true,
+  "comparison": "explicit fresh Frontal cortex outputs versus sealed manuscript curve artifacts",
+  "contexts": {
+    "rbfox1_16kb": {
+      "raw": {
+        "position": {
+          "same_shape": true,
+          "left_shape": [
+            16384
+          ],
+          "right_shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            16384
+          ]
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            16384
+          ],
+          "right_shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            16384
+          ]
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            16384
+          ],
+          "right_shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            16384
+          ]
+        },
+        "fresh_sha256": "d11836a37ff23328f8906014aab98f77f87d48bcfa156dc248a2f1ea7f828d0a",
+        "sealed_sha256": "fa2c41833bcb85941e67d3c492e9da54f0c4d360bbedd0dcc38cbbac836dc59d"
+      },
+      "aligned": {
+        "position": {
+          "same_shape": true,
+          "left_shape": [
+            16384
+          ],
+          "right_shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            16384
+          ]
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            16384
+          ],
+          "right_shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            16384
+          ]
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            16384
+          ],
+          "right_shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": true,
+          "shape": [
+            16384
+          ]
+        },
+        "fresh_sha256": "0784b2a50b33fcde69b1a3af56c58299c3d6cb200621e3d5dc4816f4a9cd9a42",
+        "sealed_sha256": "2e40773a0734830e8e724909da0698b800291b2c3a5e2881941280bbec642b3d"
+      },
+      "selection": {
+        "sealed": {
+          "interval": {
+            "chrom": "chr16",
+            "end": 6027118,
+            "start": 6010734
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "operator_declared_API_rollout_boundary"
+        },
+        "fresh": {
+          "interval": {
+            "chrom": "chr16",
+            "end": 6027118,
+            "start": 6010734
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "unresolved_provider_backend"
+        },
+        "interval_exact": true,
+        "ontology_exact": true,
+        "track_identity_exact": true,
+        "fresh_status_sha256": "c224344758e331fda77019854915bea242e2daf758373ad5c9769f063e41c999",
+        "sealed_status_sha256": "445e981ec50a78c37190de8270e0cae24957f61648a1dd2c34e1a1a806566812"
+      },
+      "all_numeric_exact": true,
+      "all_numeric_equivalent": true,
+      "selection_exact": true
+    },
+    "ptchd1_1mb": {
+      "raw": {
+        "position": {
+          "same_shape": true,
+          "left_shape": [
+            1048576
+          ],
+          "right_shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            1048576
+          ]
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            1048576
+          ],
+          "right_shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            1048576
+          ]
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            1048576
+          ],
+          "right_shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            1048576
+          ]
+        },
+        "fresh_sha256": "01a0ee2256ca746d3692d414e540bb12da72a56f6741bc0b8494f4e0e6367164",
+        "sealed_sha256": "f3d37b1f74372459dc7f40525fb17148d2cb466ab75ad4121770bcf1ca55617b"
+      },
+      "aligned": {
+        "position": {
+          "same_shape": true,
+          "left_shape": [
+            1048576
+          ],
+          "right_shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            1048576
+          ]
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            1048576
+          ],
+          "right_shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": false,
+          "shape": [
+            1048576
+          ]
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "left_shape": [
+            1048576
+          ],
+          "right_shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "finite_pattern_exact": true,
+          "has_infinity": false,
+          "equivalent_at_serialization_tolerance": true,
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 0.0,
+          "matching_nan_allowed": true,
+          "shape": [
+            1048576
+          ]
+        },
+        "fresh_sha256": "0b660abad073bd8503eee89fc0058170baaaf392b4bb6f37499d5b08c48c3a54",
+        "sealed_sha256": "e25c568381290c67b4f17a5889b621547f32a3d10acb8d287a7ebe1332f78f2e"
+      },
+      "selection": {
+        "sealed": {
+          "interval": {
+            "chrom": "chrX",
+            "start": 22810477,
+            "end": 23859053
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "operator_declared_API_rollout_boundary"
+        },
+        "fresh": {
+          "interval": {
+            "chrom": "chrX",
+            "end": 23859053,
+            "start": 22810477
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "unresolved_provider_backend"
+        },
+        "interval_exact": true,
+        "ontology_exact": true,
+        "track_identity_exact": true,
+        "fresh_status_sha256": "3ed1568db79bd545025bc146db81975e3bbc6554ea1197a9359efdaa9cb4f4be",
+        "sealed_status_sha256": "3b22026e7e0c653b9f40887276d1d09fc24160f8afc3e729c0cfbdf4c9833866"
+      },
+      "all_numeric_exact": true,
+      "all_numeric_equivalent": true,
+      "selection_exact": true
+    }
+  },
+  "interpretation": "This is an offline comparison of supplied outputs, not a second provider run or proof of the hidden backend checkpoint. Coordinates require exact equality. Binary-to-TSV prediction comparisons use at most 1e-15 absolute tolerance and zero relative tolerance; exact equality is reported separately."
+}

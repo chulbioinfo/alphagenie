@@ -1,5 +1,26 @@
 # Validation records
 
+## v0.24.0 review — 2026-09-11
+
+The [verification record](VERIFICATION_v0.24.md) documents the completed
+19-context live-provider experiment and the separate offline web/GitHub
+aggregation comparison. Each context used 1,000 freshly scored nulls under the
+same deterministically regenerated design. Full source/summary comparisons
+matched; curve and cosine serialization tolerances are reported explicitly.
+
+The release review strengthens fresh-epoch validation and makes comparison
+failures reject invalid reference results, infinities, NaN-mask mismatches and
+incompatible dimensions. Release tests run offline using synthetic credentials
+and temporary state. The pinned dependency versions and all 70 sealed assets
+are retained. Final local validation passed **138 Python tests and 8 Node
+UI tests**; the public implementation passed **166 Python tests and 14 Node
+UI tests**. External sockets and provider factories were blocked during the
+Python regressions, with loopback HTTP permitted. The 63-package installed
+inventory exactly matched the locks, and the dated public OSV query returned
+no advisory matches. The strict recorded-report check passed, and a direct
+v0.24 curve recheck with round-trip TSV parsing matched both genes exactly.
+GitHub CI is checked separately for the published commit.
+
 ## v0.23.0 integration — 2026-09-10
 
 Distribution **0.23.0**, interface **0.23**, engine/data **0.20**, SDK **0.8.0**.

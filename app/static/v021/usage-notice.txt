@@ -1,6 +1,7 @@
 AlphaGENIE — accompanying output use and modification notice
-Interface release: v0.21 (2026-09-10)
-Scientific data release: alphagenie_manuscript_v020_20260909 (v0.20)
+Interface release: v0.24 (2026-09-11)
+Verified data presentation: v0.24
+Sealed source release: alphagenie_manuscript_v020_20260909 (v0.20)
 
 These data and figures include outputs derived from Google DeepMind AlphaGenome.
 Use is subject to the AlphaGenome Output Terms of Use, including restrictions
@@ -18,7 +19,11 @@ and visualization. Source prediction curves and calibrated scores are distinct
 quantities. Layout-adjusted exports are derived from the sealed saved data.
 Original manuscript files are provided unchanged; this notice accompanies them.
 
-v0.21 changes the interface, not the frozen v0.20 predictions or 1,000-null models.
+The verification epoch completed on 2026-09-11 UTC freshly scored 19 analysis
+contexts and 1,000 matched nulls per context. Fixed seed 20260527 regenerated
+the same null designs. Web and GitHub code separately aggregated the same
+fresh scores; this was not two independent provider experiments. The recorded
+values reproduced the sealed source. Original download bytes are retained.
 No new AlphaGenome inference is performed when viewing or exporting these data.
 Predictions are not experimental measurements, diagnoses or proof of pathogenicity.
 

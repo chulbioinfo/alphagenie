@@ -106,7 +106,7 @@ is marked unavailable; existing scores remain valid and no other tissue is
 substituted. See [RNA_CURVE.md](RNA_CURVE.md).
 
 When upgrading from a 0.21 local release, stop the old server first, replace the source
-checkout with 0.23.0, install its reviewed dependency locks in a dedicated environment,
+checkout with 0.24.0, install its reviewed dependency locks in a dedicated environment,
 and restart from the new checkout. No account or session migration is needed. Keep your private
 state directory. Existing Brain6 jobs and Whole brain curves remain legacy; no automatic
 conversion, relabeling or new API run occurs.

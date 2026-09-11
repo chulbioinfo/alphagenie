@@ -1,0 +1,289 @@
+{
+  "schema": "alphagenie_fresh_curve_cross_validation_v1",
+  "status": "passed",
+  "provider_calls": 0,
+  "comparison": "fresh v0.23 verification epoch versus sealed v0.20 manuscript curve artifacts",
+  "contexts": {
+    "rbfox1_16kb": {
+      "raw": {
+        "position": {
+          "same_shape": true,
+          "shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "fresh_sha256": "d11836a37ff23328f8906014aab98f77f87d48bcfa156dc248a2f1ea7f828d0a",
+        "sealed_sha256": "fa2c41833bcb85941e67d3c492e9da54f0c4d360bbedd0dcc38cbbac836dc59d"
+      },
+      "aligned": {
+        "position": {
+          "same_shape": true,
+          "shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "shape": [
+            16384
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "fresh_sha256": "0784b2a50b33fcde69b1a3af56c58299c3d6cb200621e3d5dc4816f4a9cd9a42",
+        "sealed_sha256": "2e40773a0734830e8e724909da0698b800291b2c3a5e2881941280bbec642b3d"
+      },
+      "selection": {
+        "sealed": {
+          "interval": {
+            "chrom": "chr16",
+            "end": 6027118,
+            "start": 6010734
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "operator_declared_API_rollout_boundary"
+        },
+        "fresh": {
+          "interval": {
+            "chrom": "chr16",
+            "end": 6027118,
+            "start": 6010734
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "unresolved_provider_backend"
+        },
+        "interval_exact": true,
+        "ontology_exact": true,
+        "track_identity_exact": true
+      },
+      "all_numeric_exact": true,
+      "all_numeric_equivalent": true,
+      "selection_exact": true
+    },
+    "ptchd1_1mb": {
+      "raw": {
+        "position": {
+          "same_shape": true,
+          "shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "shape": [
+            1048576
+          ],
+          "exact": false,
+          "max_abs_difference": 9.3756382865684e-17,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "shape": [
+            1048576
+          ],
+          "exact": false,
+          "max_abs_difference": 9.3756382865684e-17,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "fresh_sha256": "01a0ee2256ca746d3692d414e540bb12da72a56f6741bc0b8494f4e0e6367164",
+        "sealed_sha256": "f3d37b1f74372459dc7f40525fb17148d2cb466ab75ad4121770bcf1ca55617b"
+      },
+      "aligned": {
+        "position": {
+          "same_shape": true,
+          "shape": [
+            1048576
+          ],
+          "exact": true,
+          "max_abs_difference": 0.0,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "ref_prediction": {
+          "same_shape": true,
+          "shape": [
+            1048576
+          ],
+          "exact": false,
+          "max_abs_difference": 9.3756382865684e-17,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "alt_prediction": {
+          "same_shape": true,
+          "shape": [
+            1048576
+          ],
+          "exact": false,
+          "max_abs_difference": 9.3756382865684e-17,
+          "nan_pattern_exact": true,
+          "equivalent_at_serialization_tolerance": true,
+          "serialization_tolerance": 1e-15
+        },
+        "fresh_sha256": "0b660abad073bd8503eee89fc0058170baaaf392b4bb6f37499d5b08c48c3a54",
+        "sealed_sha256": "e25c568381290c67b4f17a5889b621547f32a3d10acb8d287a7ebe1332f78f2e"
+      },
+      "selection": {
+        "sealed": {
+          "interval": {
+            "chrom": "chrX",
+            "start": 22810477,
+            "end": 23859053
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "operator_declared_API_rollout_boundary"
+        },
+        "fresh": {
+          "interval": {
+            "chrom": "chrX",
+            "end": 23859053,
+            "start": 22810477
+          },
+          "ontology_terms": [
+            "UBERON:0001870"
+          ],
+          "track_idx": 2,
+          "track_identity": {
+            "name": "UBERON:0001870 gtex Brain_Cortex polyA plus RNA-seq",
+            "strand": ".",
+            "Assay title": "polyA plus RNA-seq",
+            "ontology_curie": "UBERON:0001870",
+            "biosample_name": "frontal cortex",
+            "biosample_type": "tissue",
+            "biosample_life_stage": "adult",
+            "gtex_tissue": "Brain_Cortex",
+            "data_source": "gtex",
+            "endedness": "paired",
+            "genetically_modified": false
+          },
+          "alphagenome_client_version": "0.8.0",
+          "requested_model_version": "server_default",
+          "resolved_model_version": null,
+          "backend_revision_source": "unresolved_provider_backend"
+        },
+        "interval_exact": true,
+        "ontology_exact": true,
+        "track_identity_exact": true
+      },
+      "all_numeric_exact": false,
+      "all_numeric_equivalent": true,
+      "selection_exact": true
+    }
+  },
+  "interpretation": "Exact numeric equality demonstrates reproducibility of the exposed RNA_SEQ outputs and reference-coordinate alignment. The provider did not expose a resolved backend checkpoint, so equality does not identify the hidden checkpoint."
+}

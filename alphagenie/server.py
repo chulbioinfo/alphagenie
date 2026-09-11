@@ -178,7 +178,7 @@ def create_app(port=8877):
     def status():
         cfg = read_config()
         return {"token": token, "key_configured": key_available(), "references_configured": bool(cfg),
-                "ui_version": "0.23", "engine_version": "0.20", "new_analysis_endpoint": "Brain9",
+                "ui_version": "0.24", "engine_version": "0.20", "new_analysis_endpoint": "Brain9",
                 "saved_result_endpoint": "Brain9", "key_entry": "terminal only",
                 "new_rna_curve": "Frontal cortex; GTEx Brain_Cortex; UBERON:0001870; polyA+; unstranded",
                 "external_inference_provider": "Google DeepMind AlphaGenome API"}

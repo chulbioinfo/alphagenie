@@ -1937,6 +1937,10 @@ def run_api_full(
     null_depth = str(int(payload.get("null_depth", 10)))
     py = sys.executable
     inference_context = inference_identity(payload, gencode_gtf)
+    if inference_context["inference_run_epoch"] in {
+        "", "local_run_epoch_required", "post-indel-fix-2026-07-14"
+    }:
+        raise ValueError("A new explicit inference run epoch is required for fresh Brain9 analysis")
     subprocess_env = os.environ.copy()
     subprocess_env.update({
         "AG_INFERENCE_BACKEND_REVISION": inference_context["inference_backend_revision"],

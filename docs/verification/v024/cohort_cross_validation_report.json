@@ -1,0 +1,91 @@
+{
+  "fresh_vs_sealed_v0_20": {
+    "cosine": {
+      "changed_variants": 10,
+      "exact": false,
+      "max_abs_difference": 2.220446049250313e-16
+    },
+    "matrix": {
+      "changed_cells": 0,
+      "exact": true,
+      "max_abs_difference": 0.0
+    },
+    "statistics": {
+      "bh_fdr_observed_direction_multi": {
+        "changed_variants": 0,
+        "exact": true,
+        "max_abs_difference": 0.0
+      },
+      "bh_fdr_two_sided_multi": {
+        "changed_variants": 0,
+        "exact": true,
+        "max_abs_difference": 0.0
+      },
+      "empirical_p_observed_direction": {
+        "changed_variants": 0,
+        "exact": true,
+        "max_abs_difference": 0.0
+      },
+      "empirical_p_two_sided": {
+        "changed_variants": 0,
+        "exact": true,
+        "max_abs_difference": 0.0
+      },
+      "real_consensus_delta": {
+        "changed_variants": 0,
+        "exact": true,
+        "max_abs_difference": 0.0
+      }
+    }
+  },
+  "fresh_web_vs_github": {
+    "cosine": {
+      "exact": true,
+      "numeric_columns": [
+        "brain_cosine_similarity",
+        "brain_sign_agreement",
+        "n_brain_groups_used"
+      ],
+      "rows": 17
+    },
+    "matrix": {
+      "exact": true,
+      "numeric_columns": [
+        "Cerebral cortex",
+        "Hippocampal formation",
+        "Basal ganglia / striatum",
+        "Amygdala",
+        "Diencephalic regions",
+        "Midbrain",
+        "Cerebellum",
+        "Whole brain",
+        "Embryo"
+      ],
+      "rows": 17
+    },
+    "nulls": {
+      "exact": true,
+      "numeric_columns": [
+        "consensus_effect"
+      ],
+      "rows": 17000
+    },
+    "ranking": {
+      "exact": true,
+      "numeric_columns": [
+        "real_consensus_delta",
+        "empirical_p_observed_direction",
+        "empirical_p_two_sided",
+        "bh_fdr_observed_direction_multi",
+        "bh_fdr_two_sided_multi"
+      ],
+      "rows": 17
+    }
+  },
+  "interpretation": "Both implementations aggregated the same newly inferred scores offline. The archived comparison is separate and does not resolve the provider checkpoint identity.",
+  "n_variants": 17,
+  "provider_calls": 0,
+  "reference_variant_group_id": "RBFOX1_del3",
+  "scope": "brain9_adult8_embryo",
+  "status": "passed"
+}

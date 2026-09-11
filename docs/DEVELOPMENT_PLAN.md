@@ -1,10 +1,10 @@
-# GitHub development plan — v0.23 Local / v0.20 engine
+# GitHub development plan — v0.24 Local / v0.20 engine
 
-Prepared: 2026-09-10. Current research-preview package: **0.23.0**.
+Updated: 2026-09-11. Current research-preview package: **0.24.0**.
 
 ## Goal and scope
 
-Provide a separately installable, single-user AlphaGENIE package with the v0.23
+Provide a separately installable, single-user AlphaGENIE package with the v0.24
 interface and v0.20 scientific tools. Credentials, local inputs and results are
 not collected by AlphaGENIE operators. Distinguish immutable manuscript results
 from newly submitted API analyses in the interface and provenance.
@@ -47,10 +47,10 @@ original biological identifiers are preserved.
 | Source isolation | Implemented | Required app, workers and six pipeline scripts; no production keys, databases or v0.18 numerical caches |
 | Local security runner | Implemented | CLI/key management, preflight, consent, restricted child environment, redaction, locks and path validation |
 | Interface integration | Implemented | Saved explorer, My analyses, status and downloads; no operator feedback upload |
-| Brain9 adapter | Implemented; offline tested | Exact metadata mapping, all-null completeness, single 11-category display, nine-feature statistics |
-| Frontal cortex curve | Implemented; offline tested | Exact adult GTEx Brain_Cortex track, independent REF/ALT selection, coordinate checks and identity-bound caches |
+| Brain9 adapter | Implemented; fresh-score reproduction verified | 19 staged-web fresh contexts, independent GitHub aggregation of those scores; all-null completeness, single 11-category display, nine-feature statistics |
+| Frontal cortex curve | Implemented; recorded provider epoch verified | Exact adult GTEx Brain_Cortex track; RBFOX1/PTCHD1 curves reproduce within serialization precision |
 | Tests/docs/packaging | Implemented; final integration recorded separately | Hash-locked install, offline scientific/security checks, English documentation, release scanner/source archive |
-| Clean-machine/live-provider validation | Partially validated; still required before stable release | Fresh isolated macOS arm64 install passed; other platforms have wheel-resolution dry runs only. Native CI and eligible own-key 10-null then 1,000-null single/multi, quota/runtime/disk/failure checks remain |
+| Clean-machine/live-provider validation | Recorded study completed; validation scope remains bounded | Fixed-design 19-context provider run and separate GitHub aggregation passed; local UI was not used for a second provider experiment. Current native CI is checked per release commit |
 | Redistribution permission | Owner decision required | Code license, contributor rights, manuscript data/output terms, repository owner/name |
 | GitHub publication | Separate owner-authorized release operation | Actual push, CI and research-preview tag/release must be confirmed independently; source documentation does not prove them |
 

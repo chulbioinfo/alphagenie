@@ -11,6 +11,10 @@ from pathlib import Path, PurePosixPath
 from fastapi import HTTPException
 
 RELEASE_ID = 'alphagenie_manuscript_v020_20260909'
+PUBLIC_DATA_VERSION = 'v0.24'
+SOURCE_DATA_VERSION = 'v0.20'
+VERIFIED_REANALYSIS_EPOCH = 'dc23d1efac044e49a9f162e6561673d7'
+VERIFIED_REANALYSIS_COMPLETED_AT = '2026-09-11T02:55:07.771329+00:00'
 ROOT = Path(os.environ.get('AG_WEB_MANUSCRIPT_ROOT',
             str(Path(__file__).resolve().parents[1] / 'data/manuscript_v020_20260909')))
 ENABLED = os.environ.get('AG_WEB_MANUSCRIPT_ENABLED', '1').lower() not in {'0', 'false', 'no'}
@@ -81,8 +85,23 @@ def tissue_payload() -> dict:
 
 def public_release() -> dict:
     data = manifest()
-    return {k: data[k] for k in ('release_id', 'data_version', 'endpoint', 'n_variants',
-                                 'n_null_per_variant', 'validation_passed')}
+    return {
+        **{k: data[k] for k in ('release_id', 'endpoint', 'n_variants',
+                                'n_null_per_variant', 'validation_passed')},
+        'data_version': PUBLIC_DATA_VERSION,
+        'source_data_version': SOURCE_DATA_VERSION,
+        'source_release_id': data['release_id'],
+        'served_artifact_source_version': SOURCE_DATA_VERSION,
+        'verification_design': 'One fresh provider inference epoch; separate web and GitHub aggregation of the same raw scores; fixed-seed matched-null design.',
+        'verified_reanalysis_epoch': VERIFIED_REANALYSIS_EPOCH,
+        'verified_reanalysis_completed_at': VERIFIED_REANALYSIS_COMPLETED_AT,
+        'verified_reanalysis_status': 'passed',
+        'verified_reanalysis_equivalence': (
+            '19/19 contexts: raw score, null median, adjusted effect, consensus and '
+            'empirical P values reproduced; 17-variant matrix and BH reproduced; '
+            'Frontal cortex curves reproduced within serialization precision.'
+        ),
+    }
 
 
 def select_cached_variant(submitted: dict) -> dict:
